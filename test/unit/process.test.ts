@@ -15,6 +15,19 @@ afterEach(() => {
   for (const registry of registries.splice(0)) registry.dispose();
 });
 
+/**
+ * Whether the group is gone within `withinMs`. A group member just sent SIGKILL can still answer
+ * `kill(-pgid, 0)` for a moment on Linux, until it dies and init reaps it (the first public CI run
+ * failed on the immediate check). A real leak, a `sleep 30`, outlives the wait.
+ */
+async function groupGone(pid: number, withinMs = 2000): Promise<boolean> {
+  for (const end = Date.now() + withinMs; Date.now() < end;) {
+    if (!isGroupAlive(pid)) return true;
+    await new Promise((resolve) => setTimeout(resolve, 20));
+  }
+  return !isGroupAlive(pid);
+}
+
 describe('ProcessRegistry', () => {
   it('collects stdout lines and the exit code', async () => {
     const registry = newRegistry();
@@ -53,7 +66,7 @@ describe('ProcessRegistry', () => {
     });
     const result = await handle.done;
     expect(result.timedOut).toBe(true);
-    expect(isGroupAlive(handle.pid!)).toBe(false);
+    expect(await groupGone(handle.pid!)).toBe(true);
     expect(registry.leakedPids()).toEqual([]);
   });
 
@@ -66,7 +79,7 @@ describe('ProcessRegistry', () => {
     const result = await handle.done;
     expect(result.exitCode).toBe(0);
     expect(Date.now() - startedAt).toBeLessThan(10_000);
-    expect(isGroupAlive(handle.pid!)).toBe(false);
+    expect(await groupGone(handle.pid!)).toBe(true);
     expect(registry.leakedPids()).toEqual([]);
   });
 
