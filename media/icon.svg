@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <!-- Magipilot icon, source of media/icon.png (docs/plans/phase-4-logo.md): an M with two fading dots, the suggestion still to come. -->
+  <rect width="128" height="128" rx="28" fill="#14213D"/>
+  <path d="M20 92V36l25 32 25-32v56" fill="none" stroke="#F6B93B" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="90" cy="92" r="7" fill="#F6B93B" fill-opacity="0.6"/>
+  <circle cx="108" cy="92" r="7" fill="#F6B93B" fill-opacity="0.3"/>
+</svg>

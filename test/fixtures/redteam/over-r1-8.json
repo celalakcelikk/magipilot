@@ -1,0 +1,25 @@
+{
+  "name": "over-r1-8: a slash pattern also matches the workspace's own ancestor directories (raw absolute path check)",
+  "patterns": [
+    ".env*",
+    "*.pem",
+    "secrets/**",
+    "folders/**"
+  ],
+  "workspaceFiles": {
+    "src/a.ts": "x",
+    "src/b.ts": "x"
+  },
+  "turns": [
+    {
+      "role": "user",
+      "text": "<attachments>\n<attachment id=\"a.ts\">\n// filepath: {{WS}}/src/a.ts\nexport const KEEP_A = 1;\n</attachment>\n<attachment id=\"b.ts\">\n// filepath: {{WS}}/src/b.ts\nexport const KEEP_B = 2;\n</attachment>\n</attachments>\n<prompt>\nExplain these. KEEP_PROMPT\n</prompt>"
+    }
+  ],
+  "secret": [],
+  "keep": [
+    "KEEP_A",
+    "KEEP_B",
+    "KEEP_PROMPT"
+  ]
+}

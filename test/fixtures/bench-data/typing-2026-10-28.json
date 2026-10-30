@@ -1,0 +1,678 @@
+{
+  "version": 1,
+  "generatedAt": "2026-10-28T08:56:49.135Z",
+  "seeds": 20,
+  "samples": [
+    "01-debounce",
+    "02-lru-cache",
+    "03-group-by",
+    "04-fetch-json",
+    "05-parse-args",
+    "06-event-emitter",
+    "07-fib-memo",
+    "08-dataclass-money",
+    "09-read-csv",
+    "10-binary-search",
+    "11-merge-dicts",
+    "12-reverse",
+    "13-http-handler",
+    "14-stack",
+    "15-sum-even",
+    "16-rect",
+    "17-palindrome",
+    "18-active-users",
+    "19-chunk",
+    "20-retry"
+  ],
+  "keystrokesPerSeed": 13754,
+  "models": [
+    {
+      "name": "m4",
+      "description": "bursts: uniform 80–250 ms between keys; pause: uniform 600–2500 ms after every line and after 25 % of word ends"
+    },
+    {
+      "name": "heavy-tail",
+      "description": "bursts: log-normal between keys (median 180 ms, σ 0.5, at most 599 ms); pauses as in M4"
+    }
+  ],
+  "classes": [
+    {
+      "name": "local",
+      "defaultMs": 200,
+      "candidates": [
+        100,
+        150,
+        200,
+        250,
+        300
+      ],
+      "maxGrowthMs": 100,
+      "backends": [
+        {
+          "source": {
+            "id": "ollama",
+            "file": "docs/bench-data/2026-10-27-phase1-local.json",
+            "row": "prod-ollama-1.5b"
+          },
+          "recorded": {
+            "count": 20,
+            "p50Ms": 324
+          },
+          "results": {
+            "m4": {
+              "100": {
+                "requestsPer100": 89.21768212883525,
+                "wastedPer100": 81.79438708739275,
+                "shownPer100": 7.401483204885851,
+                "pausesServedPct": 94.39247928405412,
+                "timeToSuggestionP50Ms": 425,
+                "maxStoredPerFile": 96,
+                "maxLiveEntries": 29
+              },
+              "150": {
+                "requestsPer100": 62.043769085356985,
+                "wastedPer100": 54.678638941398866,
+                "shownPer100": 7.346953613494256,
+                "pausesServedPct": 93.47319205463828,
+                "timeToSuggestionP50Ms": 475,
+                "maxStoredPerFile": 95,
+                "maxLiveEntries": 28
+              },
+              "200": {
+                "requestsPer100": 35.07706848916679,
+                "wastedPer100": 27.76283263050749,
+                "shownPer100": 7.274247491638796,
+                "pausesServedPct": 92.60446376651066,
+                "timeToSuggestionP50Ms": 525,
+                "maxStoredPerFile": 93,
+                "maxLiveEntries": 28
+              },
+              "250": {
+                "requestsPer100": 7.844990548204159,
+                "wastedPer100": 0.6616257088846881,
+                "shownPer100": 7.176094227133925,
+                "pausesServedPct": 91.58145958519093,
+                "timeToSuggestionP50Ms": 575,
+                "maxStoredPerFile": 91,
+                "maxLiveEntries": 28
+              },
+              "300": {
+                "requestsPer100": 7.844990548204159,
+                "wastedPer100": 0.7852261160389705,
+                "shownPer100": 7.056129126072415,
+                "pausesServedPct": 89.9629964331437,
+                "timeToSuggestionP50Ms": 625,
+                "maxStoredPerFile": 91,
+                "maxLiveEntries": 28
+              }
+            },
+            "heavy-tail": {
+              "100": {
+                "requestsPer100": 88.92322233532063,
+                "wastedPer100": 77.17391304347825,
+                "shownPer100": 11.75657990402792,
+                "pausesServedPct": 94.44524101913578,
+                "timeToSuggestionP50Ms": 425,
+                "maxStoredPerFile": 150,
+                "maxLiveEntries": 47
+              },
+              "150": {
+                "requestsPer100": 67.23498618583685,
+                "wastedPer100": 57.28151810382434,
+                "shownPer100": 9.942562163734188,
+                "pausesServedPct": 93.57332331666844,
+                "timeToSuggestionP50Ms": 475,
+                "maxStoredPerFile": 129,
+                "maxLiveEntries": 40
+              },
+              "200": {
+                "requestsPer100": 46.393776355969166,
+                "wastedPer100": 37.44365275556202,
+                "shownPer100": 8.782899520139596,
+                "pausesServedPct": 92.43717751782268,
+                "timeToSuggestionP50Ms": 525,
+                "maxStoredPerFile": 109,
+                "maxLiveEntries": 35
+              },
+              "250": {
+                "requestsPer100": 31.372691580631088,
+                "wastedPer100": 23.287770830303913,
+                "shownPer100": 8.099461974698269,
+                "pausesServedPct": 91.22687818826952,
+                "timeToSuggestionP50Ms": 575,
+                "maxStoredPerFile": 100,
+                "maxLiveEntries": 31
+              },
+              "300": {
+                "requestsPer100": 21.971790024720082,
+                "wastedPer100": 14.493965391885997,
+                "shownPer100": 7.528718918132906,
+                "pausesServedPct": 89.66941451864244,
+                "timeToSuggestionP50Ms": 625,
+                "maxStoredPerFile": 96,
+                "maxLiveEntries": 29
+              }
+            }
+          },
+          "verdicts": {
+            "m4": [
+              {
+                "candidateMs": 100,
+                "wasteCut": -1.94618305617389,
+                "timeToSuggestionGrowthMs": -100,
+                "pass": false
+              },
+              {
+                "candidateMs": 150,
+                "wasteCut": -0.9694906376849548,
+                "timeToSuggestionGrowthMs": -50,
+                "pass": false
+              },
+              {
+                "candidateMs": 250,
+                "wasteCut": 0.9761686526122824,
+                "timeToSuggestionGrowthMs": 50,
+                "pass": true
+              },
+              {
+                "candidateMs": 300,
+                "wasteCut": 0.9717166426607307,
+                "timeToSuggestionGrowthMs": 100,
+                "pass": true
+              }
+            ],
+            "heavy-tail": [
+              {
+                "candidateMs": 100,
+                "wasteCut": -1.061067961165048,
+                "timeToSuggestionGrowthMs": -100,
+                "pass": false
+              },
+              {
+                "candidateMs": 150,
+                "wasteCut": -0.5298058252427182,
+                "timeToSuggestionGrowthMs": -50,
+                "pass": false
+              },
+              {
+                "candidateMs": 250,
+                "wasteCut": 0.3780582524271845,
+                "timeToSuggestionGrowthMs": 50,
+                "pass": true
+              },
+              {
+                "candidateMs": 300,
+                "wasteCut": 0.6129126213592233,
+                "timeToSuggestionGrowthMs": 100,
+                "pass": true
+              }
+            ]
+          }
+        },
+        {
+          "source": {
+            "id": "openai-compat",
+            "file": "docs/bench-data/2026-10-27-phase1-local.json",
+            "row": "prod-oai-1.5b"
+          },
+          "recorded": {
+            "count": 20,
+            "p50Ms": 354
+          },
+          "results": {
+            "m4": {
+              "100": {
+                "requestsPer100": 89.21768212883525,
+                "wastedPer100": 81.52173913043478,
+                "shownPer100": 7.6777664679366,
+                "pausesServedPct": 97.85643062127812,
+                "timeToSuggestionP50Ms": 454,
+                "maxStoredPerFile": 99,
+                "maxLiveEntries": 29
+              },
+              "150": {
+                "requestsPer100": 62.043769085356985,
+                "wastedPer100": 54.449614657554164,
+                "shownPer100": 7.634142794823324,
+                "pausesServedPct": 97.291280148423,
+                "timeToSuggestionP50Ms": 504,
+                "maxStoredPerFile": 97,
+                "maxLiveEntries": 29
+              },
+              "200": {
+                "requestsPer100": 35.07706848916679,
+                "wastedPer100": 27.508361204013376,
+                "shownPer100": 7.561436672967864,
+                "pausesServedPct": 96.23562152133582,
+                "timeToSuggestionP50Ms": 554,
+                "maxStoredPerFile": 96,
+                "maxLiveEntries": 29
+              },
+              "250": {
+                "requestsPer100": 7.844990548204159,
+                "wastedPer100": 0.3817071397411662,
+                "shownPer100": 7.4596481023702195,
+                "pausesServedPct": 95.16582268606297,
+                "timeToSuggestionP50Ms": 604,
+                "maxStoredPerFile": 94,
+                "maxLiveEntries": 29
+              },
+              "300": {
+                "requestsPer100": 7.844990548204159,
+                "wastedPer100": 0.5162134651737676,
+                "shownPer100": 7.332412389123164,
+                "pausesServedPct": 93.49176608973282,
+                "timeToSuggestionP50Ms": 654,
+                "maxStoredPerFile": 93,
+                "maxLiveEntries": 28
+              }
+            },
+            "heavy-tail": {
+              "100": {
+                "requestsPer100": 88.92322233532063,
+                "wastedPer100": 77.13755998255053,
+                "shownPer100": 11.81838010760506,
+                "pausesServedPct": 97.69847212058876,
+                "timeToSuggestionP50Ms": 453,
+                "maxStoredPerFile": 148,
+                "maxLiveEntries": 49
+              },
+              "150": {
+                "requestsPer100": 67.23498618583685,
+                "wastedPer100": 57.07067035044351,
+                "shownPer100": 10.164315835393339,
+                "pausesServedPct": 96.98137540615684,
+                "timeToSuggestionP50Ms": 503,
+                "maxStoredPerFile": 130,
+                "maxLiveEntries": 40
+              },
+              "200": {
+                "requestsPer100": 46.393776355969166,
+                "wastedPer100": 37.42911153119093,
+                "shownPer100": 9.015559110077069,
+                "pausesServedPct": 96.31664631664631,
+                "timeToSuggestionP50Ms": 553,
+                "maxStoredPerFile": 117,
+                "maxLiveEntries": 37
+              },
+              "250": {
+                "requestsPer100": 31.372691580631088,
+                "wastedPer100": 23.145993892685766,
+                "shownPer100": 8.306674421986331,
+                "pausesServedPct": 94.92574091906062,
+                "timeToSuggestionP50Ms": 603,
+                "maxStoredPerFile": 107,
+                "maxLiveEntries": 33
+              },
+              "300": {
+                "requestsPer100": 21.971790024720082,
+                "wastedPer100": 14.239493965391887,
+                "shownPer100": 7.754107895884834,
+                "pausesServedPct": 93.51543292159128,
+                "timeToSuggestionP50Ms": 653,
+                "maxStoredPerFile": 100,
+                "maxLiveEntries": 29
+              }
+            }
+          },
+          "verdicts": {
+            "m4": [
+              {
+                "candidateMs": 100,
+                "wasteCut": -1.9635258358662617,
+                "timeToSuggestionGrowthMs": -100,
+                "pass": false
+              },
+              {
+                "candidateMs": 150,
+                "wasteCut": -0.9793841680983217,
+                "timeToSuggestionGrowthMs": -50,
+                "pass": false
+              },
+              {
+                "candidateMs": 250,
+                "wasteCut": 0.9861239592969473,
+                "timeToSuggestionGrowthMs": 50,
+                "pass": true
+              },
+              {
+                "candidateMs": 300,
+                "wasteCut": 0.9812343068587287,
+                "timeToSuggestionGrowthMs": 100,
+                "pass": true
+              }
+            ],
+            "heavy-tail": [
+              {
+                "candidateMs": 100,
+                "wasteCut": -1.0608974358974357,
+                "timeToSuggestionGrowthMs": -100,
+                "pass": false
+              },
+              {
+                "candidateMs": 150,
+                "wasteCut": -0.5247668997668997,
+                "timeToSuggestionGrowthMs": -50,
+                "pass": false
+              },
+              {
+                "candidateMs": 250,
+                "wasteCut": 0.3816045066045065,
+                "timeToSuggestionGrowthMs": 50,
+                "pass": true
+              },
+              {
+                "candidateMs": 300,
+                "wasteCut": 0.6195609945609946,
+                "timeToSuggestionGrowthMs": 100,
+                "pass": true
+              }
+            ]
+          }
+        }
+      ],
+      "passing": {
+        "m4": [
+          250,
+          300
+        ],
+        "heavy-tail": [
+          250,
+          300
+        ]
+      },
+      "decision": "change 200 → 250 ms: the passing candidate closest to the default; it passes the M4 rule for every local backend, and the sensitivity variant agrees",
+      "decidedMs": 250,
+      "codeMs": 250
+    },
+    {
+      "name": "cli",
+      "defaultMs": 700,
+      "candidates": [
+        400,
+        700,
+        1000,
+        1500
+      ],
+      "maxGrowthMs": 300,
+      "backends": [
+        {
+          "source": {
+            "id": "claude-cli",
+            "file": "docs/bench-data/2026-10-27-phase1-r2.json",
+            "row": "prod-claude-warm"
+          },
+          "recorded": {
+            "count": 20,
+            "p50Ms": 1589
+          },
+          "results": {
+            "m4": {
+              "400": {
+                "requestsPer100": 7.844990548204159,
+                "wastedPer100": 5.936454849498327,
+                "shownPer100": 1.930347535262469,
+                "pausesServedPct": 24.608686418179886,
+                "timeToSuggestionP50Ms": 1950,
+                "maxStoredPerFile": 30,
+                "maxLiveEntries": 11
+              },
+              "700": {
+                "requestsPer100": 7.430565653628036,
+                "wastedPer100": 6.350879744074451,
+                "shownPer100": 1.0724152973680385,
+                "pausesServedPct": 13.733674331910098,
+                "timeToSuggestionP50Ms": 2250,
+                "maxStoredPerFile": 17,
+                "maxLiveEntries": 9
+              },
+              "1000": {
+                "requestsPer100": 6.1691144394358,
+                "wastedPer100": 5.831030972807911,
+                "shownPer100": 0.3526246909989821,
+                "pausesServedPct": 4.512917419770161,
+                "timeToSuggestionP50Ms": 2550,
+                "maxStoredPerFile": 9,
+                "maxLiveEntries": 6
+              },
+              "1500": {
+                "requestsPer100": 4.126072415297369,
+                "wastedPer100": 4.126072415297369,
+                "shownPer100": 0,
+                "pausesServedPct": 0,
+                "timeToSuggestionP50Ms": 3050,
+                "maxStoredPerFile": 0,
+                "maxLiveEntries": 0
+              }
+            },
+            "heavy-tail": {
+              "400": {
+                "requestsPer100": 12.967136832921332,
+                "wastedPer100": 11.018612767194998,
+                "shownPer100": 1.915806310891377,
+                "pausesServedPct": 24.291423247528698,
+                "timeToSuggestionP50Ms": 1989,
+                "maxStoredPerFile": 30,
+                "maxLiveEntries": 12
+              },
+              "700": {
+                "requestsPer100": 7.503271775483496,
+                "wastedPer100": 6.489021375599825,
+                "shownPer100": 1.0033444816053512,
+                "pausesServedPct": 12.535339801894686,
+                "timeToSuggestionP50Ms": 2289,
+                "maxStoredPerFile": 17,
+                "maxLiveEntries": 9
+              },
+              "1000": {
+                "requestsPer100": 6.2599970917551255,
+                "wastedPer100": 5.9473607677766465,
+                "shownPer100": 0.327177548349571,
+                "pausesServedPct": 4.158451365989509,
+                "timeToSuggestionP50Ms": 2589,
+                "maxStoredPerFile": 8,
+                "maxLiveEntries": 6
+              },
+              "1500": {
+                "requestsPer100": 4.1478842518540056,
+                "wastedPer100": 4.1478842518540056,
+                "shownPer100": 0,
+                "pausesServedPct": 0,
+                "timeToSuggestionP50Ms": 3089,
+                "maxStoredPerFile": 0,
+                "maxLiveEntries": 0
+              }
+            }
+          },
+          "verdicts": {
+            "m4": [
+              {
+                "candidateMs": 400,
+                "wasteCut": 0.06525472238122498,
+                "timeToSuggestionGrowthMs": -300,
+                "pass": false
+              },
+              {
+                "candidateMs": 1000,
+                "wasteCut": 0.0818546078992558,
+                "timeToSuggestionGrowthMs": 300,
+                "pass": false
+              },
+              {
+                "candidateMs": 1500,
+                "wasteCut": 0.35031482541499703,
+                "timeToSuggestionGrowthMs": 800,
+                "pass": false
+              }
+            ],
+            "heavy-tail": [
+              {
+                "candidateMs": 400,
+                "wasteCut": -0.6980392156862747,
+                "timeToSuggestionGrowthMs": -300,
+                "pass": false
+              },
+              {
+                "candidateMs": 1000,
+                "wasteCut": 0.08347338935574233,
+                "timeToSuggestionGrowthMs": 300,
+                "pass": false
+              },
+              {
+                "candidateMs": 1500,
+                "wasteCut": 0.36078431372549025,
+                "timeToSuggestionGrowthMs": 800,
+                "pass": false
+              }
+            ]
+          }
+        },
+        {
+          "source": {
+            "id": "codex-cli",
+            "file": "docs/bench-data/2026-10-26.json",
+            "row": "codex-luna-cold"
+          },
+          "recorded": {
+            "count": 20,
+            "p50Ms": 3268.5
+          },
+          "results": {
+            "m4": {
+              "400": {
+                "requestsPer100": 7.844990548204159,
+                "wastedPer100": 7.844990548204159,
+                "shownPer100": 0,
+                "pausesServedPct": 0,
+                "timeToSuggestionP50Ms": 3698,
+                "maxStoredPerFile": 0,
+                "maxLiveEntries": 0
+              },
+              "700": {
+                "requestsPer100": 7.430565653628036,
+                "wastedPer100": 7.430565653628036,
+                "shownPer100": 0,
+                "pausesServedPct": 0,
+                "timeToSuggestionP50Ms": 3998,
+                "maxStoredPerFile": 0,
+                "maxLiveEntries": 0
+              },
+              "1000": {
+                "requestsPer100": 6.1691144394358,
+                "wastedPer100": 6.1691144394358,
+                "shownPer100": 0,
+                "pausesServedPct": 0,
+                "timeToSuggestionP50Ms": 4298,
+                "maxStoredPerFile": 0,
+                "maxLiveEntries": 0
+              },
+              "1500": {
+                "requestsPer100": 4.126072415297369,
+                "wastedPer100": 4.126072415297369,
+                "shownPer100": 0,
+                "pausesServedPct": 0,
+                "timeToSuggestionP50Ms": 4798,
+                "maxStoredPerFile": 0,
+                "maxLiveEntries": 0
+              }
+            },
+            "heavy-tail": {
+              "400": {
+                "requestsPer100": 12.967136832921332,
+                "wastedPer100": 12.967136832921332,
+                "shownPer100": 0,
+                "pausesServedPct": 0,
+                "timeToSuggestionP50Ms": 3698,
+                "maxStoredPerFile": 0,
+                "maxLiveEntries": 0
+              },
+              "700": {
+                "requestsPer100": 7.503271775483496,
+                "wastedPer100": 7.503271775483496,
+                "shownPer100": 0,
+                "pausesServedPct": 0,
+                "timeToSuggestionP50Ms": 3998,
+                "maxStoredPerFile": 0,
+                "maxLiveEntries": 0
+              },
+              "1000": {
+                "requestsPer100": 6.2599970917551255,
+                "wastedPer100": 6.2599970917551255,
+                "shownPer100": 0,
+                "pausesServedPct": 0,
+                "timeToSuggestionP50Ms": 4298,
+                "maxStoredPerFile": 0,
+                "maxLiveEntries": 0
+              },
+              "1500": {
+                "requestsPer100": 4.1478842518540056,
+                "wastedPer100": 4.1478842518540056,
+                "shownPer100": 0,
+                "pausesServedPct": 0,
+                "timeToSuggestionP50Ms": 4798,
+                "maxStoredPerFile": 0,
+                "maxLiveEntries": 0
+              }
+            }
+          },
+          "verdicts": {
+            "m4": [
+              {
+                "candidateMs": 400,
+                "wasteCut": -0.05577299412915848,
+                "timeToSuggestionGrowthMs": -300,
+                "pass": false
+              },
+              {
+                "candidateMs": 1000,
+                "wasteCut": 0.16976516634050887,
+                "timeToSuggestionGrowthMs": 300,
+                "pass": false
+              },
+              {
+                "candidateMs": 1500,
+                "wasteCut": 0.44471624266144805,
+                "timeToSuggestionGrowthMs": 800,
+                "pass": false
+              }
+            ],
+            "heavy-tail": [
+              {
+                "candidateMs": 400,
+                "wasteCut": -0.7281976744186045,
+                "timeToSuggestionGrowthMs": -300,
+                "pass": false
+              },
+              {
+                "candidateMs": 1000,
+                "wasteCut": 0.16569767441860472,
+                "timeToSuggestionGrowthMs": 300,
+                "pass": false
+              },
+              {
+                "candidateMs": 1500,
+                "wasteCut": 0.4471899224806203,
+                "timeToSuggestionGrowthMs": 800,
+                "pass": false
+              }
+            ]
+          }
+        }
+      ],
+      "passing": {
+        "m4": [],
+        "heavy-tail": []
+      },
+      "decision": "keep 700 ms: no candidate passes the M4 rule for every cli backend",
+      "decidedMs": 700,
+      "codeMs": 700
+    }
+  ],
+  "cache": {
+    "capacity": 100,
+    "maxLines": 8,
+    "maxStoredPerFile": 150,
+    "maxLiveEntries": 49,
+    "decision": "keep 100: at most 49 stored completions could still be hit at one time (a file session stores up to 150; the older ones are unreachable and evicted first)"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "name": "channels-r1-4: same #codebase tool attachment, excluded chunk first: the head scan matches and the allowed chunk after it is removed too",
+  "patterns": [
+    ".env*",
+    "*.pem",
+    "secrets/**"
+  ],
+  "workspaceFiles": {
+    "src/billing.ts": "import { STRIPE_KEY } from '../secrets/config';\nexport const client = new Stripe(STRIPE_KEY); // KEEP_BILLING\n",
+    "secrets/config.ts": "export const STRIPE_KEY = \"sk_live_SECRET_CH4\";\n"
+  },
+  "turns": [
+    {
+      "role": "user",
+      "text": "These attachments may have useful context for the user's query. The user may refer to these attachments directly using a term that starts with #.\n<attachment tool=\"#codebase\">\nHere is a potentially relevant text excerpt in `{{WS}}/secrets/config.ts` starting at line 1:\n```typescript\n// filepath: {{WS}}/secrets/config.ts\nexport const STRIPE_KEY = \"sk_live_SECRET_CH4\";\n```\n\nHere is a potentially relevant text excerpt in `{{WS}}/src/billing.ts` starting at line 1:\n```typescript\n// filepath: {{WS}}/src/billing.ts\nimport { STRIPE_KEY } from '../secrets/config';\nexport const client = new Stripe(STRIPE_KEY); // KEEP_BILLING\n```\n\n</attachment>\n<prompt>\n#codebase where is the Stripe client configured?\n</prompt>"
+    }
+  ],
+  "secret": [
+    "sk_live_SECRET_CH4"
+  ],
+  "keep": [
+    "KEEP_BILLING",
+    "where is the Stripe client configured?"
+  ],
+  "lost": [
+    "KEEP_BILLING"
+  ],
+  "lostBecause": "H2 cost: content after an excluded file is removed up to the last </attachment>"
+}

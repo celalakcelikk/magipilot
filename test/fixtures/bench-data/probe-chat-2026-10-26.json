@@ -1,0 +1,500 @@
+{
+  "generatedAt": "2026-10-26T20:40:29.609Z",
+  "context": {
+    "vscodeVersion": "1.143.1",
+    "appName": "Visual Studio Code",
+    "copilotChat": null,
+    "copilotLikeExtensions": [],
+    "githubSession": "none",
+    "magipilotModels": [
+      "magipilot-echo",
+      "magipilot-echo-tools",
+      "magipilot-echo-slow"
+    ],
+    "allVendors": [
+      "magipilot"
+    ],
+    "chatReadyAfterMs": 37321
+  },
+  "steps": [
+    {
+      "id": "Q1a",
+      "question": "Q1",
+      "description": "vscode.lm.selectChatModels + sendRequest (LM API path, no Copilot UI)",
+      "nonce": "MPNONCE-b6a925557833",
+      "expectedModel": "magipilot-echo",
+      "expectedPhase": "complete",
+      "passed": true,
+      "providerMatched": true,
+      "matched": {
+        "ts": "2026-10-26T20:37:16.550Z",
+        "phase": "complete",
+        "requestNonce": "MPNONCE-b6a925557833",
+        "modelId": "magipilot-echo",
+        "messageCount": 1,
+        "roles": [
+          "user"
+        ],
+        "totalChars": 30,
+        "toolsCount": 0,
+        "toolNames": [],
+        "toolMode": "Auto",
+        "durationMs": 1
+      },
+      "sameNonceOther": [],
+      "foreignRecordsDuringStep": 0,
+      "durationMs": 14
+    },
+    {
+      "id": "Q1-ready-1",
+      "question": "Q1",
+      "description": "readiness: Ask-mode request via workbench.action.chat.open (fresh profile)",
+      "nonce": "MPNONCE-574f834cf2a4",
+      "expectedModel": "magipilot-echo",
+      "expectedPhase": "complete",
+      "passed": false,
+      "providerMatched": false,
+      "sameNonceOther": [],
+      "foreignRecordsDuringStep": 0,
+      "durationMs": 30022
+    },
+    {
+      "id": "Q1-ready-2",
+      "question": "Q1",
+      "description": "readiness: Ask-mode request via workbench.action.chat.open (fresh profile)",
+      "nonce": "MPNONCE-fdf1ae117751",
+      "expectedModel": "magipilot-echo",
+      "expectedPhase": "complete",
+      "passed": true,
+      "providerMatched": true,
+      "matched": {
+        "ts": "2026-10-26T20:37:53.765Z",
+        "phase": "complete",
+        "requestNonce": "MPNONCE-fdf1ae117751",
+        "modelId": "magipilot-echo",
+        "messageCount": 2,
+        "roles": [
+          "system",
+          "user"
+        ],
+        "totalChars": 4691,
+        "toolsCount": 0,
+        "toolNames": [],
+        "toolMode": "Auto",
+        "durationMs": 1
+      },
+      "sameNonceOther": [],
+      "foreignRecordsDuringStep": 0,
+      "durationMs": 6229
+    },
+    {
+      "id": "Q1b",
+      "question": "Q1",
+      "description": "workbench.action.chat.open in Ask mode with modelSelector magipilot-echo",
+      "nonce": "MPNONCE-c2ccd4998067",
+      "expectedModel": "magipilot-echo",
+      "expectedPhase": "complete",
+      "passed": true,
+      "providerMatched": true,
+      "matched": {
+        "ts": "2026-10-26T20:37:54.168Z",
+        "phase": "complete",
+        "requestNonce": "MPNONCE-c2ccd4998067",
+        "modelId": "magipilot-echo",
+        "messageCount": 2,
+        "roles": [
+          "system",
+          "user"
+        ],
+        "totalChars": 4685,
+        "toolsCount": 0,
+        "toolNames": [],
+        "toolMode": "Auto",
+        "durationMs": 0
+      },
+      "sameNonceOther": [],
+      "foreignRecordsDuringStep": 0,
+      "durationMs": 422
+    },
+    {
+      "id": "Q1c",
+      "question": "Q1",
+      "description": "Ask mode with magipilot-echo-slow, workbench.action.chat.cancel after the first start record",
+      "nonce": "MPNONCE-1c315908a379",
+      "expectedModel": "magipilot-echo-slow",
+      "expectedPhase": "cancelled",
+      "passed": true,
+      "providerMatched": true,
+      "matched": {
+        "ts": "2026-10-26T20:37:55.133Z",
+        "phase": "cancelled",
+        "requestNonce": "MPNONCE-1c315908a379",
+        "modelId": "magipilot-echo-slow",
+        "messageCount": 2,
+        "roles": [
+          "system",
+          "user"
+        ],
+        "totalChars": 4695,
+        "toolsCount": 0,
+        "toolNames": [],
+        "toolMode": "Auto",
+        "durationMs": 662
+      },
+      "sameNonceOther": [],
+      "foreignRecordsDuringStep": 0,
+      "durationMs": 734
+    },
+    {
+      "id": "Q1c-focus",
+      "question": "Q1",
+      "description": "Ask mode with magipilot-echo-slow, workbench.action.chat.cancel after the first start record (chat input focused first)",
+      "nonce": "MPNONCE-41960eab47b9",
+      "expectedModel": "magipilot-echo-slow",
+      "expectedPhase": "cancelled",
+      "passed": true,
+      "providerMatched": true,
+      "matched": {
+        "ts": "2026-10-26T20:37:55.906Z",
+        "phase": "cancelled",
+        "requestNonce": "MPNONCE-41960eab47b9",
+        "modelId": "magipilot-echo-slow",
+        "messageCount": 2,
+        "roles": [
+          "system",
+          "user"
+        ],
+        "totalChars": 4701,
+        "toolsCount": 0,
+        "toolNames": [],
+        "toolMode": "Auto",
+        "durationMs": 674
+      },
+      "sameNonceOther": [],
+      "foreignRecordsDuringStep": 0,
+      "durationMs": 738
+    },
+    {
+      "id": "Q2a",
+      "question": "Q2",
+      "description": "inlineChat.start with autoSend and modelSelector magipilot-echo",
+      "nonce": "MPNONCE-cd447d17720f",
+      "expectedModel": "magipilot-echo",
+      "expectedPhase": "complete",
+      "passed": false,
+      "providerMatched": false,
+      "sameNonceOther": [],
+      "foreignRecordsDuringStep": 0,
+      "actionError": "Error: Q2a did not settle within 30000 ms",
+      "observations": {
+        "documentChanged": false
+      },
+      "durationMs": 31010
+    },
+    {
+      "id": "Q2b",
+      "question": "Q2",
+      "description": "inlineChat.start with autoSend and modelSelector magipilot-echo-tools",
+      "nonce": "MPNONCE-d9a19d1d9aea",
+      "expectedModel": "magipilot-echo-tools",
+      "expectedPhase": "complete",
+      "passed": true,
+      "providerMatched": true,
+      "matched": {
+        "ts": "2026-10-26T20:38:27.282Z",
+        "phase": "complete",
+        "requestNonce": "MPNONCE-d9a19d1d9aea",
+        "modelId": "magipilot-echo-tools",
+        "messageCount": 3,
+        "roles": [
+          "system",
+          "user",
+          "user"
+        ],
+        "totalChars": 1963,
+        "toolsCount": 1,
+        "toolNames": [
+          "replace_string_in_file"
+        ],
+        "toolMode": "Auto",
+        "durationMs": 0
+      },
+      "sameNonceOther": [],
+      "foreignRecordsDuringStep": 0,
+      "actionError": "Error: Q2b did not settle within 30000 ms",
+      "observations": {
+        "documentChanged": false
+      },
+      "durationMs": 30001
+    },
+    {
+      "id": "Q2c",
+      "question": "Q2",
+      "description": "inlineChat.defaultModel = \"Magipilot Echo (probe) (magipilot)\", inlineChat.start without modelSelector",
+      "nonce": "MPNONCE-e065eac65431",
+      "expectedModel": "magipilot-echo",
+      "expectedPhase": "complete",
+      "passed": false,
+      "providerMatched": false,
+      "sameNonceOther": [
+        {
+          "ts": "2026-10-26T20:38:57.299Z",
+          "phase": "complete",
+          "requestNonce": "MPNONCE-e065eac65431",
+          "modelId": "magipilot-echo-tools",
+          "messageCount": 3,
+          "roles": [
+            "system",
+            "user",
+            "user"
+          ],
+          "totalChars": 1963,
+          "toolsCount": 1,
+          "toolNames": [
+            "replace_string_in_file"
+          ],
+          "toolMode": "Auto",
+          "durationMs": 0
+        }
+      ],
+      "foreignRecordsDuringStep": 0,
+      "actionError": "Error: Q2c did not settle within 30000 ms",
+      "observations": {
+        "documentChanged": false
+      },
+      "durationMs": 31009
+    },
+    {
+      "id": "Q2d",
+      "question": "Q2",
+      "description": "inlineChat.defaultModel = \"Magipilot Echo+Tools (probe) (magipilot)\", inlineChat.start without modelSelector",
+      "nonce": "MPNONCE-45c895fd17bb",
+      "expectedModel": "magipilot-echo-tools",
+      "expectedPhase": "complete",
+      "passed": true,
+      "providerMatched": true,
+      "matched": {
+        "ts": "2026-10-26T20:39:28.330Z",
+        "phase": "complete",
+        "requestNonce": "MPNONCE-45c895fd17bb",
+        "modelId": "magipilot-echo-tools",
+        "messageCount": 3,
+        "roles": [
+          "system",
+          "user",
+          "user"
+        ],
+        "totalChars": 1963,
+        "toolsCount": 1,
+        "toolNames": [
+          "replace_string_in_file"
+        ],
+        "toolMode": "Auto",
+        "durationMs": 0
+      },
+      "sameNonceOther": [],
+      "foreignRecordsDuringStep": 0,
+      "actionError": "Error: Q2d did not settle within 30000 ms",
+      "observations": {
+        "documentChanged": false
+      },
+      "durationMs": 30002
+    },
+    {
+      "id": "Q3a-main",
+      "question": "Q3",
+      "description": "select magipilot-echo as the main Ask-mode model (precondition)",
+      "nonce": "MPNONCE-cf583fae3c7b",
+      "expectedModel": "magipilot-echo",
+      "expectedPhase": "complete",
+      "passed": true,
+      "providerMatched": true,
+      "matched": {
+        "ts": "2026-10-26T20:39:58.420Z",
+        "phase": "complete",
+        "requestNonce": "MPNONCE-cf583fae3c7b",
+        "modelId": "magipilot-echo",
+        "messageCount": 2,
+        "roles": [
+          "system",
+          "user"
+        ],
+        "totalChars": 4696,
+        "toolsCount": 0,
+        "toolNames": [],
+        "toolMode": "Auto",
+        "durationMs": 0
+      },
+      "sameNonceOther": [],
+      "foreignRecordsDuringStep": 0,
+      "durationMs": 230
+    },
+    {
+      "id": "Q3a",
+      "question": "Q3",
+      "description": "github.copilot.git.generateCommitMessage — default: utility settings unset, byokUtilityModelDefault unset",
+      "nonce": "MPNONCE-b78494ca1773",
+      "expectedModel": "magipilot-echo",
+      "expectedPhase": "complete",
+      "passed": false,
+      "providerMatched": false,
+      "observationAccepted": false,
+      "sameNonceOther": [],
+      "foreignRecordsDuringStep": 0,
+      "observations": {
+        "scmInputContainsNonce": false,
+        "scmInputLength": 37,
+        "scmInputIsProbeReply": false,
+        "scmInputHead": "chore: update probe change identifier"
+      },
+      "durationMs": 30199
+    },
+    {
+      "id": "Q3b-main",
+      "question": "Q3",
+      "description": "select magipilot-echo as the main Ask-mode model (precondition)",
+      "nonce": "MPNONCE-19da2871f6d9",
+      "expectedModel": "magipilot-echo",
+      "expectedPhase": "complete",
+      "passed": true,
+      "providerMatched": true,
+      "matched": {
+        "ts": "2026-10-26T20:40:28.874Z",
+        "phase": "complete",
+        "requestNonce": "MPNONCE-19da2871f6d9",
+        "modelId": "magipilot-echo",
+        "messageCount": 2,
+        "roles": [
+          "system",
+          "user"
+        ],
+        "totalChars": 4696,
+        "toolsCount": 0,
+        "toolNames": [],
+        "toolMode": "Auto",
+        "durationMs": 0
+      },
+      "sameNonceOther": [],
+      "foreignRecordsDuringStep": 0,
+      "durationMs": 219
+    },
+    {
+      "id": "Q3b",
+      "question": "Q3",
+      "description": "github.copilot.git.generateCommitMessage — explicit: chat.utilityModel + chat.utilitySmallModel = magipilot/magipilot-echo",
+      "nonce": "MPNONCE-240bf724a6bd",
+      "expectedModel": "magipilot-echo",
+      "expectedPhase": "complete",
+      "passed": true,
+      "providerMatched": true,
+      "observationAccepted": true,
+      "matched": {
+        "ts": "2026-10-26T20:40:29.141Z",
+        "phase": "complete",
+        "requestNonce": "MPNONCE-240bf724a6bd",
+        "modelId": "magipilot-echo",
+        "messageCount": 2,
+        "roles": [
+          "system",
+          "user"
+        ],
+        "totalChars": 2690,
+        "toolsCount": 0,
+        "toolNames": [],
+        "toolMode": "Auto",
+        "durationMs": 0
+      },
+      "sameNonceOther": [],
+      "foreignRecordsDuringStep": 0,
+      "observations": {
+        "scmInputContainsNonce": true,
+        "scmInputLength": 39,
+        "scmInputIsProbeReply": true,
+        "scmInputHead": "magipilot-probe-ok:MPNONCE-240bf724a6bd"
+      },
+      "durationMs": 89
+    },
+    {
+      "id": "Q3c-main",
+      "question": "Q3",
+      "description": "select magipilot-echo as the main Ask-mode model (precondition)",
+      "nonce": "MPNONCE-c5fda8fde390",
+      "expectedModel": "magipilot-echo",
+      "expectedPhase": "complete",
+      "passed": true,
+      "providerMatched": true,
+      "matched": {
+        "ts": "2026-10-26T20:40:29.211Z",
+        "phase": "complete",
+        "requestNonce": "MPNONCE-c5fda8fde390",
+        "modelId": "magipilot-echo",
+        "messageCount": 2,
+        "roles": [
+          "system",
+          "user"
+        ],
+        "totalChars": 1206,
+        "toolsCount": 0,
+        "toolNames": [],
+        "toolMode": "Auto",
+        "durationMs": 1
+      },
+      "sameNonceOther": [
+        {
+          "ts": "2026-10-26T20:40:29.213Z",
+          "phase": "complete",
+          "requestNonce": "MPNONCE-c5fda8fde390",
+          "modelId": "magipilot-echo",
+          "messageCount": 2,
+          "roles": [
+            "system",
+            "user"
+          ],
+          "totalChars": 4696,
+          "toolsCount": 0,
+          "toolNames": [],
+          "toolMode": "Auto",
+          "durationMs": 0
+        }
+      ],
+      "foreignRecordsDuringStep": 0,
+      "durationMs": 209
+    },
+    {
+      "id": "Q3c",
+      "question": "Q3",
+      "description": "github.copilot.git.generateCommitMessage — main agent: utility settings unset, byokUtilityModelDefault = mainAgent",
+      "nonce": "MPNONCE-764da9a7d391",
+      "expectedModel": "magipilot-echo",
+      "expectedPhase": "complete",
+      "passed": true,
+      "providerMatched": true,
+      "observationAccepted": true,
+      "matched": {
+        "ts": "2026-10-26T20:40:29.587Z",
+        "phase": "complete",
+        "requestNonce": "MPNONCE-764da9a7d391",
+        "modelId": "magipilot-echo",
+        "messageCount": 2,
+        "roles": [
+          "system",
+          "user"
+        ],
+        "totalChars": 2690,
+        "toolsCount": 0,
+        "toolNames": [],
+        "toolMode": "Auto",
+        "durationMs": 1
+      },
+      "sameNonceOther": [],
+      "foreignRecordsDuringStep": 0,
+      "observations": {
+        "scmInputContainsNonce": true,
+        "scmInputLength": 39,
+        "scmInputIsProbeReply": true,
+        "scmInputHead": "magipilot-probe-ok:MPNONCE-764da9a7d391"
+      },
+      "durationMs": 87
+    }
+  ]
+}

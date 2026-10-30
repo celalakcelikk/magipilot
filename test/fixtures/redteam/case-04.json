@@ -1,0 +1,35 @@
+{
+  "name": "path-r1-5: secrets/ is its own git repo (submodule); every relative candidate is tested under it",
+  "repoRoots": [
+    "",
+    "secrets"
+  ],
+  "workspaceFiles": {
+    "src/a.ts": "x",
+    "secrets/api.key": "k"
+  },
+  "turns": [
+    {
+      "role": "user",
+      "text": "<attachment id=\"a.ts\">\n// filepath: {{WS}}/src/a.ts\nKEEP_ATTACH\n</attachment>\n<prompt>explain</prompt>"
+    },
+    {
+      "role": "assistant",
+      "text": "ok"
+    },
+    {
+      "role": "user",
+      "text": "# CODE CHANGES:\n```diff\ndiff --git a/src/a.ts b/src/a.ts\nindex 1..2 100644\n--- a/src/a.ts\n+++ b/src/a.ts\n@@ -1 +1 @@\n-old\n+KEEP_DIFF\n```\nNow generate a commit message."
+    }
+  ],
+  "secret": [],
+  "keep": [
+    "KEEP_ATTACH",
+    "KEEP_DIFF",
+    "explain"
+  ],
+  "lost": [
+    "KEEP_DIFF"
+  ],
+  "lostBecause": "H8e cost: diff paths are matched under every Git root, so a repository inside an excluded folder also excludes the diffs of the others (security review of ff6bdfc)"
+}

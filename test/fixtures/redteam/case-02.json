@@ -1,0 +1,26 @@
+{
+  "name": "02 only the symlinked path is attached",
+  "workspaceFiles": {
+    "src/a.ts": "x",
+    "secrets/api.key": "k"
+  },
+  "symlinks": {
+    "config/credentials": "../secrets"
+  },
+  "turns": [
+    {
+      "role": "user",
+      "text": "<attachment id=\"api.key\">\n// filepath: {{WS}}/config/credentials/api.key\nSECRET_LINK\n</attachment>\n<prompt>explain</prompt>"
+    }
+  ],
+  "secret": [
+    "SECRET_LINK"
+  ],
+  "keep": [
+    "explain"
+  ],
+  "platforms": [
+    "darwin",
+    "linux"
+  ]
+}

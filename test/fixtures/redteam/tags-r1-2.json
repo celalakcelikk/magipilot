@@ -1,0 +1,20 @@
+{
+  "name": "tags-r1-2: secrets/a<U+2028>b.txt - JSON.stringify keeps U+2028 raw; marker regex '.' cannot cross it",
+  "workspaceFiles": {
+    "src/a.ts": "x",
+    "secrets/a b.txt": "TOKEN=SECRET_LS"
+  },
+  "turns": [
+    {
+      "role": "user",
+      "text": "<attachments>\n<attachment id=\"a.ts\">\n// filepath: {{WS}}/src/a.ts\nKEEP_A\n</attachment>\n<attachment id=\"a b.txt\">\n// filepath: {{WS}}/secrets/a b.txt\nTOKEN=SECRET_LS\n</attachment>\n</attachments>\n<prompt>\nexplain\n</prompt>"
+    }
+  ],
+  "secret": [
+    "SECRET_LS"
+  ],
+  "keep": [
+    "KEEP_A",
+    "explain"
+  ]
+}

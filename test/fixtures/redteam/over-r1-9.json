@@ -1,0 +1,18 @@
+{
+  "name": "over-r1-9 (outside lens, leak): Copilot's Batch filepath marker 'REM filepath:' is not recognised, so secrets/deploy.bat leaks",
+  "workspaceFiles": {
+    "secrets/deploy.bat": "x"
+  },
+  "turns": [
+    {
+      "role": "user",
+      "text": "<attachments>\n<attachment id=\"deploy.bat\">\nREM filepath: {{WS}}/secrets/deploy.bat\n@echo off\nset DB_PASSWORD=SECRET_BAT_PASSWORD\n</attachment>\n</attachments>\n<prompt>\nWhy does this script fail? KEEP_PROMPT\n</prompt>"
+    }
+  ],
+  "secret": [
+    "SECRET_BAT_PASSWORD"
+  ],
+  "keep": [
+    "KEEP_PROMPT"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "name": "path-r1-4: file name ending in CR (created by a CRLF shell script); id is JSON-escaped, marker line ends in raw CR",
+  "workspaceFiles": {
+    "src/a.ts": "x",
+    "certs/server.pem\r": "SECRET_CR"
+  },
+  "turns": [
+    {
+      "role": "user",
+      "text": "<attachment id=\"server.pem\\r\">\n// filepath: {{WS}}/certs/server.pem\r\nSECRET_CR\n</attachment>\n<prompt>explain</prompt>"
+    }
+  ],
+  "secret": [
+    "SECRET_CR"
+  ],
+  "keep": [
+    "explain"
+  ],
+  "platforms": [
+    "darwin",
+    "linux"
+  ]
+}

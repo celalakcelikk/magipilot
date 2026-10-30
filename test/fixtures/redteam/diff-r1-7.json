@@ -1,0 +1,24 @@
+{
+  "name": "diff-r1-7 (probe): combined diff (diff --cc, @@@ hunks) and GIT binary patch for excluded files, unfenced, followed by an allowed file",
+  "workspaceFiles": {
+    ".env": "x",
+    "k.pem": "y",
+    "src/b.ts": "z"
+  },
+  "turns": [
+    {
+      "role": "user",
+      "text": "diff --cc .env\nindex 1111111,2222222..3333333\n--- a/.env\n+++ b/.env\n@@@ -1,1 -1,1 +1,1 @@@\n- API_KEY=CC_OURS_SECRET\n -API_KEY=CC_THEIRS_SECRET\n++API_KEY=CC_MERGED_SECRET\ndiff --git a/k.pem b/k.pem\nindex 4444444..5555555 100644\nGIT binary patch\nliteral 12\nTcmZ?wbBINARYSECRETPAYLOAD\n\nliteral 0\nHcmV?d00001\n\ndiff --git a/src/b.ts b/src/b.ts\n--- a/src/b.ts\n+++ b/src/b.ts\n@@ -1 +1 @@\n-old\n+KEEP_B\nKEEP_TAIL"
+    }
+  ],
+  "secret": [
+    "CC_OURS_SECRET",
+    "CC_THEIRS_SECRET",
+    "CC_MERGED_SECRET",
+    "BINARYSECRETPAYLOAD"
+  ],
+  "keep": [
+    "KEEP_B",
+    "KEEP_TAIL"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "name": "path-r1-1: Ask-mode marker names secrets/ in other case; file exists on case-insensitive APFS",
+  "workspaceFiles": {
+    "src/a.ts": "x",
+    "secrets/api.key": "SECRET_CASE"
+  },
+  "turns": [
+    {
+      "role": "user",
+      "text": "<attachment id=\"a.ts\">\n// filepath: {{WS}}/src/a.ts\nKEEP_A\n</attachment>\n<attachment id=\"api.key\">\n// filepath: {{WS}}/Secrets/api.key\nSECRET_CASE\n</attachment>\n<prompt>explain</prompt>"
+    }
+  ],
+  "secret": [
+    "SECRET_CASE"
+  ],
+  "keep": [
+    "KEEP_A",
+    "explain"
+  ],
+  "platforms": [
+    "darwin",
+    "win32"
+  ]
+}

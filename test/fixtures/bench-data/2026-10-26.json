@@ -1,0 +1,4073 @@
+{
+  "version": 1,
+  "startedAt": "2026-10-26T19:30:59.242Z",
+  "environment": {
+    "os": "darwin 27.0.0",
+    "cpu": "Apple M3 Pro",
+    "memoryGb": 36,
+    "node": "v22.23.2",
+    "claude": "2.1.310 (Claude Code)",
+    "codex": "codex-cli 0.164.0",
+    "ollama": "0.40.6"
+  },
+  "settings": {
+    "maxTokens": 128,
+    "temperature": 0.2,
+    "localTimeoutMs": 30000,
+    "claudeTimeoutMs": 60000,
+    "codexTimeoutMs": 120000,
+    "claudeEffort": "low",
+    "codexEffort": "low",
+    "ollamaKeepAlive": "30m"
+  },
+  "sampleCount": 20,
+  "rows": {
+    "ollama-1.5b": {
+      "id": "ollama-1.5b",
+      "backend": "Ollama /api/generate",
+      "mode": "stream, suffix",
+      "model": "qwen2.5-coder:1.5b",
+      "notes": "warm-up excluded; unloaded after the row",
+      "startedAt": "2026-10-26T20:26:03.859Z",
+      "finishedAt": "2026-10-26T20:26:14.784Z",
+      "setupInfo": {
+        "warmupOk": true,
+        "warmupMs": 1525,
+        "modelLoadMs": 1063
+      },
+      "requests": [
+        {
+          "sampleId": "01-debounce",
+          "turn": 1,
+          "ok": true,
+          "totalMs": 624,
+          "firstTextMs": 236,
+          "usage": {
+            "promptEvalCount": 269,
+            "evalCount": 38
+          },
+          "output": "timer = setTimeout(() => {\n      if (pendingArgs) {\n        fn(...pendingArgs);\n        pendingArgs = undefined;\n      }\n      timer = undefined;\n    }, waitMs);",
+          "cleaned": "timer = setTimeout(() => {\n      if (pendingArgs) {\n        fn(...pendingArgs);\n        pendingArgs = undefined;\n      }\n      timer = undefined;\n    }, waitMs);",
+          "exact": false,
+          "exactLoose": false,
+          "similarity": 0.5978835978835979
+        },
+        {
+          "sampleId": "02-lru-cache",
+          "turn": 2,
+          "ok": true,
+          "totalMs": 365,
+          "firstTextMs": 183,
+          "usage": {
+            "promptEvalCount": 221,
+            "evalCount": 18
+          },
+          "output": "this.map.delete(key);\n    this.map.set(key, value);\n    return value;",
+          "cleaned": "this.map.delete(key);\n    this.map.set(key, value);\n    return value;",
+          "exact": false,
+          "exactLoose": false,
+          "similarity": 0.6216216216216216
+        },
+        {
+          "sampleId": "03-group-by",
+          "turn": 3,
+          "ok": true,
+          "totalMs": 1490,
+          "firstTextMs": 196,
+          "usage": {
+            "promptEvalCount": 218,
+            "evalCount": 128
+          },
+          "output": "if (!groups[key]) {\n        groups[key] = [];\n      }\n      groups[key].push(item);\n      return groups;\n    },\n    {} as Record<K, T[]>,\n  );\n}\n\n/**\n * Groups items by the key returned from `keyOf`, preserving input order inside each group.\n */\nexport function groupBy<T, K extends PropertyKey>(items: readonly T[], keyOf: (item: T) => K): Record<K, T[]> {\n  return items.reduce(\n    (groups, item) => {\n      const key = keyOf(item);\n      if (!groups[key]) {\n        groups[key] = [];\n     ",
+          "cleaned": "if (!groups[key]) {\n        groups[key] = [];\n      }\n      groups[key].push(item);\n      return groups;\n    },\n    {} as Record<K, T[]>,\n  );\n}\n\n/**\n * Groups items by the key returned from `keyOf`, preserving input order inside each group.\n */\nexport function groupBy<T, K extends PropertyKey>(items: readonly T[], keyOf: (item: T) => K): Record<K, T[]> {\n  return items.reduce(\n    (groups, item) => {\n      const key = keyOf(item);\n      if (!groups[key]) {\n        groups[key] = [];\n     ",
+          "exact": false,
+          "exactLoose": false,
+          "similarity": 0.05954825462012325
+        },
+        {
+          "sampleId": "04-fetch-json",
+          "turn": 4,
+          "ok": true,
+          "totalMs": 313,
+          "firstTextMs": 190,
+          "usage": {
+            "promptEvalCount": 201,
+            "evalCount": 13
+          },
+          "output": "throw new HttpError(response.status, response.statusText, url);",
+          "cleaned": "throw new HttpError(response.status, response.statusText, url);",
+          "exact": true,
+          "exactLoose": true,
+          "similarity": 1
+        },
+        {
+          "sampleId": "05-parse-args",
+          "turn": 5,
+          "ok": true,
+          "totalMs": 310,
+          "firstTextMs": 167,
+          "usage": {
+            "promptEvalCount": 185,
+            "evalCount": 16
+          },
+          "output": "options.limit = parseInt(argv[++i], 10);\n        break;",
+          "cleaned": "options.limit = parseInt(argv[++i], 10);\n        break;",
+          "exact": false,
+          "exactLoose": false,
+          "similarity": 0.8088235294117647
+        },
+        {
+          "sampleId": "06-event-emitter",
+          "turn": 6,
+          "ok": true,
+          "totalMs": 492,
+          "firstTextMs": 198,
+          "usage": {
+            "promptEvalCount": 216,
+            "evalCount": 30
+          },
+          "output": "let set = this.listeners.get(event);\n    if (!set) {\n      return;\n    }\n    set.delete(listener as Listener<never>);",
+          "cleaned": "let set = this.listeners.get(event);\n    if (!set) {\n      return;\n    }\n    set.delete(listener as Listener<never>);",
+          "exact": false,
+          "exactLoose": false,
+          "similarity": 0.5299145299145299
+        },
+        {
+          "sampleId": "07-fib-memo",
+          "turn": 7,
+          "ok": true,
+          "totalMs": 293,
+          "firstTextMs": 146,
+          "usage": {
+            "promptEvalCount": 161,
+            "evalCount": 15
+          },
+          "output": "return fibonacci(n - 1) + fibonacci(n - 2)",
+          "cleaned": "return fibonacci(n - 1) + fibonacci(n - 2)",
+          "exact": true,
+          "exactLoose": true,
+          "similarity": 1
+        },
+        {
+          "sampleId": "08-dataclass-money",
+          "turn": 8,
+          "ok": true,
+          "totalMs": 753,
+          "firstTextMs": 161,
+          "usage": {
+            "promptEvalCount": 188,
+            "evalCount": 57
+          },
+          "output": "return Money(self.amount + other.amount, self.currency)\n\n    def __sub__(self, other: Money) -> Money:\n        if other.currency != self.currency:\n            raise ValueError(\"cannot subtract amounts in different currencies\")\n        return Money(self.amount - other.amount, self.currency)",
+          "cleaned": "return Money(self.amount + other.amount, self.currency)\n\n    def __sub__(self, other: Money) -> Money:\n        if other.currency != self.currency:\n            raise ValueError(\"cannot subtract amounts in different currencies\")\n        return Money(self.amount - other.amount, self.currency)",
+          "exact": false,
+          "exactLoose": false,
+          "similarity": 0.18965517241379315
+        },
+        {
+          "sampleId": "09-read-csv",
+          "turn": 9,
+          "ok": true,
+          "totalMs": 158,
+          "firstTextMs": 138,
+          "usage": {
+            "promptEvalCount": 159,
+            "evalCount": 3
+          },
+          "output": "yield row",
+          "cleaned": "yield row",
+          "exact": false,
+          "exactLoose": false,
+          "similarity": 0.08333333333333337
+        },
+        {
+          "sampleId": "10-binary-search",
+          "turn": 10,
+          "ok": true,
+          "totalMs": 423,
+          "firstTextMs": 160,
+          "usage": {
+            "promptEvalCount": 167,
+            "evalCount": 26
+          },
+          "output": "elif items[mid] < target:\n            lo = mid + 1\n        else:\n            hi = mid - 1",
+          "cleaned": "elif items[mid] < target:\n            lo = mid + 1\n        else:\n            hi = mid - 1",
+          "exact": false,
+          "exactLoose": false,
+          "similarity": 0.9775280898876404
+        },
+        {
+          "sampleId": "11-merge-dicts",
+          "turn": 11,
+          "ok": true,
+          "totalMs": 257,
+          "firstTextMs": 142,
+          "usage": {
+            "promptEvalCount": 156,
+            "evalCount": 12
+          },
+          "output": "result[key] = deep_merge(result[key], value)",
+          "cleaned": "result[key] = deep_merge(result[key], value)",
+          "exact": true,
+          "exactLoose": true,
+          "similarity": 1
+        },
+        {
+          "sampleId": "12-reverse",
+          "turn": 12,
+          "ok": true,
+          "totalMs": 310,
+          "firstTextMs": 166,
+          "usage": {
+            "promptEvalCount": 165,
+            "evalCount": 15
+          },
+          "output": "\trunes[i], runes[j] = runes[j], runes[i]",
+          "cleaned": "\trunes[i], runes[j] = runes[j], runes[i]",
+          "exact": false,
+          "exactLoose": true,
+          "similarity": 0.975
+        },
+        {
+          "sampleId": "13-http-handler",
+          "turn": 13,
+          "ok": true,
+          "totalMs": 355,
+          "firstTextMs": 210,
+          "usage": {
+            "promptEvalCount": 227,
+            "evalCount": 15
+          },
+          "output": "http.Error(w, \"invalid request body\", http.StatusBadRequest)\n\t\t\treturn",
+          "cleaned": "http.Error(w, \"invalid request body\", http.StatusBadRequest)\n\t\t\treturn",
+          "exact": false,
+          "exactLoose": false,
+          "similarity": 0.9
+        },
+        {
+          "sampleId": "14-stack",
+          "turn": 14,
+          "ok": true,
+          "totalMs": 885,
+          "firstTextMs": 123,
+          "usage": {
+            "promptEvalCount": 124,
+            "evalCount": 76
+          },
+          "output": "v := s.items[len(s.items)-1]\n\ts.items = s.items[:len(s.items)-1]\n\treturn v, nil\n}\n\nfunc (s *Stack[T]) Peek() (T, error) {\n\tvar zero T\n\tif len(s.items) == 0 {\n\t\treturn zero, ErrEmpty\n\t}\n\treturn s.items[len(s.items)-1], nil",
+          "cleaned": "v := s.items[len(s.items)-1]\n\ts.items = s.items[:len(s.items)-1]\n\treturn v, nil\n}\n\nfunc (s *Stack[T]) Peek() (T, error) {\n\tvar zero T\n\tif len(s.items) == 0 {\n\t\treturn zero, ErrEmpty\n\t}\n\treturn s.items[len(s.items)-1], nil",
+          "exact": false,
+          "exactLoose": false,
+          "similarity": 0.3529411764705882
+        },
+        {
+          "sampleId": "15-sum-even",
+          "turn": 15,
+          "ok": true,
+          "totalMs": 337,
+          "firstTextMs": 139,
+          "usage": {
+            "promptEvalCount": 155,
+            "evalCount": 19
+          },
+          "output": "values.iter().filter(|&&x| x % 2 == 0).sum()",
+          "cleaned": "values.iter().filter(|&&x| x % 2 == 0).sum()",
+          "exact": false,
+          "exactLoose": false,
+          "similarity": 0.8863636363636364
+        },
+        {
+          "sampleId": "16-rect",
+          "turn": 16,
+          "ok": true,
+          "totalMs": 444,
+          "firstTextMs": 190,
+          "usage": {
+            "promptEvalCount": 205,
+            "evalCount": 26
+          },
+          "output": "px >= self.x && px <= self.x + self.width && py >= self.y && py <= self.y + self.height",
+          "cleaned": "px >= self.x && px <= self.x + self.width && py >= self.y && py <= self.y + self.height",
+          "exact": true,
+          "exactLoose": true,
+          "similarity": 1
+        },
+        {
+          "sampleId": "17-palindrome",
+          "turn": 17,
+          "ok": true,
+          "totalMs": 583,
+          "firstTextMs": 140,
+          "usage": {
+            "promptEvalCount": 156,
+            "evalCount": 44
+          },
+          "output": "char leftChar = Character.toLowerCase(s.charAt(left));\n            char rightChar = Character.toLowerCase(s.charAt(right));\n            if (leftChar != rightChar) {\n                return false;\n            }\n            left++;\n            right--;",
+          "cleaned": "char leftChar = Character.toLowerCase(s.charAt(left));\n            char rightChar = Character.toLowerCase(s.charAt(right));\n            if (leftChar != rightChar) {\n                return false;\n            }\n            left++;\n            right--;",
+          "exact": false,
+          "exactLoose": false,
+          "similarity": 0.6746987951807228
+        },
+        {
+          "sampleId": "18-active-users",
+          "turn": 18,
+          "ok": true,
+          "totalMs": 412,
+          "firstTextMs": 135,
+          "usage": {
+            "promptEvalCount": 139,
+            "evalCount": 28
+          },
+          "output": ".filter(User::active)\n                .sorted(Comparator.comparing(User::lastLogin).reversed())\n                .map(User::email)",
+          "cleaned": ".filter(User::active)\n                .sorted(Comparator.comparing(User::lastLogin).reversed())\n                .map(User::email)",
+          "exact": true,
+          "exactLoose": true,
+          "similarity": 1
+        },
+        {
+          "sampleId": "19-chunk",
+          "turn": 19,
+          "ok": true,
+          "totalMs": 258,
+          "firstTextMs": 157,
+          "usage": {
+            "promptEvalCount": 169,
+            "evalCount": 11
+          },
+          "output": "chunks.push(items.slice(i, i + size));",
+          "cleaned": "chunks.push(items.slice(i, i + size));",
+          "exact": true,
+          "exactLoose": true,
+          "similarity": 1
+        },
+        {
+          "sampleId": "20-retry",
+          "turn": 20,
+          "ok": true,
+          "totalMs": 285,
+          "firstTextMs": 162,
+          "usage": {
+            "promptEvalCount": 186,
+            "evalCount": 12
+          },
+          "output": "await sleep(baseDelayMs * (2 ** attempt));",
+          "cleaned": "await sleep(baseDelayMs * (2 ** attempt));",
+          "exact": false,
+          "exactLoose": false,
+          "similarity": 0.9523809523809523
+        }
+      ]
+    },
+    "oai-1.5b": {
+      "id": "oai-1.5b",
+      "backend": "Ollama /v1/completions (OpenAI-compatible)",
+      "mode": "stream, suffix",
+      "model": "qwen2.5-coder:1.5b",
+      "notes": "fresh model load + warm-up excluded; unloaded after the row",
+      "startedAt": "2026-10-26T20:26:14.814Z",
+      "finishedAt": "2026-10-26T20:26:25.582Z",
+      "setupInfo": {
+        "warmupOk": true,
+        "warmupMs": 1029
+      },
+      "requests": [
+        {
+          "sampleId": "01-debounce",
+          "turn": 1,
+          "ok": true,
+          "totalMs": 613,
+          "firstTextMs": 233,
+          "output": "timer = setTimeout(() => {\n      if (pendingArgs) {\n        fn(...pendingArgs);\n        pendingArgs = undefined;\n      }\n      timer = undefined;\n    }, waitMs);",
+          "cleaned": "timer = setTimeout(() => {\n      if (pendingArgs) {\n        fn(...pendingArgs);\n        pendingArgs = undefined;\n      }\n      timer = undefined;\n    }, waitMs);",
+          "exact": false,
+          "exactLoose": false,
+          "similarity": 0.5978835978835979
+        },
+        {
+          "sampleId": "02-lru-cache",
+          "turn": 2,
+          "ok": true,
+          "totalMs": 372,
+          "firstTextMs": 188,
+          "output": "this.map.delete(key);\n    this.map.set(key, value);\n    return value;",
+          "cleaned": "this.map.delete(key);\n    this.map.set(key, value);\n    return value;",
+          "exact": false,
+          "exactLoose": false,
+          "similarity": 0.6216216216216216
+        },
+        {
+          "sampleId": "03-group-by",
+          "turn": 3,
+          "ok": true,
+          "totalMs": 1480,
+          "firstTextMs": 197,
+          "output": "if (!groups[key]) {\n        groups[key] = [];\n      }\n      groups[key].push(item);\n      return groups;\n    },\n    {} as Record<K, T[]>,\n  );\n}\n\n/**\n * Groups items by the key returned from `keyOf`, preserving input order inside each group.\n */\nexport function groupBy<T, K extends PropertyKey>(items: readonly T[], keyOf: (item: T) => K): Record<K, T[]> {\n  return items.reduce(\n    (groups, item) => {\n      const key = keyOf(item);\n      if (!groups[key]) {\n        groups[key] = [];\n     ",
+          "cleaned": "if (!groups[key]) {\n        groups[key] = [];\n      }\n      groups[key].push(item);\n      return groups;\n    },\n    {} as Record<K, T[]>,\n  );\n}\n\n/**\n * Groups items by the key returned from `keyOf`, preserving input order inside each group.\n */\nexport function groupBy<T, K extends PropertyKey>(items: readonly T[], keyOf: (item: T) => K): Record<K, T[]> {\n  return items.reduce(\n    (groups, item) => {\n      const key = keyOf(item);\n      if (!groups[key]) {\n        groups[key] = [];\n     ",
+          "exact": false,
+          "exactLoose": false,
+          "similarity": 0.05954825462012325
+        },
+        {
+          "sampleId": "04-fetch-json",
+          "turn": 4,
+          "ok": true,
+          "totalMs": 308,
+          "firstTextMs": 185,
+          "output": "throw new HttpError(response.status, response.statusText, url);",
+          "cleaned": "throw new HttpError(response.status, response.statusText, url);",
+          "exact": true,
+          "exactLoose": true,
+          "similarity": 1
+        },
+        {
+          "sampleId": "05-parse-args",
+          "turn": 5,
+          "ok": true,
+          "totalMs": 322,
+          "firstTextMs": 169,
+          "output": "options.limit = parseInt(argv[++i], 10);\n        break;",
+          "cleaned": "options.limit = parseInt(argv[++i], 10);\n        break;",
+          "exact": false,
+          "exactLoose": false,
+          "similarity": 0.8088235294117647
+        },
+        {
+          "sampleId": "06-event-emitter",
+          "turn": 6,
+          "ok": true,
+          "totalMs": 660,
+          "firstTextMs": 186,
+          "output": "let set = this.listeners.get(event);\n    if (!set) {\n      return;\n    }\n    set.delete(listener as Listener<never>);\n    if (set.size === 0) {\n      this.listeners.delete(event);\n    }",
+          "cleaned": "let set = this.listeners.get(event);\n    if (!set) {\n      return;\n    }\n    set.delete(listener as Listener<never>);\n    if (set.size === 0) {\n      this.listeners.delete(event);\n    }",
+          "exact": false,
+          "exactLoose": false,
+          "similarity": 0.33513513513513515
+        },
+        {
+          "sampleId": "07-fib-memo",
+          "turn": 7,
+          "ok": true,
+          "totalMs": 284,
+          "firstTextMs": 141,
+          "output": "return fibonacci(n - 1) + fibonacci(n - 2)",
+          "cleaned": "return fibonacci(n - 1) + fibonacci(n - 2)",
+          "exact": true,
+          "exactLoose": true,
+          "similarity": 1
+        },
+        {
+          "sampleId": "08-dataclass-money",
+          "turn": 8,
+          "ok": true,
+          "totalMs": 741,
+          "firstTextMs": 163,
+          "output": "return Money(self.amount + other.amount, self.currency)\n\n    def __sub__(self, other: Money) -> Money:\n        if other.currency != self.currency:\n            raise ValueError(\"cannot subtract amounts in different currencies\")\n        return Money(self.amount - other.amount, self.currency)",
+          "cleaned": "return Money(self.amount + other.amount, self.currency)\n\n    def __sub__(self, other: Money) -> Money:\n        if other.currency != self.currency:\n            raise ValueError(\"cannot subtract amounts in different currencies\")\n        return Money(self.amount - other.amount, self.currency)",
+          "exact": false,
+          "exactLoose": false,
+          "similarity": 0.18965517241379315
+        },
+        {
+          "sampleId": "09-read-csv",
+          "turn": 9,
+          "ok": true,
+          "totalMs": 166,
+          "firstTextMs": 140,
+          "output": "yield row",
+          "cleaned": "yield row",
+          "exact": false,
+          "exactLoose": false,
+          "similarity": 0.08333333333333337
+        },
+        {
+          "sampleId": "10-binary-search",
+          "turn": 10,
+          "ok": true,
+          "totalMs": 421,
+          "firstTextMs": 159,
+          "output": "elif items[mid] < target:\n            lo = mid + 1\n        else:\n            hi = mid - 1",
+          "cleaned": "elif items[mid] < target:\n            lo = mid + 1\n        else:\n            hi = mid - 1",
+          "exact": false,
+          "exactLoose": false,
+          "similarity": 0.9775280898876404
+        },
+        {
+          "sampleId": "11-merge-dicts",
+          "turn": 11,
+          "ok": true,
+          "totalMs": 265,
+          "firstTextMs": 148,
+          "output": "result[key] = deep_merge(result[key], value)",
+          "cleaned": "result[key] = deep_merge(result[key], value)",
+          "exact": true,
+          "exactLoose": true,
+          "similarity": 1
+        },
+        {
+          "sampleId": "12-reverse",
+          "turn": 12,
+          "ok": true,
+          "totalMs": 305,
+          "firstTextMs": 159,
+          "output": "\trunes[i], runes[j] = runes[j], runes[i]",
+          "cleaned": "\trunes[i], runes[j] = runes[j], runes[i]",
+          "exact": false,
+          "exactLoose": true,
+          "similarity": 0.975
+        },
+        {
+          "sampleId": "13-http-handler",
+          "turn": 13,
+          "ok": true,
+          "totalMs": 360,
+          "firstTextMs": 207,
+          "output": "http.Error(w, \"invalid request body\", http.StatusBadRequest)\n\t\t\treturn",
+          "cleaned": "http.Error(w, \"invalid request body\", http.StatusBadRequest)\n\t\t\treturn",
+          "exact": false,
+          "exactLoose": false,
+          "similarity": 0.9
+        },
+        {
+          "sampleId": "14-stack",
+          "turn": 14,
+          "ok": true,
+          "totalMs": 1131,
+          "firstTextMs": 107,
+          "output": "v := s.items[len(s.items)-1]\n\ts.items = s.items[:len(s.items)-1]\n\treturn v, nil\n}\n\nfunc (s *Stack[T]) Peek() (T, error) {\n\tvar zero T\n\tif len(s.items) == 0 {\n\t\treturn zero, ErrEmpty\n\t}\n\treturn s.items[len(s.items)-1], nil\n}\n\nfunc (s *Stack[T]) Clear() {\n\ts.items = []T{}",
+          "cleaned": "v := s.items[len(s.items)-1]\n\ts.items = s.items[:len(s.items)-1]\n\treturn v, nil\n}\n\nfunc (s *Stack[T]) Peek() (T, error) {\n\tvar zero T\n\tif len(s.items) == 0 {\n\t\treturn zero, ErrEmpty\n\t}\n\treturn s.items[len(s.items)-1], nil\n}\n\nfunc (s *Stack[T]) Clear() {\n\ts.items = []T{}",
+          "exact": false,
+          "exactLoose": false,
+          "similarity": 0.28888888888888886
+        },
+        {
+          "sampleId": "15-sum-even",
+          "turn": 15,
+          "ok": true,
+          "totalMs": 314,
+          "firstTextMs": 137,
+          "output": "values.iter().filter(|&&x| x % 2 == 0).sum()",
+          "cleaned": "values.iter().filter(|&&x| x % 2 == 0).sum()",
+          "exact": false,
+          "exactLoose": false,
+          "similarity": 0.8863636363636364
+        },
+        {
+          "sampleId": "16-rect",
+          "turn": 16,
+          "ok": true,
+          "totalMs": 445,
+          "firstTextMs": 183,
+          "output": "px >= self.x && px < self.x + self.width && py >= self.y && py < self.y + self.height",
+          "cleaned": "px >= self.x && px < self.x + self.width && py >= self.y && py < self.y + self.height",
+          "exact": false,
+          "exactLoose": false,
+          "similarity": 0.9770114942528736
+        },
+        {
+          "sampleId": "17-palindrome",
+          "turn": 17,
+          "ok": true,
+          "totalMs": 593,
+          "firstTextMs": 137,
+          "output": "char leftChar = Character.toLowerCase(s.charAt(left));\n            char rightChar = Character.toLowerCase(s.charAt(right));\n            if (leftChar != rightChar) {\n                return false;\n            }\n            left++;\n            right--;",
+          "cleaned": "char leftChar = Character.toLowerCase(s.charAt(left));\n            char rightChar = Character.toLowerCase(s.charAt(right));\n            if (leftChar != rightChar) {\n                return false;\n            }\n            left++;\n            right--;",
+          "exact": false,
+          "exactLoose": false,
+          "similarity": 0.6746987951807228
+        },
+        {
+          "sampleId": "18-active-users",
+          "turn": 18,
+          "ok": true,
+          "totalMs": 408,
+          "firstTextMs": 138,
+          "output": ".filter(User::active)\n                .sorted(Comparator.comparing(User::lastLogin).reversed())\n                .map(User::email)",
+          "cleaned": ".filter(User::active)\n                .sorted(Comparator.comparing(User::lastLogin).reversed())\n                .map(User::email)",
+          "exact": true,
+          "exactLoose": true,
+          "similarity": 1
+        },
+        {
+          "sampleId": "19-chunk",
+          "turn": 19,
+          "ok": true,
+          "totalMs": 267,
+          "firstTextMs": 163,
+          "output": "chunks.push(items.slice(i, i + size));",
+          "cleaned": "chunks.push(items.slice(i, i + size));",
+          "exact": true,
+          "exactLoose": true,
+          "similarity": 1
+        },
+        {
+          "sampleId": "20-retry",
+          "turn": 20,
+          "ok": true,
+          "totalMs": 270,
+          "firstTextMs": 157,
+          "output": "await sleep(baseDelayMs * (2 ** attempt));",
+          "cleaned": "await sleep(baseDelayMs * (2 ** attempt));",
+          "exact": false,
+          "exactLoose": false,
+          "similarity": 0.9523809523809523
+        }
+      ]
+    },
+    "ollama-30b-raw": {
+      "id": "ollama-30b-raw",
+      "backend": "Ollama /api/generate",
+      "mode": "stream, raw FIM tokens",
+      "model": "qwen3-coder:30b",
+      "notes": "warm-up excluded; unloaded after the row",
+      "startedAt": "2026-10-26T20:26:25.614Z",
+      "finishedAt": "2026-10-26T20:27:00.846Z",
+      "setupInfo": {
+        "warmupOk": true,
+        "warmupMs": 10114,
+        "modelLoadMs": 7855
+      },
+      "requests": [
+        {
+          "sampleId": "01-debounce",
+          "turn": 1,
+          "ok": true,
+          "totalMs": 1448,
+          "firstTextMs": 660,
+          "usage": {
+            "promptEvalCount": 269,
+            "evalCount": 38
+          },
+          "output": "timer = setTimeout(() => {\n      timer = undefined;\n      const callArgs = pendingArgs;\n      pendingArgs = undefined;\n      fn(...callArgs!);\n    }, waitMs);",
+          "cleaned": "timer = setTimeout(() => {\n      timer = undefined;\n      const callArgs = pendingArgs;\n      pendingArgs = undefined;\n      fn(...callArgs!);\n    }, waitMs);",
+          "exact": false,
+          "exactLoose": false,
+          "similarity": 0.8253968253968254
+        },
+        {
+          "sampleId": "02-lru-cache",
+          "turn": 2,
+          "ok": true,
+          "totalMs": 1176,
+          "firstTextMs": 579,
+          "usage": {
+            "promptEvalCount": 221,
+            "evalCount": 28
+          },
+          "output": "const value = this.map.get(key)!;\n    this.map.delete(key);\n    this.map.set(key, value);\n    return value;",
+          "cleaned": "const value = this.map.get(key)!;\n    this.map.delete(key);\n    this.map.set(key, value);\n    return value;",
+          "exact": false,
+          "exactLoose": false,
+          "similarity": 0.954954954954955
+        },
+        {
+          "sampleId": "03-group-by",
+          "turn": 3,
+          "ok": true,
+          "totalMs": 765,
+          "firstTextMs": 573,
+          "usage": {
+            "promptEvalCount": 218,
+            "evalCount": 10
+          },
+          "output": "(groups[key] ??= []).push(item);",
+          "cleaned": "(groups[key] ??= []).push(item);",
+          "exact": true,
+          "exactLoose": true,
+          "similarity": 1
+        },
+        {
+          "sampleId": "04-fetch-json",
+          "turn": 4,
+          "ok": true,
+          "totalMs": 778,
+          "firstTextMs": 520,
+          "usage": {
+            "promptEvalCount": 201,
+            "evalCount": 13
+          },
+          "output": "throw new HttpError(response.status, response.statusText, url);",
+          "cleaned": "throw new HttpError(response.status, response.statusText, url);",
+          "exact": true,
+          "exactLoose": true,
+          "similarity": 1
+        },
+        {
+          "sampleId": "05-parse-args",
+          "turn": 5,
+          "ok": true,
+          "totalMs": 852,
+          "firstTextMs": 497,
+          "usage": {
+            "promptEvalCount": 185,
+            "evalCount": 17
+          },
+          "output": "options.limit = parseInt(argv[++i]!, 10);\n        break;",
+          "cleaned": "options.limit = parseInt(argv[++i]!, 10);\n        break;",
+          "exact": false,
+          "exactLoose": false,
+          "similarity": 0.8088235294117647
+        },
+        {
+          "sampleId": "06-event-emitter",
+          "turn": 6,
+          "ok": true,
+          "totalMs": 817,
+          "firstTextMs": 538,
+          "usage": {
+            "promptEvalCount": 216,
+            "evalCount": 14
+          },
+          "output": "this.listeners.get(event)?.delete(listener as Listener<never>);",
+          "cleaned": "this.listeners.get(event)?.delete(listener as Listener<never>);",
+          "exact": true,
+          "exactLoose": true,
+          "similarity": 1
+        },
+        {
+          "sampleId": "07-fib-memo",
+          "turn": 7,
+          "ok": true,
+          "totalMs": 765,
+          "firstTextMs": 465,
+          "usage": {
+            "promptEvalCount": 161,
+            "evalCount": 15
+          },
+          "output": "return fibonacci(n - 1) + fibonacci(n - 2)",
+          "cleaned": "return fibonacci(n - 1) + fibonacci(n - 2)",
+          "exact": true,
+          "exactLoose": true,
+          "similarity": 1
+        },
+        {
+          "sampleId": "08-dataclass-money",
+          "turn": 8,
+          "ok": true,
+          "totalMs": 3248,
+          "firstTextMs": 504,
+          "usage": {
+            "promptEvalCount": 188,
+            "evalCount": 128
+          },
+          "output": "return Money(self.amount + other.amount, self.currency)\n\n    def __sub__(self, other: Money) -> Money:\n        if other.currency != self.currency:\n            raise ValueError(\"cannot subtract amounts in different currencies\")\n        return Money(self.amount - other.amount, self.currency)\n\n    def __mul__(self, other: int | float) -> Money:\n        return Money(self.amount * Decimal(other), self.currency)\n\n    def __rmul__(self, other: int | float) -> Money:\n        return self * other\n\n    def __truediv__(self, other: int | float) -> Money:\n        return Money",
+          "cleaned": "return Money(self.amount + other.amount, self.currency)\n\n    def __sub__(self, other: Money) -> Money:\n        if other.currency != self.currency:\n            raise ValueError(\"cannot subtract amounts in different currencies\")\n        return Money(self.amount - other.amount, self.currency)\n\n    def __mul__(self, other: int | float) -> Money:\n        return Money(self.amount * Decimal(other), self.currency)\n\n    def __rmul__(self, other: int | float) -> Money:\n        return self * other\n\n    def __truediv__(self, other: int | float) -> Money:\n        return Money",
+          "exact": false,
+          "exactLoose": false,
+          "similarity": 0.09666080843585234
+        },
+        {
+          "sampleId": "09-read-csv",
+          "turn": 9,
+          "ok": true,
+          "totalMs": 809,
+          "firstTextMs": 468,
+          "usage": {
+            "promptEvalCount": 159,
+            "evalCount": 17
+          },
+          "output": "yield {key: value for key, value in row.items() if value}",
+          "cleaned": "yield {key: value for key, value in row.items() if value}",
+          "exact": false,
+          "exactLoose": false,
+          "similarity": 0.2962962962962963
+        },
+        {
+          "sampleId": "10-binary-search",
+          "turn": 10,
+          "ok": true,
+          "totalMs": 1028,
+          "firstTextMs": 486,
+          "usage": {
+            "promptEvalCount": 167,
+            "evalCount": 26
+          },
+          "output": "elif items[mid] < target:\n            lo = mid + 1\n        else:\n            hi = mid - 1",
+          "cleaned": "elif items[mid] < target:\n            lo = mid + 1\n        else:\n            hi = mid - 1",
+          "exact": false,
+          "exactLoose": false,
+          "similarity": 0.9775280898876404
+        },
+        {
+          "sampleId": "11-merge-dicts",
+          "turn": 11,
+          "ok": true,
+          "totalMs": 696,
+          "firstTextMs": 460,
+          "usage": {
+            "promptEvalCount": 156,
+            "evalCount": 12
+          },
+          "output": "result[key] = deep_merge(result[key], value)",
+          "cleaned": "result[key] = deep_merge(result[key], value)",
+          "exact": true,
+          "exactLoose": true,
+          "similarity": 1
+        },
+        {
+          "sampleId": "12-reverse",
+          "turn": 12,
+          "ok": true,
+          "totalMs": 782,
+          "firstTextMs": 475,
+          "usage": {
+            "promptEvalCount": 165,
+            "evalCount": 15
+          },
+          "output": "runes[i], runes[j] = runes[j], runes[i]",
+          "cleaned": "runes[i], runes[j] = runes[j], runes[i]",
+          "exact": true,
+          "exactLoose": true,
+          "similarity": 1
+        },
+        {
+          "sampleId": "13-http-handler",
+          "turn": 13,
+          "ok": true,
+          "totalMs": 893,
+          "firstTextMs": 591,
+          "usage": {
+            "promptEvalCount": 227,
+            "evalCount": 15
+          },
+          "output": "http.Error(w, \"invalid request body\", http.StatusBadRequest)\n\t\t\treturn",
+          "cleaned": "http.Error(w, \"invalid request body\", http.StatusBadRequest)\n\t\t\treturn",
+          "exact": false,
+          "exactLoose": false,
+          "similarity": 0.9
+        },
+        {
+          "sampleId": "14-stack",
+          "turn": 14,
+          "ok": true,
+          "totalMs": 946,
+          "firstTextMs": 402,
+          "usage": {
+            "promptEvalCount": 124,
+            "evalCount": 27
+          },
+          "output": "v := s.items[len(s.items)-1]\n\ts.items = s.items[:len(s.items)-1]\n\treturn v, nil",
+          "cleaned": "v := s.items[len(s.items)-1]\n\ts.items = s.items[:len(s.items)-1]\n\treturn v, nil",
+          "exact": false,
+          "exactLoose": false,
+          "similarity": 0.9058823529411765
+        },
+        {
+          "sampleId": "15-sum-even",
+          "turn": 15,
+          "ok": true,
+          "totalMs": 892,
+          "firstTextMs": 450,
+          "usage": {
+            "promptEvalCount": 155,
+            "evalCount": 22
+          },
+          "output": "values.iter().filter(|x| x % 2 == 0).sum::<i64>()",
+          "cleaned": "values.iter().filter(|x| x % 2 == 0).sum::<i64>()",
+          "exact": false,
+          "exactLoose": false,
+          "similarity": 0.7959183673469388
+        },
+        {
+          "sampleId": "16-rect",
+          "turn": 16,
+          "ok": true,
+          "totalMs": 3274,
+          "firstTextMs": 543,
+          "usage": {
+            "promptEvalCount": 205,
+            "evalCount": 128
+          },
+          "output": "px >= self.x && px < self.x + self.width && py >= self.y && py < self.y + self.height\n    }\n\n    pub fn contains_rect(&self, other: &Rect) -> bool {\n        self.x <= other.x\n            && other.x + other.width <= self.x + self.width\n            && self.y <= other.y\n            && other.y + other.height <= self.y + self.height\n    }\n\n    pub fn center(&self) -> (f64, f64) {\n        (self.x + self.width / 2.0, self.y + self.height / 2",
+          "cleaned": "px >= self.x && px < self.x + self.width && py >= self.y && py < self.y + self.height\n    }\n\n    pub fn contains_rect(&self, other: &Rect) -> bool {\n        self.x <= other.x\n            && other.x + other.width <= self.x + self.width\n            && self.y <= other.y\n            && other.y + other.height <= self.y + self.height\n    }\n\n    pub fn center(&self) -> (f64, f64) {\n        (self.x + self.width / 2.0, self.y + self.height / 2",
+          "exact": false,
+          "exactLoose": false,
+          "similarity": 0.19406392694063923
+        },
+        {
+          "sampleId": "17-palindrome",
+          "turn": 17,
+          "ok": true,
+          "totalMs": 979,
+          "firstTextMs": 463,
+          "usage": {
+            "promptEvalCount": 156,
+            "evalCount": 25
+          },
+          "output": "if (Character.toLowerCase(s.charAt(left++)) != Character.toLowerCase(s.charAt(right--))) {\n                return false;\n            }",
+          "cleaned": "if (Character.toLowerCase(s.charAt(left++)) != Character.toLowerCase(s.charAt(right--))) {\n                return false;\n            }",
+          "exact": false,
+          "exactLoose": false,
+          "similarity": 0.736842105263158
+        },
+        {
+          "sampleId": "18-active-users",
+          "turn": 18,
+          "ok": true,
+          "totalMs": 1005,
+          "firstTextMs": 422,
+          "usage": {
+            "promptEvalCount": 139,
+            "evalCount": 28
+          },
+          "output": ".filter(User::active)\n                .sorted(Comparator.comparing(User::lastLogin).reversed())\n                .map(User::email)",
+          "cleaned": ".filter(User::active)\n                .sorted(Comparator.comparing(User::lastLogin).reversed())\n                .map(User::email)",
+          "exact": true,
+          "exactLoose": true,
+          "similarity": 1
+        },
+        {
+          "sampleId": "19-chunk",
+          "turn": 19,
+          "ok": true,
+          "totalMs": 693,
+          "firstTextMs": 478,
+          "usage": {
+            "promptEvalCount": 169,
+            "evalCount": 11
+          },
+          "output": "chunks.push(items.slice(i, i + size));",
+          "cleaned": "chunks.push(items.slice(i, i + size));",
+          "exact": true,
+          "exactLoose": true,
+          "similarity": 1
+        },
+        {
+          "sampleId": "20-retry",
+          "turn": 20,
+          "ok": true,
+          "totalMs": 3249,
+          "firstTextMs": 505,
+          "usage": {
+            "promptEvalCount": 186,
+            "evalCount": 128
+          },
+          "output": "await sleep(baseDelayMs * Math.pow(2, attempt)); // exponential backoff with base delay of 100ms\n        console.warn(`Retrying after error: ${error.message}`); // eslint-disable-line no-console\n      } else {\n        console.error(`Failed after ${retries} retries`); // eslint-disable-line no-console\n        throw error; // re-throw the last error if we've exhausted retries\n      }\n    }\n  }\n  throw lastError;\n}\n\n/**\n * Calls `fn` until it resolves, retrying up to `retries` times with exponential backoff.\n * @param",
+          "cleaned": "await sleep(baseDelayMs * Math.pow(2, attempt)); // exponential backoff with base delay of 100ms\n        console.warn(`Retrying after error: ${error.message}`); // eslint-disable-line no-console\n      } else {\n        console.error(`Failed after ${retries} retries`); // eslint-disable-line no-console\n        throw error; // re-throw the last error if we've exhausted retries\n      }\n    }\n  }\n  throw lastError;\n}\n\n/**\n * Calls `fn` until it resolves, retrying up to `retries` times with exponential backoff.\n * @param",
+          "exact": false,
+          "exactLoose": false,
+          "similarity": 0.07307692307692304
+        }
+      ]
+    },
+    "claude-haiku-cold": {
+      "id": "claude-haiku-cold",
+      "backend": "Claude CLI",
+      "mode": "cold spawn per request",
+      "model": "haiku",
+      "notes": "--effort low",
+      "startedAt": "2026-10-26T19:31:49.728Z",
+      "finishedAt": "2026-10-26T19:32:44.917Z",
+      "requests": [
+        {
+          "sampleId": "01-debounce",
+          "turn": 1,
+          "ok": true,
+          "totalMs": 1859,
+          "firstTextMs": 1450,
+          "initMs": 566,
+          "serverTtftMs": 851,
+          "usage": {
+            "inputTokensTotal": 1198,
+            "cacheReadInputTokens": 830,
+            "outputTokens": 84
+          },
+          "output": "timer = setTimeout(() => {\n      timer = undefined;\n      const callArgs = pendingArgs;\n      pendingArgs = undefined;\n      if (callArgs) {\n        fn(...callArgs);\n      }\n    }, waitMs);",
+          "cleaned": "timer = setTimeout(() => {\n      timer = undefined;\n      const callArgs = pendingArgs;\n      pendingArgs = undefined;\n      if (callArgs) {\n        fn(...callArgs);\n      }\n    }, waitMs);",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "02-lru-cache",
+          "turn": 2,
+          "ok": true,
+          "totalMs": 1533,
+          "firstTextMs": 1269,
+          "initMs": 587,
+          "serverTtftMs": 655,
+          "usage": {
+            "inputTokensTotal": 1055,
+            "cacheReadInputTokens": 685,
+            "outputTokens": 45
+          },
+          "output": "    const value = this.map.get(key) as V;\n    this.map.delete(key);\n    this.map.set(key, value);\n    return value;",
+          "cleaned": "    const value = this.map.get(key) as V;\n    this.map.delete(key);\n    this.map.set(key, value);\n    return value;",
+          "exact": false,
+          "similarity": 0.9652173913043478,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "03-group-by",
+          "turn": 3,
+          "ok": true,
+          "totalMs": 2762,
+          "firstTextMs": 2516,
+          "initMs": 592,
+          "serverTtftMs": 1333,
+          "usage": {
+            "inputTokensTotal": 1059,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 133
+          },
+          "output": "      (groups[key] ??= []).push(item);",
+          "cleaned": "      (groups[key] ??= []).push(item);",
+          "exact": false,
+          "similarity": 0.8421052631578947,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "04-fetch-json",
+          "turn": 4,
+          "ok": true,
+          "totalMs": 1796,
+          "firstTextMs": 1608,
+          "initMs": 610,
+          "serverTtftMs": 979,
+          "usage": {
+            "inputTokensTotal": 1049,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 22
+          },
+          "output": "throw new HttpError(response.status, response.statusText, url);",
+          "cleaned": "throw new HttpError(response.status, response.statusText, url);",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "05-parse-args",
+          "turn": 5,
+          "ok": true,
+          "totalMs": 2029,
+          "firstTextMs": 1887,
+          "initMs": 543,
+          "serverTtftMs": 1316,
+          "usage": {
+            "inputTokensTotal": 1002,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 21
+          },
+          "output": "options.limit = Number(argv[++i]);\n        break;",
+          "cleaned": "options.limit = Number(argv[++i]);\n        break;",
+          "exact": false,
+          "similarity": 0.7205882352941176,
+          "exactLoose": false
+        },
+        {
+          "sampleId": "06-event-emitter",
+          "turn": 6,
+          "ok": true,
+          "totalMs": 1774,
+          "firstTextMs": 1399,
+          "initMs": 552,
+          "serverTtftMs": 810,
+          "usage": {
+            "inputTokensTotal": 1060,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 64
+          },
+          "output": "   const set = this.listeners.get(event);\n    if (!set) return;\n    set.delete(listener as Listener<never>);\n    if (set.size === 0) this.listeners.delete(event);",
+          "cleaned": "   const set = this.listeners.get(event);\n    if (!set) return;\n    set.delete(listener as Listener<never>);\n    if (set.size === 0) this.listeners.delete(event);",
+          "exact": false,
+          "similarity": 0.3827160493827161,
+          "exactLoose": false
+        },
+        {
+          "sampleId": "07-fib-memo",
+          "turn": 7,
+          "ok": true,
+          "totalMs": 2130,
+          "firstTextMs": 1841,
+          "initMs": 711,
+          "serverTtftMs": 1116,
+          "usage": {
+            "inputTokensTotal": 937,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 27
+          },
+          "output": "       return fibonacci(n - 1) + fibonacci(n - 2)",
+          "cleaned": "       return fibonacci(n - 1) + fibonacci(n - 2)",
+          "exact": false,
+          "similarity": 0.8571428571428572,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "08-dataclass-money",
+          "turn": 8,
+          "ok": true,
+          "totalMs": 1866,
+          "firstTextMs": 1551,
+          "initMs": 573,
+          "serverTtftMs": 962,
+          "usage": {
+            "inputTokensTotal": 1020,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 21
+          },
+          "output": "return Money(self.amount + other.amount, self.currency)",
+          "cleaned": "return Money(self.amount + other.amount, self.currency)",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "09-read-csv",
+          "turn": 9,
+          "ok": true,
+          "totalMs": 2202,
+          "firstTextMs": 1860,
+          "initMs": 709,
+          "serverTtftMs": 1128,
+          "usage": {
+            "inputTokensTotal": 960,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 26
+          },
+          "output": "     if any(value and value.strip() for value in row.values()):\n                yield row",
+          "cleaned": "     if any(value and value.strip() for value in row.values()):\n                yield row",
+          "exact": false,
+          "similarity": 0.5833333333333333,
+          "exactLoose": false
+        },
+        {
+          "sampleId": "10-binary-search",
+          "turn": 10,
+          "ok": true,
+          "totalMs": 1829,
+          "firstTextMs": 1492,
+          "initMs": 555,
+          "serverTtftMs": 919,
+          "usage": {
+            "inputTokensTotal": 942,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 36
+          },
+          "output": "           if items[mid] < target:\n            lo = mid + 1\n        else:\n            hi = mid - 1",
+          "cleaned": "           if items[mid] < target:\n            lo = mid + 1\n        else:\n            hi = mid - 1",
+          "exact": false,
+          "similarity": 0.8877551020408163,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "11-merge-dicts",
+          "turn": 11,
+          "ok": true,
+          "totalMs": 1931,
+          "firstTextMs": 1630,
+          "initMs": 750,
+          "serverTtftMs": 861,
+          "usage": {
+            "inputTokensTotal": 958,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 19
+          },
+          "output": "result[key] = deep_merge(result[key], value)",
+          "cleaned": "result[key] = deep_merge(result[key], value)",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "12-reverse",
+          "turn": 12,
+          "ok": true,
+          "totalMs": 1784,
+          "firstTextMs": 1492,
+          "initMs": 533,
+          "serverTtftMs": 941,
+          "usage": {
+            "inputTokensTotal": 983,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 23
+          },
+          "output": "runes[i], runes[j] = runes[j], runes[i]",
+          "cleaned": "runes[i], runes[j] = runes[j], runes[i]",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "13-http-handler",
+          "turn": 13,
+          "ok": true,
+          "totalMs": 1993,
+          "firstTextMs": 1692,
+          "initMs": 553,
+          "serverTtftMs": 1122,
+          "usage": {
+            "inputTokensTotal": 1097,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 31
+          },
+          "output": "\thttp.Error(w, \"invalid request body\", http.StatusBadRequest)\n\t\t\treturn",
+          "cleaned": "\thttp.Error(w, \"invalid request body\", http.StatusBadRequest)\n\t\t\treturn",
+          "exact": false,
+          "similarity": 0.8873239436619719,
+          "exactLoose": false
+        },
+        {
+          "sampleId": "14-stack",
+          "turn": 14,
+          "ok": true,
+          "totalMs": 1744,
+          "firstTextMs": 1380,
+          "initMs": 537,
+          "serverTtftMs": 826,
+          "usage": {
+            "inputTokensTotal": 906,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 44
+          },
+          "output": "\tn := len(s.items) - 1\n\tv := s.items[n]\n\ts.items = s.items[:n]\n\treturn v, nil",
+          "cleaned": "\tn := len(s.items) - 1\n\tv := s.items[n]\n\ts.items = s.items[:n]\n\treturn v, nil",
+          "exact": false,
+          "similarity": 0.5529411764705883,
+          "exactLoose": false
+        },
+        {
+          "sampleId": "15-sum-even",
+          "turn": 15,
+          "ok": true,
+          "totalMs": 1764,
+          "firstTextMs": 1453,
+          "initMs": 595,
+          "serverTtftMs": 842,
+          "usage": {
+            "inputTokensTotal": 958,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 27
+          },
+          "output": "   values.iter().filter(|v| *v % 2 == 0).sum()",
+          "cleaned": "   values.iter().filter(|v| *v % 2 == 0).sum()",
+          "exact": false,
+          "similarity": 0.9347826086956522,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "16-rect",
+          "turn": 16,
+          "ok": true,
+          "totalMs": 2087,
+          "firstTextMs": 1762,
+          "initMs": 565,
+          "serverTtftMs": 921,
+          "usage": {
+            "inputTokensTotal": 987,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 85
+          },
+          "output": "        px >= self.x && px < self.x + self.width && py >= self.y && py < self.y + self.height",
+          "cleaned": "        px >= self.x && px < self.x + self.width && py >= self.y && py < self.y + self.height",
+          "exact": false,
+          "similarity": 0.8924731182795699,
+          "exactLoose": false
+        },
+        {
+          "sampleId": "17-palindrome",
+          "turn": 17,
+          "ok": true,
+          "totalMs": 1873,
+          "firstTextMs": 1458,
+          "initMs": 571,
+          "serverTtftMs": 870,
+          "usage": {
+            "inputTokensTotal": 940,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 50
+          },
+          "output": "left--;\n            right--;\n            while (left < right && !Character.isLetterOrDigit(s.charAt(left))) {\n                left++;\n            }",
+          "cleaned": "left--;\n            right--;\n            while (left < right && !Character.isLetterOrDigit(s.charAt(left))) {\n                left++;\n            }",
+          "exact": false,
+          "similarity": 0.3157894736842105,
+          "exactLoose": false
+        },
+        {
+          "sampleId": "18-active-users",
+          "turn": 18,
+          "ok": true,
+          "totalMs": 2182,
+          "firstTextMs": 1737,
+          "initMs": 576,
+          "serverTtftMs": 1139,
+          "usage": {
+            "inputTokensTotal": 930,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 70
+          },
+          "output": ".filter(User::active)\n                .sorted(Comparator.comparing(User::lastLogin,\n                        Comparator.nullsLast(Comparator.reverseOrder())))\n                .map(User::email)",
+          "cleaned": ".filter(User::active)\n                .sorted(Comparator.comparing(User::lastLogin,\n                        Comparator.nullsLast(Comparator.reverseOrder())))\n                .map(User::email)",
+          "exact": false,
+          "similarity": 0.6701570680628273,
+          "exactLoose": false
+        },
+        {
+          "sampleId": "19-chunk",
+          "turn": 19,
+          "ok": true,
+          "totalMs": 1854,
+          "firstTextMs": 1567,
+          "initMs": 572,
+          "serverTtftMs": 982,
+          "usage": {
+            "inputTokensTotal": 963,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 19
+          },
+          "output": "chunks.push(items.slice(i, i + size));",
+          "cleaned": "chunks.push(items.slice(i, i + size));",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "20-retry",
+          "turn": 20,
+          "ok": true,
+          "totalMs": 3369,
+          "firstTextMs": 3088,
+          "initMs": 610,
+          "serverTtftMs": 2464,
+          "usage": {
+            "inputTokensTotal": 1006,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 24
+          },
+          "output": "await sleep(baseDelayMs * 2 ** attempt);",
+          "cleaned": "await sleep(baseDelayMs * 2 ** attempt);",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        }
+      ]
+    },
+    "claude-haiku-warm": {
+      "id": "claude-haiku-warm",
+      "backend": "Claude CLI",
+      "mode": "warm pool (size 1, single-use stream-json process)",
+      "model": "haiku",
+      "notes": "\u22653 s idle before use; --effort low",
+      "startedAt": "2026-10-26T19:32:44.919Z",
+      "finishedAt": "2026-10-26T19:34:30.836Z",
+      "setupInfo": {},
+      "requests": [
+        {
+          "sampleId": "01-debounce",
+          "turn": 1,
+          "ok": true,
+          "totalMs": 1346,
+          "firstTextMs": 949,
+          "initMs": 3044,
+          "serverTtftMs": 881,
+          "usage": {
+            "inputTokensTotal": 1197,
+            "cacheReadInputTokens": 830,
+            "outputTokens": 73
+          },
+          "output": "timer = setTimeout(() => {\n      timer = undefined;\n      const callArgs = pendingArgs as A;\n      pendingArgs = undefined;\n      fn(...callArgs);\n    }, waitMs);",
+          "cleaned": "timer = setTimeout(() => {\n      timer = undefined;\n      const callArgs = pendingArgs as A;\n      pendingArgs = undefined;\n      fn(...callArgs);\n    }, waitMs);",
+          "exact": false,
+          "similarity": 0.8042328042328042,
+          "exactLoose": false
+        },
+        {
+          "sampleId": "02-lru-cache",
+          "turn": 2,
+          "ok": true,
+          "totalMs": 2286,
+          "firstTextMs": 2114,
+          "initMs": 3043,
+          "serverTtftMs": 991,
+          "usage": {
+            "inputTokensTotal": 1051,
+            "cacheReadInputTokens": 685,
+            "outputTokens": 257
+          },
+          "output": "    const value = this.map.get(key) as V;\n    this.map.delete(key);\n    this.map.set(key, value);\n    return value;",
+          "cleaned": "    const value = this.map.get(key) as V;\n    this.map.delete(key);\n    this.map.set(key, value);\n    return value;",
+          "exact": false,
+          "similarity": 0.9652173913043478,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "03-group-by",
+          "turn": 3,
+          "ok": true,
+          "totalMs": 1622,
+          "firstTextMs": 1036,
+          "initMs": 3045,
+          "serverTtftMs": 969,
+          "usage": {
+            "inputTokensTotal": 1059,
+            "cacheReadInputTokens": 691,
+            "outputTokens": 94
+          },
+          "output": "content: the cursor is inside the reduce callback, after computing key. Need to add the group append logic.\n\ngroups[key] ??= [];\ngroups[key].push(item);\n\nIndentation: 6 spaces.\n\n      (groups[key] ??= []).push(item);\n\nSimpler is two lines.",
+          "cleaned": "content: the cursor is inside the reduce callback, after computing key. Need to add the group append logic.\n\ngroups[key] ??= [];\ngroups[key].push(item);\n\nIndentation: 6 spaces.\n\n      (groups[key] ??= []).push(item);\n\nSimpler is two lines.",
+          "exact": false,
+          "similarity": 0.13389121338912136,
+          "exactLoose": false
+        },
+        {
+          "sampleId": "04-fetch-json",
+          "turn": 4,
+          "ok": true,
+          "totalMs": 1384,
+          "firstTextMs": 1087,
+          "initMs": 3043,
+          "serverTtftMs": 1029,
+          "usage": {
+            "inputTokensTotal": 1049,
+            "cacheReadInputTokens": 681,
+            "outputTokens": 22
+          },
+          "output": "throw new HttpError(response.status, response.statusText, url);",
+          "cleaned": "throw new HttpError(response.status, response.statusText, url);",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "05-parse-args",
+          "turn": 5,
+          "ok": true,
+          "totalMs": 884,
+          "firstTextMs": 747,
+          "initMs": 3044,
+          "serverTtftMs": 675,
+          "usage": {
+            "inputTokensTotal": 1002,
+            "cacheReadInputTokens": 634,
+            "outputTokens": 21
+          },
+          "output": "options.limit = Number(argv[++i]);\n        break;",
+          "cleaned": "options.limit = Number(argv[++i]);\n        break;",
+          "exact": false,
+          "similarity": 0.7205882352941176,
+          "exactLoose": false
+        },
+        {
+          "sampleId": "06-event-emitter",
+          "turn": 6,
+          "ok": true,
+          "totalMs": 1592,
+          "firstTextMs": 1232,
+          "initMs": 3050,
+          "serverTtftMs": 1157,
+          "usage": {
+            "inputTokensTotal": 1060,
+            "cacheReadInputTokens": 692,
+            "outputTokens": 65
+          },
+          "output": "const set = this.listeners.get(event);\n    if (!set) return;\n    set.delete(listener as Listener<never>);\n    if (set.size === 0) this.listeners.delete(event);",
+          "cleaned": "const set = this.listeners.get(event);\n    if (!set) return;\n    set.delete(listener as Listener<never>);\n    if (set.size === 0) this.listeners.delete(event);",
+          "exact": false,
+          "similarity": 0.389937106918239,
+          "exactLoose": false
+        },
+        {
+          "sampleId": "07-fib-memo",
+          "turn": 7,
+          "ok": true,
+          "totalMs": 732,
+          "firstTextMs": 519,
+          "initMs": 3056,
+          "serverTtftMs": 447,
+          "usage": {
+            "inputTokensTotal": 938,
+            "cacheReadInputTokens": 570,
+            "outputTokens": 26
+          },
+          "output": "return fibonacci(n - 1) + fibonacci(n - 2)",
+          "cleaned": "return fibonacci(n - 1) + fibonacci(n - 2)",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "08-dataclass-money",
+          "turn": 8,
+          "ok": true,
+          "totalMs": 1874,
+          "firstTextMs": 1593,
+          "initMs": 3060,
+          "serverTtftMs": 1518,
+          "usage": {
+            "inputTokensTotal": 1021,
+            "cacheReadInputTokens": 653,
+            "outputTokens": 21
+          },
+          "output": "return Money(self.amount + other.amount, self.currency)",
+          "cleaned": "return Money(self.amount + other.amount, self.currency)",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "09-read-csv",
+          "turn": 9,
+          "ok": true,
+          "totalMs": 1911,
+          "firstTextMs": 1519,
+          "initMs": 3039,
+          "serverTtftMs": 1461,
+          "usage": {
+            "inputTokensTotal": 962,
+            "cacheReadInputTokens": 593,
+            "outputTokens": 47
+          },
+          "output": "skip_blank = not any(value.strip() for value in row.values() if value is not None)\n            if skip_blank:\n                continue\n            yield row",
+          "cleaned": "skip_blank = not any(value.strip() for value in row.values() if value is not None)\n            if skip_blank:\n                continue\n            yield row",
+          "exact": false,
+          "similarity": 0.6858974358974359,
+          "exactLoose": false
+        },
+        {
+          "sampleId": "10-binary-search",
+          "turn": 10,
+          "ok": true,
+          "totalMs": 1297,
+          "firstTextMs": 923,
+          "initMs": 3048,
+          "serverTtftMs": 854,
+          "usage": {
+            "inputTokensTotal": 942,
+            "cacheReadInputTokens": 574,
+            "outputTokens": 39
+          },
+          "output": "       elif items[mid] < target:\n            lo = mid + 1\n        else:\n            hi = mid\n    return -1",
+          "cleaned": "       elif items[mid] < target:\n            lo = mid + 1\n        else:\n            hi = mid\n    return -1",
+          "exact": false,
+          "similarity": 0.8113207547169812,
+          "exactLoose": false
+        },
+        {
+          "sampleId": "11-merge-dicts",
+          "turn": 11,
+          "ok": true,
+          "totalMs": 1107,
+          "firstTextMs": 816,
+          "initMs": 3051,
+          "serverTtftMs": 743,
+          "usage": {
+            "inputTokensTotal": 959,
+            "cacheReadInputTokens": 591,
+            "outputTokens": 19
+          },
+          "output": "result[key] = deep_merge(result[key], value)",
+          "cleaned": "result[key] = deep_merge(result[key], value)",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "12-reverse",
+          "turn": 12,
+          "ok": true,
+          "totalMs": 1404,
+          "firstTextMs": 1101,
+          "initMs": 3044,
+          "serverTtftMs": 1035,
+          "usage": {
+            "inputTokensTotal": 982,
+            "cacheReadInputTokens": 615,
+            "outputTokens": 23
+          },
+          "output": "runes[i], runes[j] = runes[j], runes[i]",
+          "cleaned": "runes[i], runes[j] = runes[j], runes[i]",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "13-http-handler",
+          "turn": 13,
+          "ok": true,
+          "totalMs": 4154,
+          "firstTextMs": 3823,
+          "initMs": 3044,
+          "serverTtftMs": 3757,
+          "usage": {
+            "inputTokensTotal": 1097,
+            "cacheReadInputTokens": 729,
+            "outputTokens": 32
+          },
+          "output": "http.Error(w, \"invalid JSON body\", http.StatusBadRequest)\n\t\t\treturn",
+          "cleaned": "http.Error(w, \"invalid JSON body\", http.StatusBadRequest)\n\t\t\treturn",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "14-stack",
+          "turn": 14,
+          "ok": true,
+          "totalMs": 983,
+          "firstTextMs": 707,
+          "initMs": 3046,
+          "serverTtftMs": 638,
+          "usage": {
+            "inputTokensTotal": 905,
+            "cacheReadInputTokens": 538,
+            "outputTokens": 44
+          },
+          "output": "\tn := len(s.items) - 1\n\tv := s.items[n]\n\ts.items = s.items[:n]\n\treturn v, nil",
+          "cleaned": "\tn := len(s.items) - 1\n\tv := s.items[n]\n\ts.items = s.items[:n]\n\treturn v, nil",
+          "exact": false,
+          "similarity": 0.5529411764705883,
+          "exactLoose": false
+        },
+        {
+          "sampleId": "15-sum-even",
+          "turn": 15,
+          "ok": true,
+          "totalMs": 1437,
+          "firstTextMs": 1115,
+          "initMs": 3049,
+          "serverTtftMs": 1043,
+          "usage": {
+            "inputTokensTotal": 958,
+            "cacheReadInputTokens": 590,
+            "outputTokens": 27
+          },
+          "output": "   values.iter().filter(|v| *v % 2 == 0).sum()",
+          "cleaned": "   values.iter().filter(|v| *v % 2 == 0).sum()",
+          "exact": false,
+          "similarity": 0.9347826086956522,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "16-rect",
+          "turn": 16,
+          "ok": true,
+          "totalMs": 1400,
+          "firstTextMs": 1266,
+          "initMs": 3022,
+          "serverTtftMs": 671,
+          "usage": {
+            "inputTokensTotal": 987,
+            "cacheReadInputTokens": 619,
+            "outputTokens": 131
+          },
+          "output": "self.x <= px && px < self.x + self.width && self.y <= py && py < self.y + self.height",
+          "cleaned": "self.x <= px && px < self.x + self.width && self.y <= py && py < self.y + self.height",
+          "exact": false,
+          "similarity": 0.7241379310344828,
+          "exactLoose": false
+        },
+        {
+          "sampleId": "17-palindrome",
+          "turn": 17,
+          "ok": true,
+          "totalMs": 1048,
+          "firstTextMs": 743,
+          "initMs": 3041,
+          "serverTtftMs": 680,
+          "usage": {
+            "inputTokensTotal": 940,
+            "cacheReadInputTokens": 572,
+            "outputTokens": 75
+          },
+          "output": "char a = Character.toLowerCase(s.charAt(left));\n            char b = Character.toLowerCase(s.charAt(right));\n            if (a != b) {\n                return false;\n            }\n            left++;\n            right--;",
+          "cleaned": "char a = Character.toLowerCase(s.charAt(left));\n            char b = Character.toLowerCase(s.charAt(right));\n            if (a != b) {\n                return false;\n            }\n            left++;\n            right--;",
+          "exact": false,
+          "similarity": 0.7625570776255708,
+          "exactLoose": false
+        },
+        {
+          "sampleId": "18-active-users",
+          "turn": 18,
+          "ok": true,
+          "totalMs": 1360,
+          "firstTextMs": 962,
+          "initMs": 3048,
+          "serverTtftMs": 889,
+          "usage": {
+            "inputTokensTotal": 930,
+            "cacheReadInputTokens": 562,
+            "outputTokens": 67
+          },
+          "output": ".filter(User::active)\n                .sorted(Comparator.comparing(User::lastLogin, Comparator.nullsLast(Comparator.reverseOrder())))\n                .map(User::email)",
+          "cleaned": ".filter(User::active)\n                .sorted(Comparator.comparing(User::lastLogin, Comparator.nullsLast(Comparator.reverseOrder())))\n                .map(User::email)",
+          "exact": false,
+          "similarity": 0.7664670658682635,
+          "exactLoose": false
+        },
+        {
+          "sampleId": "19-chunk",
+          "turn": 19,
+          "ok": true,
+          "totalMs": 2022,
+          "firstTextMs": 1882,
+          "initMs": 3066,
+          "serverTtftMs": 1802,
+          "usage": {
+            "inputTokensTotal": 963,
+            "cacheReadInputTokens": 596,
+            "outputTokens": 20
+          },
+          "output": "   chunks.push(items.slice(i, i + size));",
+          "cleaned": "   chunks.push(items.slice(i, i + size));",
+          "exact": false,
+          "similarity": 0.926829268292683,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "20-retry",
+          "turn": 20,
+          "ok": true,
+          "totalMs": 1275,
+          "firstTextMs": 983,
+          "initMs": 3056,
+          "serverTtftMs": 909,
+          "usage": {
+            "inputTokensTotal": 1006,
+            "cacheReadInputTokens": 638,
+            "outputTokens": 24
+          },
+          "output": "await sleep(baseDelayMs * 2 ** attempt);",
+          "cleaned": "await sleep(baseDelayMs * 2 ** attempt);",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        }
+      ]
+    },
+    "claude-haiku-session": {
+      "id": "claude-haiku-session",
+      "backend": "Claude CLI",
+      "mode": "one stream-json session, 20 turns",
+      "model": "haiku",
+      "notes": "context grows per turn; --effort low",
+      "startedAt": "2026-10-26T19:34:30.838Z",
+      "finishedAt": "2026-10-26T19:35:29.609Z",
+      "setupInfo": {},
+      "requests": [
+        {
+          "sampleId": "01-debounce",
+          "turn": 1,
+          "ok": true,
+          "totalMs": 3336,
+          "firstTextMs": 2919,
+          "serverTtftMs": 2333,
+          "usage": {
+            "inputTokensTotal": 1197,
+            "cacheReadInputTokens": 830,
+            "outputTokens": 73
+          },
+          "output": "timer = setTimeout(() => {\n      timer = undefined;\n      const callArgs = pendingArgs as A;\n      pendingArgs = undefined;\n      fn(...callArgs);\n    }, waitMs);",
+          "cleaned": "timer = setTimeout(() => {\n      timer = undefined;\n      const callArgs = pendingArgs as A;\n      pendingArgs = undefined;\n      fn(...callArgs);\n    }, waitMs);",
+          "exact": false,
+          "similarity": 0.8042328042328042,
+          "exactLoose": false
+        },
+        {
+          "sampleId": "02-lru-cache",
+          "turn": 2,
+          "ok": true,
+          "totalMs": 29297,
+          "firstTextMs": 29292,
+          "serverTtftMs": 29275,
+          "usage": {
+            "inputTokensTotal": 1658,
+            "cacheReadInputTokens": 830,
+            "outputTokens": 44
+          },
+          "output": "const value = this.map.get(key) as V;\n    this.map.delete(key);\n    this.map.set(key, value);\n    return value;",
+          "cleaned": "const value = this.map.get(key) as V;\n    this.map.delete(key);\n    this.map.set(key, value);\n    return value;",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "03-group-by",
+          "turn": 3,
+          "ok": true,
+          "totalMs": 1533,
+          "firstTextMs": 1244,
+          "serverTtftMs": 1211,
+          "usage": {
+            "inputTokensTotal": 2096,
+            "cacheReadInputTokens": 1631,
+            "outputTokens": 37
+          },
+          "output": "if (!(key in groups)) {\n        groups[key] = [];\n      }\n      groups[key].push(item);",
+          "cleaned": "if (!(key in groups)) {\n        groups[key] = [];\n      }\n      groups[key].push(item);",
+          "exact": false,
+          "similarity": 0.31034482758620685,
+          "exactLoose": false
+        },
+        {
+          "sampleId": "04-fetch-json",
+          "turn": 4,
+          "ok": true,
+          "totalMs": 1387,
+          "firstTextMs": 1081,
+          "serverTtftMs": 1072,
+          "usage": {
+            "inputTokensTotal": 2517,
+            "cacheReadInputTokens": 2069,
+            "outputTokens": 22
+          },
+          "output": "throw new HttpError(response.status, response.statusText, url);",
+          "cleaned": "throw new HttpError(response.status, response.statusText, url);",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "05-parse-args",
+          "turn": 5,
+          "ok": true,
+          "totalMs": 1301,
+          "firstTextMs": 1007,
+          "serverTtftMs": 995,
+          "usage": {
+            "inputTokensTotal": 2876,
+            "cacheReadInputTokens": 2490,
+            "outputTokens": 21
+          },
+          "output": "options.limit = Number(argv[++i]);\n        break;",
+          "cleaned": "options.limit = Number(argv[++i]);\n        break;",
+          "exact": false,
+          "similarity": 0.7205882352941176,
+          "exactLoose": false
+        },
+        {
+          "sampleId": "06-event-emitter",
+          "turn": 6,
+          "ok": true,
+          "totalMs": 1423,
+          "firstTextMs": 1141,
+          "serverTtftMs": 1125,
+          "usage": {
+            "inputTokensTotal": 3292,
+            "cacheReadInputTokens": 2849,
+            "outputTokens": 27
+          },
+          "output": "this.listeners.get(event)?.delete(listener as Listener<never>);",
+          "cleaned": "this.listeners.get(event)?.delete(listener as Listener<never>);",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "07-fib-memo",
+          "turn": 7,
+          "ok": true,
+          "totalMs": 1433,
+          "firstTextMs": 1158,
+          "serverTtftMs": 1133,
+          "usage": {
+            "inputTokensTotal": 3592,
+            "cacheReadInputTokens": 3265,
+            "outputTokens": 26
+          },
+          "output": "return fibonacci(n - 1) + fibonacci(n - 2)",
+          "cleaned": "return fibonacci(n - 1) + fibonacci(n - 2)",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "08-dataclass-money",
+          "turn": 8,
+          "ok": true,
+          "totalMs": 1483,
+          "firstTextMs": 1474,
+          "serverTtftMs": 1455,
+          "usage": {
+            "inputTokensTotal": 3974,
+            "cacheReadInputTokens": 3565,
+            "outputTokens": 21
+          },
+          "output": "return Money(self.amount + other.amount, self.currency)",
+          "cleaned": "return Money(self.amount + other.amount, self.currency)",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "09-read-csv",
+          "turn": 9,
+          "ok": true,
+          "totalMs": 1451,
+          "firstTextMs": 1207,
+          "serverTtftMs": 1196,
+          "usage": {
+            "inputTokensTotal": 4291,
+            "cacheReadInputTokens": 3947,
+            "outputTokens": 33
+          },
+          "output": "if not any(value.strip() for value in row.values() if value is not None):\n                continue\n            yield row",
+          "cleaned": "if not any(value.strip() for value in row.values() if value is not None):\n                continue\n            yield row",
+          "exact": false,
+          "similarity": 0.9,
+          "exactLoose": false
+        },
+        {
+          "sampleId": "10-binary-search",
+          "turn": 10,
+          "ok": true,
+          "totalMs": 1503,
+          "firstTextMs": 1226,
+          "serverTtftMs": 1212,
+          "usage": {
+            "inputTokensTotal": 4601,
+            "cacheReadInputTokens": 4264,
+            "outputTokens": 35
+          },
+          "output": "if items[mid] < target:\n            lo = mid + 1\n        else:\n            hi = mid - 1",
+          "cleaned": "if items[mid] < target:\n            lo = mid + 1\n        else:\n            hi = mid - 1",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "11-merge-dicts",
+          "turn": 11,
+          "ok": true,
+          "totalMs": 1380,
+          "firstTextMs": 1107,
+          "serverTtftMs": 1091,
+          "usage": {
+            "inputTokensTotal": 4930,
+            "cacheReadInputTokens": 4574,
+            "outputTokens": 19
+          },
+          "output": "result[key] = deep_merge(result[key], value)",
+          "cleaned": "result[key] = deep_merge(result[key], value)",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "12-reverse",
+          "turn": 12,
+          "ok": true,
+          "totalMs": 1394,
+          "firstTextMs": 1116,
+          "serverTtftMs": 1102,
+          "usage": {
+            "inputTokensTotal": 5267,
+            "cacheReadInputTokens": 4903,
+            "outputTokens": 23
+          },
+          "output": "runes[i], runes[j] = runes[j], runes[i]",
+          "cleaned": "runes[i], runes[j] = runes[j], runes[i]",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "13-http-handler",
+          "turn": 13,
+          "ok": true,
+          "totalMs": 1333,
+          "firstTextMs": 1081,
+          "serverTtftMs": 1064,
+          "usage": {
+            "inputTokensTotal": 5722,
+            "cacheReadInputTokens": 5240,
+            "outputTokens": 32
+          },
+          "output": "http.Error(w, \"invalid JSON body\", http.StatusBadRequest)\n\t\t\treturn",
+          "cleaned": "http.Error(w, \"invalid JSON body\", http.StatusBadRequest)\n\t\t\treturn",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "14-stack",
+          "turn": 14,
+          "ok": true,
+          "totalMs": 1460,
+          "firstTextMs": 1100,
+          "serverTtftMs": 1089,
+          "usage": {
+            "inputTokensTotal": 5995,
+            "cacheReadInputTokens": 5695,
+            "outputTokens": 43
+          },
+          "output": "last := len(s.items) - 1\n\tv := s.items[last]\n\ts.items = s.items[:last]\n\treturn v, nil",
+          "cleaned": "last := len(s.items) - 1\n\tv := s.items[last]\n\ts.items = s.items[:last]\n\treturn v, nil",
+          "exact": false,
+          "similarity": 0.5764705882352941,
+          "exactLoose": false
+        },
+        {
+          "sampleId": "15-sum-even",
+          "turn": 15,
+          "ok": true,
+          "totalMs": 1442,
+          "firstTextMs": 1123,
+          "serverTtftMs": 1112,
+          "usage": {
+            "inputTokensTotal": 6331,
+            "cacheReadInputTokens": 5968,
+            "outputTokens": 26
+          },
+          "output": "values.iter().filter(|v| *v % 2 == 0).sum()",
+          "cleaned": "values.iter().filter(|v| *v % 2 == 0).sum()",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "16-rect",
+          "turn": 16,
+          "ok": true,
+          "totalMs": 1536,
+          "firstTextMs": 1180,
+          "serverTtftMs": 1172,
+          "usage": {
+            "inputTokensTotal": 6679,
+            "cacheReadInputTokens": 6304,
+            "outputTokens": 35
+          },
+          "output": "px >= self.x && px < self.x + self.width && py >= self.y && py < self.y + self.height",
+          "cleaned": "px >= self.x && px < self.x + self.width && py >= self.y && py < self.y + self.height",
+          "exact": false,
+          "similarity": 0.9770114942528736,
+          "exactLoose": false
+        },
+        {
+          "sampleId": "17-palindrome",
+          "turn": 17,
+          "ok": true,
+          "totalMs": 1460,
+          "firstTextMs": 1099,
+          "serverTtftMs": 1085,
+          "usage": {
+            "inputTokensTotal": 6989,
+            "cacheReadInputTokens": 6652,
+            "outputTokens": 62
+          },
+          "output": "if (Character.toLowerCase(s.charAt(left)) != Character.toLowerCase(s.charAt(right))) {\n                return false;\n            }\n            left++;\n            right--;",
+          "cleaned": "if (Character.toLowerCase(s.charAt(left)) != Character.toLowerCase(s.charAt(right))) {\n                return false;\n            }\n            left++;\n            right--;",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "18-active-users",
+          "turn": 18,
+          "ok": true,
+          "totalMs": 1218,
+          "firstTextMs": 891,
+          "serverTtftMs": 881,
+          "usage": {
+            "inputTokensTotal": 7316,
+            "cacheReadInputTokens": 6962,
+            "outputTokens": 47
+          },
+          "output": ".filter(User::active)\n                .sorted(Comparator.comparing(User::lastLogin).reversed())\n                .map(User::email)",
+          "cleaned": ".filter(User::active)\n                .sorted(Comparator.comparing(User::lastLogin).reversed())\n                .map(User::email)",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "19-chunk",
+          "turn": 19,
+          "ok": true,
+          "totalMs": 1481,
+          "firstTextMs": 1217,
+          "serverTtftMs": 1188,
+          "usage": {
+            "inputTokensTotal": 7662,
+            "cacheReadInputTokens": 7289,
+            "outputTokens": 19
+          },
+          "output": "chunks.push(items.slice(i, i + size));",
+          "cleaned": "chunks.push(items.slice(i, i + size));",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "20-retry",
+          "turn": 20,
+          "ok": true,
+          "totalMs": 1358,
+          "firstTextMs": 1110,
+          "serverTtftMs": 1098,
+          "usage": {
+            "inputTokensTotal": 8022,
+            "cacheReadInputTokens": 7635,
+            "outputTokens": 24
+          },
+          "output": "await sleep(baseDelayMs * 2 ** attempt);",
+          "cleaned": "await sleep(baseDelayMs * 2 ** attempt);",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        }
+      ]
+    },
+    "claude-sonnet-cold": {
+      "id": "claude-sonnet-cold",
+      "backend": "Claude CLI",
+      "mode": "cold spawn per request",
+      "model": "sonnet",
+      "notes": "--effort low",
+      "startedAt": "2026-10-26T19:35:29.611Z",
+      "finishedAt": "2026-10-26T19:36:58.510Z",
+      "requests": [
+        {
+          "sampleId": "01-debounce",
+          "turn": 1,
+          "ok": true,
+          "totalMs": 2784,
+          "firstTextMs": 1957,
+          "initMs": 571,
+          "serverTtftMs": 1351,
+          "usage": {
+            "inputTokensTotal": 1199,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 84
+          },
+          "output": "timer = setTimeout(() => {\n      timer = undefined;\n      const callArgs = pendingArgs;\n      pendingArgs = undefined;\n      if (callArgs) {\n        fn(...callArgs);\n      }\n    }, waitMs);",
+          "cleaned": "timer = setTimeout(() => {\n      timer = undefined;\n      const callArgs = pendingArgs;\n      pendingArgs = undefined;\n      if (callArgs) {\n        fn(...callArgs);\n      }\n    }, waitMs);",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "02-lru-cache",
+          "turn": 2,
+          "ok": true,
+          "totalMs": 3132,
+          "firstTextMs": 2531,
+          "initMs": 601,
+          "serverTtftMs": 1908,
+          "usage": {
+            "inputTokensTotal": 1055,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 44
+          },
+          "output": "const value = this.map.get(key) as V;\n    this.map.delete(key);\n    this.map.set(key, value);\n    return value;",
+          "cleaned": "const value = this.map.get(key) as V;\n    this.map.delete(key);\n    this.map.set(key, value);\n    return value;",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "03-group-by",
+          "turn": 3,
+          "ok": true,
+          "totalMs": 1912,
+          "firstTextMs": 1434,
+          "initMs": 546,
+          "serverTtftMs": 854,
+          "usage": {
+            "inputTokensTotal": 1060,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 17
+          },
+          "output": "(groups[key] ??= []).push(item);",
+          "cleaned": "(groups[key] ??= []).push(item);",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "04-fetch-json",
+          "turn": 4,
+          "ok": true,
+          "totalMs": 2376,
+          "firstTextMs": 1900,
+          "initMs": 572,
+          "serverTtftMs": 1303,
+          "usage": {
+            "inputTokensTotal": 1051,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 22
+          },
+          "output": "throw new HttpError(response.status, response.statusText, url);",
+          "cleaned": "throw new HttpError(response.status, response.statusText, url);",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "05-parse-args",
+          "turn": 5,
+          "ok": true,
+          "totalMs": 4634,
+          "firstTextMs": 3576,
+          "initMs": 622,
+          "serverTtftMs": 2930,
+          "usage": {
+            "inputTokensTotal": 1004,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 103
+          },
+          "output": "{\n        const value = Number.parseInt(argv[++i] ?? '', 10);\n        if (!Number.isFinite(value) || value < 0) {\n          throw new Error(`Invalid value for ${arg}: expected a non-negative integer`);\n        }\n        options.limit = value;\n        break;\n      }",
+          "cleaned": "{\n        const value = Number.parseInt(argv[++i] ?? '', 10);\n        if (!Number.isFinite(value) || value < 0) {\n          throw new Error(`Invalid value for ${arg}: expected a non-negative integer`);\n        }\n        options.limit = value;\n        break;\n      }",
+          "exact": false,
+          "similarity": 0.21886792452830184,
+          "exactLoose": false
+        },
+        {
+          "sampleId": "06-event-emitter",
+          "turn": 6,
+          "ok": true,
+          "totalMs": 5167,
+          "firstTextMs": 4434,
+          "initMs": 596,
+          "serverTtftMs": 3819,
+          "usage": {
+            "inputTokensTotal": 1062,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 70
+          },
+          "output": "   const set = this.listeners.get(event);\n    if (!set) return;\n    set.delete(listener as Listener<never>);\n    if (set.size === 0) {\n      this.listeners.delete(event);\n    }",
+          "cleaned": "   const set = this.listeners.get(event);\n    if (!set) return;\n    set.delete(listener as Listener<never>);\n    if (set.size === 0) {\n      this.listeners.delete(event);\n    }",
+          "exact": false,
+          "similarity": 0.3522727272727273,
+          "exactLoose": false
+        },
+        {
+          "sampleId": "07-fib-memo",
+          "turn": 7,
+          "ok": true,
+          "totalMs": 2956,
+          "firstTextMs": 2411,
+          "initMs": 627,
+          "serverTtftMs": 1768,
+          "usage": {
+            "inputTokensTotal": 940,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 27
+          },
+          "output": "   return fibonacci(n - 1) + fibonacci(n - 2)",
+          "cleaned": "   return fibonacci(n - 1) + fibonacci(n - 2)",
+          "exact": false,
+          "similarity": 0.9333333333333333,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "08-dataclass-money",
+          "turn": 8,
+          "ok": true,
+          "totalMs": 1974,
+          "firstTextMs": 1957,
+          "initMs": 582,
+          "serverTtftMs": 1362,
+          "usage": {
+            "inputTokensTotal": 1023,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 21
+          },
+          "output": "return Money(self.amount + other.amount, self.currency)",
+          "cleaned": "return Money(self.amount + other.amount, self.currency)",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "09-read-csv",
+          "turn": 9,
+          "ok": true,
+          "totalMs": 12421,
+          "firstTextMs": 11818,
+          "initMs": 1165,
+          "serverTtftMs": 10628,
+          "usage": {
+            "inputTokensTotal": 963,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 45
+          },
+          "output": "           if not any((value or \"\").strip() for value in row.values() if isinstance(value, str) or value is None):\n                continue\n            yield row",
+          "cleaned": "           if not any((value or \"\").strip() for value in row.values() if isinstance(value, str) or value is None):\n                continue\n            yield row",
+          "exact": false,
+          "similarity": 0.670807453416149,
+          "exactLoose": false
+        },
+        {
+          "sampleId": "10-binary-search",
+          "turn": 10,
+          "ok": true,
+          "totalMs": 4853,
+          "firstTextMs": 4262,
+          "initMs": 655,
+          "serverTtftMs": 3573,
+          "usage": {
+            "inputTokensTotal": 944,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 36
+          },
+          "output": "       if items[mid] < target:\n            lo = mid + 1\n        else:\n            hi = mid - 1",
+          "cleaned": "       if items[mid] < target:\n            lo = mid + 1\n        else:\n            hi = mid - 1",
+          "exact": false,
+          "similarity": 0.925531914893617,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "11-merge-dicts",
+          "turn": 11,
+          "ok": true,
+          "totalMs": 1853,
+          "firstTextMs": 1372,
+          "initMs": 511,
+          "serverTtftMs": 827,
+          "usage": {
+            "inputTokensTotal": 961,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 19
+          },
+          "output": "result[key] = deep_merge(result[key], value)",
+          "cleaned": "result[key] = deep_merge(result[key], value)",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "12-reverse",
+          "turn": 12,
+          "ok": true,
+          "totalMs": 1958,
+          "firstTextMs": 1442,
+          "initMs": 534,
+          "serverTtftMs": 878,
+          "usage": {
+            "inputTokensTotal": 983,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 23
+          },
+          "output": "runes[i], runes[j] = runes[j], runes[i]",
+          "cleaned": "runes[i], runes[j] = runes[j], runes[i]",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "13-http-handler",
+          "turn": 13,
+          "ok": true,
+          "totalMs": 2049,
+          "firstTextMs": 1484,
+          "initMs": 566,
+          "serverTtftMs": 826,
+          "usage": {
+            "inputTokensTotal": 1098,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 30
+          },
+          "output": "http.Error(w, \"invalid request body\", http.StatusBadRequest)\n\t\t\treturn",
+          "cleaned": "http.Error(w, \"invalid request body\", http.StatusBadRequest)\n\t\t\treturn",
+          "exact": false,
+          "similarity": 0.9,
+          "exactLoose": false
+        },
+        {
+          "sampleId": "14-stack",
+          "turn": 14,
+          "ok": true,
+          "totalMs": 9120,
+          "firstTextMs": 8454,
+          "initMs": 660,
+          "serverTtftMs": 7775,
+          "usage": {
+            "inputTokensTotal": 907,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 55
+          },
+          "output": "\tlast := len(s.items) - 1\n\tv := s.items[last]\n\ts.items[last] = zero\n\ts.items = s.items[:last]\n\treturn v, nil",
+          "cleaned": "\tlast := len(s.items) - 1\n\tv := s.items[last]\n\ts.items[last] = zero\n\ts.items = s.items[:last]\n\treturn v, nil",
+          "exact": false,
+          "similarity": 0.537037037037037,
+          "exactLoose": false
+        },
+        {
+          "sampleId": "15-sum-even",
+          "turn": 15,
+          "ok": true,
+          "totalMs": 1872,
+          "firstTextMs": 1299,
+          "initMs": 529,
+          "serverTtftMs": 742,
+          "usage": {
+            "inputTokensTotal": 960,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 27
+          },
+          "output": "values.iter().filter(|&&v| v % 2 == 0).sum()",
+          "cleaned": "values.iter().filter(|&&v| v % 2 == 0).sum()",
+          "exact": false,
+          "similarity": 0.9318181818181819,
+          "exactLoose": false
+        },
+        {
+          "sampleId": "16-rect",
+          "turn": 16,
+          "ok": true,
+          "totalMs": 1897,
+          "firstTextMs": 1219,
+          "initMs": 533,
+          "serverTtftMs": 653,
+          "usage": {
+            "inputTokensTotal": 989,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 35
+          },
+          "output": "px >= self.x && px < self.x + self.width && py >= self.y && py < self.y + self.height",
+          "cleaned": "px >= self.x && px < self.x + self.width && py >= self.y && py < self.y + self.height",
+          "exact": false,
+          "similarity": 0.9770114942528736,
+          "exactLoose": false
+        },
+        {
+          "sampleId": "17-palindrome",
+          "turn": 17,
+          "ok": true,
+          "totalMs": 4192,
+          "firstTextMs": 3499,
+          "initMs": 633,
+          "serverTtftMs": 2843,
+          "usage": {
+            "inputTokensTotal": 942,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 74
+          },
+          "output": "           char a = Character.toLowerCase(s.charAt(left));\n            char b = Character.toLowerCase(s.charAt(right));\n            if (a != b) {\n                return false;\n            }\n            left++;\n            right--;",
+          "cleaned": "           char a = Character.toLowerCase(s.charAt(left));\n            char b = Character.toLowerCase(s.charAt(right));\n            if (a != b) {\n                return false;\n            }\n            left++;\n            right--;",
+          "exact": false,
+          "similarity": 0.7260869565217392,
+          "exactLoose": false
+        },
+        {
+          "sampleId": "18-active-users",
+          "turn": 18,
+          "ok": true,
+          "totalMs": 2273,
+          "firstTextMs": 1687,
+          "initMs": 652,
+          "serverTtftMs": 1003,
+          "usage": {
+            "inputTokensTotal": 933,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 67
+          },
+          "output": ".filter(User::active)\n                .sorted(Comparator.comparing(User::lastLogin, Comparator.nullsLast(Comparator.reverseOrder())))\n                .map(User::email)",
+          "cleaned": ".filter(User::active)\n                .sorted(Comparator.comparing(User::lastLogin, Comparator.nullsLast(Comparator.reverseOrder())))\n                .map(User::email)",
+          "exact": false,
+          "similarity": 0.7664670658682635,
+          "exactLoose": false
+        },
+        {
+          "sampleId": "19-chunk",
+          "turn": 19,
+          "ok": true,
+          "totalMs": 1985,
+          "firstTextMs": 1411,
+          "initMs": 600,
+          "serverTtftMs": 798,
+          "usage": {
+            "inputTokensTotal": 964,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 19
+          },
+          "output": "chunks.push(items.slice(i, i + size));",
+          "cleaned": "chunks.push(items.slice(i, i + size));",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "20-retry",
+          "turn": 20,
+          "ok": true,
+          "totalMs": 4312,
+          "firstTextMs": 3753,
+          "initMs": 601,
+          "serverTtftMs": 3136,
+          "usage": {
+            "inputTokensTotal": 1008,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 24
+          },
+          "output": "await sleep(baseDelayMs * 2 ** attempt);",
+          "cleaned": "await sleep(baseDelayMs * 2 ** attempt);",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        }
+      ]
+    },
+    "claude-opus-cold": {
+      "id": "claude-opus-cold",
+      "backend": "Claude CLI",
+      "mode": "cold spawn per request",
+      "model": "opus",
+      "notes": "--effort low",
+      "startedAt": "2026-10-26T19:36:58.512Z",
+      "finishedAt": "2026-10-26T19:38:09.359Z",
+      "requests": [
+        {
+          "sampleId": "01-debounce",
+          "turn": 1,
+          "ok": true,
+          "totalMs": 3313,
+          "firstTextMs": 2576,
+          "initMs": 618,
+          "serverTtftMs": 1940,
+          "usage": {
+            "inputTokensTotal": 1194,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 73
+          },
+          "output": "timer = setTimeout(() => {\n      timer = undefined;\n      const callArgs = pendingArgs as A;\n      pendingArgs = undefined;\n      fn(...callArgs);\n    }, waitMs);",
+          "cleaned": "timer = setTimeout(() => {\n      timer = undefined;\n      const callArgs = pendingArgs as A;\n      pendingArgs = undefined;\n      fn(...callArgs);\n    }, waitMs);",
+          "exact": false,
+          "similarity": 0.8042328042328042,
+          "exactLoose": false
+        },
+        {
+          "sampleId": "02-lru-cache",
+          "turn": 2,
+          "ok": true,
+          "totalMs": 2216,
+          "firstTextMs": 1949,
+          "initMs": 696,
+          "serverTtftMs": 1233,
+          "usage": {
+            "inputTokensTotal": 1051,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 44
+          },
+          "output": "const value = this.map.get(key) as V;\n    this.map.delete(key);\n    this.map.set(key, value);\n    return value;",
+          "cleaned": "const value = this.map.get(key) as V;\n    this.map.delete(key);\n    this.map.set(key, value);\n    return value;",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "03-group-by",
+          "turn": 3,
+          "ok": true,
+          "totalMs": 3569,
+          "firstTextMs": 3443,
+          "initMs": 569,
+          "serverTtftMs": 2843,
+          "usage": {
+            "inputTokensTotal": 1056,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 17
+          },
+          "output": "(groups[key] ??= []).push(item);",
+          "cleaned": "(groups[key] ??= []).push(item);",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "04-fetch-json",
+          "turn": 4,
+          "ok": true,
+          "totalMs": 1871,
+          "firstTextMs": 1754,
+          "initMs": 671,
+          "serverTtftMs": 1065,
+          "usage": {
+            "inputTokensTotal": 1047,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 22
+          },
+          "output": "throw new HttpError(response.status, response.statusText, url);",
+          "cleaned": "throw new HttpError(response.status, response.statusText, url);",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "05-parse-args",
+          "turn": 5,
+          "ok": true,
+          "totalMs": 2878,
+          "firstTextMs": 2250,
+          "initMs": 1081,
+          "serverTtftMs": 1149,
+          "usage": {
+            "inputTokensTotal": 1000,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 77
+          },
+          "output": "options.limit = Number.parseInt(argv[++i] ?? '', 10);\n        if (Number.isNaN(options.limit)) {\n          throw new Error(`Invalid value for ${arg}`);\n        }\n        break;",
+          "cleaned": "options.limit = Number.parseInt(argv[++i] ?? '', 10);\n        if (Number.isNaN(options.limit)) {\n          throw new Error(`Invalid value for ${arg}`);\n        }\n        break;",
+          "exact": false,
+          "similarity": 0.38636363636363635,
+          "exactLoose": false
+        },
+        {
+          "sampleId": "06-event-emitter",
+          "turn": 6,
+          "ok": true,
+          "totalMs": 2568,
+          "firstTextMs": 2132,
+          "initMs": 561,
+          "serverTtftMs": 1540,
+          "usage": {
+            "inputTokensTotal": 1058,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 69
+          },
+          "output": "const set = this.listeners.get(event);\n    if (!set) return;\n    set.delete(listener as Listener<never>);\n    if (set.size === 0) {\n      this.listeners.delete(event);\n    }",
+          "cleaned": "const set = this.listeners.get(event);\n    if (!set) return;\n    set.delete(listener as Listener<never>);\n    if (set.size === 0) {\n      this.listeners.delete(event);\n    }",
+          "exact": false,
+          "similarity": 0.35838150289017345,
+          "exactLoose": false
+        },
+        {
+          "sampleId": "07-fib-memo",
+          "turn": 7,
+          "ok": true,
+          "totalMs": 2418,
+          "firstTextMs": 2254,
+          "initMs": 658,
+          "serverTtftMs": 1582,
+          "usage": {
+            "inputTokensTotal": 936,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 26
+          },
+          "output": "return fibonacci(n - 1) + fibonacci(n - 2)",
+          "cleaned": "return fibonacci(n - 1) + fibonacci(n - 2)",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "08-dataclass-money",
+          "turn": 8,
+          "ok": true,
+          "totalMs": 2504,
+          "firstTextMs": 2385,
+          "initMs": 898,
+          "serverTtftMs": 1473,
+          "usage": {
+            "inputTokensTotal": 1019,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 21
+          },
+          "output": "return Money(self.amount + other.amount, self.currency)",
+          "cleaned": "return Money(self.amount + other.amount, self.currency)",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "09-read-csv",
+          "turn": 9,
+          "ok": true,
+          "totalMs": 2838,
+          "firstTextMs": 2498,
+          "initMs": 610,
+          "serverTtftMs": 1858,
+          "usage": {
+            "inputTokensTotal": 958,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 40
+          },
+          "output": "if not any((value or \"\").strip() for value in row.values() if isinstance(value, str)):\n                continue\n            yield row",
+          "cleaned": "if not any((value or \"\").strip() for value in row.values() if isinstance(value, str)):\n                continue\n            yield row",
+          "exact": false,
+          "similarity": 0.8120300751879699,
+          "exactLoose": false
+        },
+        {
+          "sampleId": "10-binary-search",
+          "turn": 10,
+          "ok": true,
+          "totalMs": 2146,
+          "firstTextMs": 1858,
+          "initMs": 529,
+          "serverTtftMs": 1302,
+          "usage": {
+            "inputTokensTotal": 940,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 35
+          },
+          "output": "if items[mid] < target:\n            lo = mid + 1\n        else:\n            hi = mid - 1",
+          "cleaned": "if items[mid] < target:\n            lo = mid + 1\n        else:\n            hi = mid - 1",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "11-merge-dicts",
+          "turn": 11,
+          "ok": true,
+          "totalMs": 4004,
+          "firstTextMs": 3863,
+          "initMs": 593,
+          "serverTtftMs": 3250,
+          "usage": {
+            "inputTokensTotal": 957,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 19
+          },
+          "output": "result[key] = deep_merge(result[key], value)",
+          "cleaned": "result[key] = deep_merge(result[key], value)",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "12-reverse",
+          "turn": 12,
+          "ok": true,
+          "totalMs": 2137,
+          "firstTextMs": 1990,
+          "initMs": 584,
+          "serverTtftMs": 1383,
+          "usage": {
+            "inputTokensTotal": 981,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 23
+          },
+          "output": "runes[i], runes[j] = runes[j], runes[i]",
+          "cleaned": "runes[i], runes[j] = runes[j], runes[i]",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "13-http-handler",
+          "turn": 13,
+          "ok": true,
+          "totalMs": 2147,
+          "firstTextMs": 1972,
+          "initMs": 623,
+          "serverTtftMs": 1317,
+          "usage": {
+            "inputTokensTotal": 1095,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 32
+          },
+          "output": "http.Error(w, \"invalid JSON body\", http.StatusBadRequest)\n\t\t\treturn",
+          "cleaned": "http.Error(w, \"invalid JSON body\", http.StatusBadRequest)\n\t\t\treturn",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "14-stack",
+          "turn": 14,
+          "ok": true,
+          "totalMs": 2503,
+          "firstTextMs": 2142,
+          "initMs": 628,
+          "serverTtftMs": 1484,
+          "usage": {
+            "inputTokensTotal": 905,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 58
+          },
+          "output": "idx := len(s.items) - 1\n\tv := s.items[idx]\n\ts.items[idx] = zero\n\ts.items = s.items[:idx]\n\treturn v, nil",
+          "cleaned": "idx := len(s.items) - 1\n\tv := s.items[idx]\n\ts.items[idx] = zero\n\ts.items = s.items[:idx]\n\treturn v, nil",
+          "exact": false,
+          "similarity": 0.5145631067961165,
+          "exactLoose": false
+        },
+        {
+          "sampleId": "15-sum-even",
+          "turn": 15,
+          "ok": true,
+          "totalMs": 2237,
+          "firstTextMs": 2038,
+          "initMs": 591,
+          "serverTtftMs": 1413,
+          "usage": {
+            "inputTokensTotal": 956,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 26
+          },
+          "output": "values.iter().filter(|v| *v % 2 == 0).sum()",
+          "cleaned": "values.iter().filter(|v| *v % 2 == 0).sum()",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "16-rect",
+          "turn": 16,
+          "ok": true,
+          "totalMs": 2436,
+          "firstTextMs": 2216,
+          "initMs": 609,
+          "serverTtftMs": 1562,
+          "usage": {
+            "inputTokensTotal": 986,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 35
+          },
+          "output": "px >= self.x && px < self.x + self.width && py >= self.y && py < self.y + self.height",
+          "cleaned": "px >= self.x && px < self.x + self.width && py >= self.y && py < self.y + self.height",
+          "exact": false,
+          "similarity": 0.9770114942528736,
+          "exactLoose": false
+        },
+        {
+          "sampleId": "17-palindrome",
+          "turn": 17,
+          "ok": true,
+          "totalMs": 5866,
+          "firstTextMs": 5374,
+          "initMs": 1243,
+          "serverTtftMs": 4111,
+          "usage": {
+            "inputTokensTotal": 938,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 62
+          },
+          "output": "if (Character.toLowerCase(s.charAt(left)) != Character.toLowerCase(s.charAt(right))) {\n                return false;\n            }\n            left++;\n            right--;",
+          "cleaned": "if (Character.toLowerCase(s.charAt(left)) != Character.toLowerCase(s.charAt(right))) {\n                return false;\n            }\n            left++;\n            right--;",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "18-active-users",
+          "turn": 18,
+          "ok": true,
+          "totalMs": 2463,
+          "firstTextMs": 2049,
+          "initMs": 507,
+          "serverTtftMs": 1507,
+          "usage": {
+            "inputTokensTotal": 928,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 67
+          },
+          "output": ".filter(User::active)\n                .sorted(Comparator.comparing(User::lastLogin, Comparator.nullsLast(Comparator.reverseOrder())))\n                .map(User::email)",
+          "cleaned": ".filter(User::active)\n                .sorted(Comparator.comparing(User::lastLogin, Comparator.nullsLast(Comparator.reverseOrder())))\n                .map(User::email)",
+          "exact": false,
+          "similarity": 0.7664670658682635,
+          "exactLoose": false
+        },
+        {
+          "sampleId": "19-chunk",
+          "turn": 19,
+          "ok": true,
+          "totalMs": 3331,
+          "firstTextMs": 2844,
+          "initMs": 562,
+          "serverTtftMs": 2266,
+          "usage": {
+            "inputTokensTotal": 960,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 19
+          },
+          "output": "chunks.push(items.slice(i, i + size));",
+          "cleaned": "chunks.push(items.slice(i, i + size));",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "20-retry",
+          "turn": 20,
+          "ok": true,
+          "totalMs": 1989,
+          "firstTextMs": 1833,
+          "initMs": 621,
+          "serverTtftMs": 1196,
+          "usage": {
+            "inputTokensTotal": 1004,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 24
+          },
+          "output": "await sleep(baseDelayMs * 2 ** attempt);",
+          "cleaned": "await sleep(baseDelayMs * 2 ** attempt);",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        }
+      ]
+    },
+    "claude-fable-cold": {
+      "id": "claude-fable-cold",
+      "backend": "Claude CLI",
+      "mode": "cold spawn per request",
+      "model": "fable",
+      "notes": "--effort low",
+      "startedAt": "2026-10-26T19:38:09.361Z",
+      "finishedAt": "2026-10-26T19:39:22.067Z",
+      "requests": [
+        {
+          "sampleId": "01-debounce",
+          "turn": 1,
+          "ok": true,
+          "totalMs": 2398,
+          "firstTextMs": 1324,
+          "initMs": 749,
+          "serverTtftMs": 553,
+          "usage": {
+            "inputTokensTotal": 1196,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 84
+          },
+          "output": "timer = setTimeout(() => {\n      timer = undefined;\n      const callArgs = pendingArgs;\n      pendingArgs = undefined;\n      if (callArgs) {\n        fn(...callArgs);\n      }\n    }, waitMs);",
+          "cleaned": "timer = setTimeout(() => {\n      timer = undefined;\n      const callArgs = pendingArgs;\n      pendingArgs = undefined;\n      if (callArgs) {\n        fn(...callArgs);\n      }\n    }, waitMs);",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "02-lru-cache",
+          "turn": 2,
+          "ok": true,
+          "totalMs": 2239,
+          "firstTextMs": 1396,
+          "initMs": 738,
+          "serverTtftMs": 640,
+          "usage": {
+            "inputTokensTotal": 1051,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 44
+          },
+          "output": "const value = this.map.get(key) as V;\n    this.map.delete(key);\n    this.map.set(key, value);\n    return value;",
+          "cleaned": "const value = this.map.get(key) as V;\n    this.map.delete(key);\n    this.map.set(key, value);\n    return value;",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "03-group-by",
+          "turn": 3,
+          "ok": true,
+          "totalMs": 2055,
+          "firstTextMs": 1329,
+          "initMs": 600,
+          "serverTtftMs": 704,
+          "usage": {
+            "inputTokensTotal": 1056,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 17
+          },
+          "output": "(groups[key] ??= []).push(item);",
+          "cleaned": "(groups[key] ??= []).push(item);",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "04-fetch-json",
+          "turn": 4,
+          "ok": true,
+          "totalMs": 2073,
+          "firstTextMs": 1243,
+          "initMs": 595,
+          "serverTtftMs": 631,
+          "usage": {
+            "inputTokensTotal": 1047,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 22
+          },
+          "output": "throw new HttpError(response.status, response.statusText, url);",
+          "cleaned": "throw new HttpError(response.status, response.statusText, url);",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "05-parse-args",
+          "turn": 5,
+          "ok": true,
+          "totalMs": 2336,
+          "firstTextMs": 1298,
+          "initMs": 634,
+          "serverTtftMs": 639,
+          "usage": {
+            "inputTokensTotal": 999,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 77
+          },
+          "output": "options.limit = Number.parseInt(argv[++i] ?? '', 10);\n        if (Number.isNaN(options.limit)) {\n          throw new Error(`Invalid value for ${arg}`);\n        }\n        break;",
+          "cleaned": "options.limit = Number.parseInt(argv[++i] ?? '', 10);\n        if (Number.isNaN(options.limit)) {\n          throw new Error(`Invalid value for ${arg}`);\n        }\n        break;",
+          "exact": false,
+          "similarity": 0.38636363636363635,
+          "exactLoose": false
+        },
+        {
+          "sampleId": "06-event-emitter",
+          "turn": 6,
+          "ok": true,
+          "totalMs": 2189,
+          "firstTextMs": 1202,
+          "initMs": 578,
+          "serverTtftMs": 607,
+          "usage": {
+            "inputTokensTotal": 1058,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 69
+          },
+          "output": "const set = this.listeners.get(event);\n    if (!set) return;\n    set.delete(listener as Listener<never>);\n    if (set.size === 0) {\n      this.listeners.delete(event);\n    }",
+          "cleaned": "const set = this.listeners.get(event);\n    if (!set) return;\n    set.delete(listener as Listener<never>);\n    if (set.size === 0) {\n      this.listeners.delete(event);\n    }",
+          "exact": false,
+          "similarity": 0.35838150289017345,
+          "exactLoose": false
+        },
+        {
+          "sampleId": "07-fib-memo",
+          "turn": 7,
+          "ok": true,
+          "totalMs": 1942,
+          "firstTextMs": 1215,
+          "initMs": 609,
+          "serverTtftMs": 574,
+          "usage": {
+            "inputTokensTotal": 936,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 26
+          },
+          "output": "return fibonacci(n - 1) + fibonacci(n - 2)",
+          "cleaned": "return fibonacci(n - 1) + fibonacci(n - 2)",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "08-dataclass-money",
+          "turn": 8,
+          "ok": true,
+          "totalMs": 4266,
+          "firstTextMs": 2898,
+          "initMs": 640,
+          "serverTtftMs": 2240,
+          "usage": {
+            "inputTokensTotal": 1019,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 21
+          },
+          "output": "return Money(self.amount + other.amount, self.currency)",
+          "cleaned": "return Money(self.amount + other.amount, self.currency)",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "09-read-csv",
+          "turn": 9,
+          "ok": true,
+          "totalMs": 5519,
+          "firstTextMs": 3828,
+          "initMs": 562,
+          "serverTtftMs": 3237,
+          "usage": {
+            "inputTokensTotal": 959,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 30
+          },
+          "output": "if not any((value or \"\").strip() for value in row.values()):\n                continue\n            yield row",
+          "cleaned": "if not any((value or \"\").strip() for value in row.values()):\n                continue\n            yield row",
+          "exact": false,
+          "similarity": 0.8425925925925926,
+          "exactLoose": false
+        },
+        {
+          "sampleId": "10-binary-search",
+          "turn": 10,
+          "ok": true,
+          "totalMs": 2287,
+          "firstTextMs": 1298,
+          "initMs": 633,
+          "serverTtftMs": 645,
+          "usage": {
+            "inputTokensTotal": 940,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 35
+          },
+          "output": "if items[mid] < target:\n            lo = mid + 1\n        else:\n            hi = mid - 1",
+          "cleaned": "if items[mid] < target:\n            lo = mid + 1\n        else:\n            hi = mid - 1",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "11-merge-dicts",
+          "turn": 11,
+          "ok": true,
+          "totalMs": 1969,
+          "firstTextMs": 1227,
+          "initMs": 597,
+          "serverTtftMs": 595,
+          "usage": {
+            "inputTokensTotal": 956,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 19
+          },
+          "output": "result[key] = deep_merge(result[key], value)",
+          "cleaned": "result[key] = deep_merge(result[key], value)",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "12-reverse",
+          "turn": 12,
+          "ok": true,
+          "totalMs": 2248,
+          "firstTextMs": 1140,
+          "initMs": 563,
+          "serverTtftMs": 543,
+          "usage": {
+            "inputTokensTotal": 981,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 23
+          },
+          "output": "runes[i], runes[j] = runes[j], runes[i]",
+          "cleaned": "runes[i], runes[j] = runes[j], runes[i]",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "13-http-handler",
+          "turn": 13,
+          "ok": true,
+          "totalMs": 1946,
+          "firstTextMs": 1167,
+          "initMs": 587,
+          "serverTtftMs": 558,
+          "usage": {
+            "inputTokensTotal": 1095,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 30
+          },
+          "output": "http.Error(w, \"invalid request body\", http.StatusBadRequest)\n\t\t\treturn",
+          "cleaned": "http.Error(w, \"invalid request body\", http.StatusBadRequest)\n\t\t\treturn",
+          "exact": false,
+          "similarity": 0.9,
+          "exactLoose": false
+        },
+        {
+          "sampleId": "14-stack",
+          "turn": 14,
+          "ok": true,
+          "totalMs": 1972,
+          "firstTextMs": 1148,
+          "initMs": 561,
+          "serverTtftMs": 551,
+          "usage": {
+            "inputTokensTotal": 904,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 44
+          },
+          "output": "v := s.items[len(s.items)-1]\n\ts.items = s.items[:len(s.items)-1]\n\treturn v, nil",
+          "cleaned": "v := s.items[len(s.items)-1]\n\ts.items = s.items[:len(s.items)-1]\n\treturn v, nil",
+          "exact": false,
+          "similarity": 0.9058823529411765,
+          "exactLoose": false
+        },
+        {
+          "sampleId": "15-sum-even",
+          "turn": 15,
+          "ok": true,
+          "totalMs": 2056,
+          "firstTextMs": 1336,
+          "initMs": 531,
+          "serverTtftMs": 771,
+          "usage": {
+            "inputTokensTotal": 956,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 27
+          },
+          "output": "values.iter().filter(|&&v| v % 2 == 0).sum()",
+          "cleaned": "values.iter().filter(|&&v| v % 2 == 0).sum()",
+          "exact": false,
+          "similarity": 0.9318181818181819,
+          "exactLoose": false
+        },
+        {
+          "sampleId": "16-rect",
+          "turn": 16,
+          "ok": true,
+          "totalMs": 4700,
+          "firstTextMs": 3044,
+          "initMs": 668,
+          "serverTtftMs": 2344,
+          "usage": {
+            "inputTokensTotal": 985,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 43
+          },
+          "output": "px >= self.x\n            && px <= self.x + self.width\n            && py >= self.y\n            && py <= self.y + self.height",
+          "cleaned": "px >= self.x\n            && px <= self.x + self.width\n            && py >= self.y\n            && py <= self.y + self.height",
+          "exact": false,
+          "similarity": 0.7073170731707317,
+          "exactLoose": false
+        },
+        {
+          "sampleId": "17-palindrome",
+          "turn": 17,
+          "ok": true,
+          "totalMs": 2246,
+          "firstTextMs": 1276,
+          "initMs": 585,
+          "serverTtftMs": 674,
+          "usage": {
+            "inputTokensTotal": 938,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 62
+          },
+          "output": "if (Character.toLowerCase(s.charAt(left)) != Character.toLowerCase(s.charAt(right))) {\n                return false;\n            }\n            left++;\n            right--;",
+          "cleaned": "if (Character.toLowerCase(s.charAt(left)) != Character.toLowerCase(s.charAt(right))) {\n                return false;\n            }\n            left++;\n            right--;",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "18-active-users",
+          "turn": 18,
+          "ok": true,
+          "totalMs": 4804,
+          "firstTextMs": 3037,
+          "initMs": 604,
+          "serverTtftMs": 2403,
+          "usage": {
+            "inputTokensTotal": 928,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 47
+          },
+          "output": ".filter(User::active)\n                .sorted(Comparator.comparing(User::lastLogin).reversed())\n                .map(User::email)",
+          "cleaned": ".filter(User::active)\n                .sorted(Comparator.comparing(User::lastLogin).reversed())\n                .map(User::email)",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "19-chunk",
+          "turn": 19,
+          "ok": true,
+          "totalMs": 4453,
+          "firstTextMs": 2925,
+          "initMs": 646,
+          "serverTtftMs": 2266,
+          "usage": {
+            "inputTokensTotal": 962,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 19
+          },
+          "output": "chunks.push(items.slice(i, i + size));",
+          "cleaned": "chunks.push(items.slice(i, i + size));",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "20-retry",
+          "turn": 20,
+          "ok": true,
+          "totalMs": 4128,
+          "firstTextMs": 2728,
+          "initMs": 659,
+          "serverTtftMs": 2051,
+          "usage": {
+            "inputTokensTotal": 1004,
+            "cacheReadInputTokens": 0,
+            "outputTokens": 24
+          },
+          "output": "await sleep(baseDelayMs * 2 ** attempt);",
+          "cleaned": "await sleep(baseDelayMs * 2 ** attempt);",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        }
+      ]
+    },
+    "codex-luna-cold": {
+      "id": "codex-luna-cold",
+      "backend": "Codex CLI",
+      "mode": "cold exec per request",
+      "model": "gpt-6-luna",
+      "notes": "effort low, lean profile, --ignore-user-config",
+      "startedAt": "2026-10-26T19:39:22.070Z",
+      "finishedAt": "2026-10-26T19:40:52.136Z",
+      "requests": [
+        {
+          "sampleId": "01-debounce",
+          "turn": 1,
+          "ok": true,
+          "totalMs": 7783,
+          "firstTextMs": 7778,
+          "usage": {
+            "inputTokens": 11401,
+            "cachedInputTokens": 0,
+            "outputTokens": 50,
+            "reasoningOutputTokens": 0
+          },
+          "output": "timer = setTimeout(() => {\n      timer = undefined;\n      if (pendingArgs) {\n        const callArgs = pendingArgs;\n        pendingArgs = undefined;\n        fn(...callArgs);\n      }\n    }, waitMs);",
+          "cleaned": "timer = setTimeout(() => {\n      timer = undefined;\n      if (pendingArgs) {\n        const callArgs = pendingArgs;\n        pendingArgs = undefined;\n        fn(...callArgs);\n      }\n    }, waitMs);",
+          "exact": false,
+          "similarity": 0.7397959183673469,
+          "exactLoose": false
+        },
+        {
+          "sampleId": "02-lru-cache",
+          "turn": 2,
+          "ok": true,
+          "totalMs": 2743,
+          "firstTextMs": 2743,
+          "usage": {
+            "inputTokens": 11348,
+            "cachedInputTokens": 5504,
+            "outputTokens": 33,
+            "reasoningOutputTokens": 0
+          },
+          "output": "    const value = this.map.get(key);\n    this.map.delete(key);\n    this.map.set(key, value as V);\n    return value;\n",
+          "cleaned": "    const value = this.map.get(key);\n    this.map.delete(key);\n    this.map.set(key, value as V);\n    return value;\n",
+          "exact": false,
+          "similarity": 0.8782608695652174,
+          "exactLoose": false
+        },
+        {
+          "sampleId": "03-group-by",
+          "turn": 3,
+          "ok": true,
+          "totalMs": 2578,
+          "firstTextMs": 2570,
+          "usage": {
+            "inputTokens": 11353,
+            "cachedInputTokens": 10112,
+            "outputTokens": 15,
+            "reasoningOutputTokens": 0
+          },
+          "output": "      (groups[key] ??= []).push(item);",
+          "cleaned": "      (groups[key] ??= []).push(item);",
+          "exact": false,
+          "similarity": 0.8421052631578947,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "04-fetch-json",
+          "turn": 4,
+          "ok": true,
+          "totalMs": 3502,
+          "firstTextMs": 3499,
+          "usage": {
+            "inputTokens": 11330,
+            "cachedInputTokens": 10112,
+            "outputTokens": 18,
+            "reasoningOutputTokens": 0
+          },
+          "output": "      throw new HttpError(response.status, response.statusText, url);",
+          "cleaned": "      throw new HttpError(response.status, response.statusText, url);",
+          "exact": false,
+          "similarity": 0.9130434782608696,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "05-parse-args",
+          "turn": 5,
+          "ok": true,
+          "totalMs": 3032,
+          "firstTextMs": 3032,
+          "usage": {
+            "inputTokens": 11314,
+            "cachedInputTokens": 10112,
+            "outputTokens": 47,
+            "reasoningOutputTokens": 0
+          },
+          "output": "options.limit = Number(argv[++i]);\n        if (!Number.isInteger(options.limit) || options.limit < 0) {\n          throw new Error('Limit must be a non-negative integer');\n        }\n        break;",
+          "cleaned": "options.limit = Number(argv[++i]);\n        if (!Number.isInteger(options.limit) || options.limit < 0) {\n          throw new Error('Limit must be a non-negative integer');\n        }\n        break;",
+          "exact": false,
+          "similarity": 0.2564102564102564,
+          "exactLoose": false
+        },
+        {
+          "sampleId": "06-event-emitter",
+          "turn": 6,
+          "ok": true,
+          "totalMs": 3832,
+          "firstTextMs": 3827,
+          "usage": {
+            "inputTokens": 11346,
+            "cachedInputTokens": 0,
+            "outputTokens": 38,
+            "reasoningOutputTokens": 0
+          },
+          "output": "this.listeners.get(event)?.delete(listener as Listener<never>);\n    if (this.listeners.get(event)?.size === 0) {\n      this.listeners.delete(event);\n    }",
+          "cleaned": "this.listeners.get(event)?.delete(listener as Listener<never>);\n    if (this.listeners.get(event)?.size === 0) {\n      this.listeners.delete(event);\n    }",
+          "exact": false,
+          "similarity": 0.40909090909090906,
+          "exactLoose": false
+        },
+        {
+          "sampleId": "07-fib-memo",
+          "turn": 7,
+          "ok": true,
+          "totalMs": 3107,
+          "firstTextMs": 3104,
+          "usage": {
+            "inputTokens": 11291,
+            "cachedInputTokens": 10112,
+            "outputTokens": 19,
+            "reasoningOutputTokens": 0
+          },
+          "output": "    return fibonacci(n - 1) + fibonacci(n - 2)",
+          "cleaned": "    return fibonacci(n - 1) + fibonacci(n - 2)",
+          "exact": false,
+          "similarity": 0.9130434782608696,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "08-dataclass-money",
+          "turn": 8,
+          "ok": true,
+          "totalMs": 2878,
+          "firstTextMs": 2871,
+          "usage": {
+            "inputTokens": 11319,
+            "cachedInputTokens": 0,
+            "outputTokens": 16,
+            "reasoningOutputTokens": 0
+          },
+          "output": "        return Money(self.amount + other.amount, self.currency)",
+          "cleaned": "        return Money(self.amount + other.amount, self.currency)",
+          "exact": false,
+          "similarity": 0.873015873015873,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "09-read-csv",
+          "turn": 9,
+          "ok": true,
+          "totalMs": 2773,
+          "firstTextMs": 2752,
+          "usage": {
+            "inputTokens": 11288,
+            "cachedInputTokens": 10112,
+            "outputTokens": 38,
+            "reasoningOutputTokens": 0
+          },
+          "output": "if any(value is not None for value in row.values()):\n                yield {key: value or \"\" for key, value in row.items() if key is not None}",
+          "cleaned": "if any(value is not None for value in row.values()):\n                yield {key: value or \"\" for key, value in row.items() if key is not None}",
+          "exact": false,
+          "similarity": 0.4295774647887324,
+          "exactLoose": false
+        },
+        {
+          "sampleId": "10-binary-search",
+          "turn": 10,
+          "ok": true,
+          "totalMs": 3239,
+          "firstTextMs": 3191,
+          "usage": {
+            "inputTokens": 11296,
+            "cachedInputTokens": 0,
+            "outputTokens": 27,
+            "reasoningOutputTokens": 0
+          },
+          "output": "        if items[mid] < target:\n            lo = mid + 1\n        else:\n            hi = mid",
+          "cleaned": "        if items[mid] < target:\n            lo = mid + 1\n        else:\n            hi = mid",
+          "exact": false,
+          "similarity": 0.8681318681318682,
+          "exactLoose": false
+        },
+        {
+          "sampleId": "11-merge-dicts",
+          "turn": 11,
+          "ok": true,
+          "totalMs": 2345,
+          "firstTextMs": 2329,
+          "usage": {
+            "inputTokens": 11287,
+            "cachedInputTokens": 0,
+            "outputTokens": 15,
+            "reasoningOutputTokens": 0
+          },
+          "output": "result[key] = deep_merge(result[key], value)",
+          "cleaned": "result[key] = deep_merge(result[key], value)",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "12-reverse",
+          "turn": 12,
+          "ok": true,
+          "totalMs": 3106,
+          "firstTextMs": 3105,
+          "usage": {
+            "inputTokens": 11290,
+            "cachedInputTokens": 10112,
+            "outputTokens": 21,
+            "reasoningOutputTokens": 0
+          },
+          "output": "runes[i], runes[j] = runes[j], runes[i]",
+          "cleaned": "runes[i], runes[j] = runes[j], runes[i]",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "13-http-handler",
+          "turn": 13,
+          "ok": true,
+          "totalMs": 3529,
+          "firstTextMs": 3522,
+          "usage": {
+            "inputTokens": 11362,
+            "cachedInputTokens": 10112,
+            "outputTokens": 20,
+            "reasoningOutputTokens": 0
+          },
+          "output": "http.Error(w, \"invalid request body\", http.StatusBadRequest)\n\t\t\treturn",
+          "cleaned": "http.Error(w, \"invalid request body\", http.StatusBadRequest)\n\t\t\treturn",
+          "exact": false,
+          "similarity": 0.9,
+          "exactLoose": false
+        },
+        {
+          "sampleId": "14-stack",
+          "turn": 14,
+          "ok": true,
+          "totalMs": 3298,
+          "firstTextMs": 3290,
+          "usage": {
+            "inputTokens": 11251,
+            "cachedInputTokens": 10112,
+            "outputTokens": 30,
+            "reasoningOutputTokens": 0
+          },
+          "output": "\tv := s.items[len(s.items)-1]\n\ts.items = s.items[:len(s.items)-1]\n\treturn v, nil",
+          "cleaned": "\tv := s.items[len(s.items)-1]\n\ts.items = s.items[:len(s.items)-1]\n\treturn v, nil",
+          "exact": false,
+          "similarity": 0.9058823529411765,
+          "exactLoose": false
+        },
+        {
+          "sampleId": "15-sum-even",
+          "turn": 15,
+          "ok": true,
+          "totalMs": 3873,
+          "firstTextMs": 3870,
+          "usage": {
+            "inputTokens": 11278,
+            "cachedInputTokens": 10112,
+            "outputTokens": 23,
+            "reasoningOutputTokens": 0
+          },
+          "output": "    values.iter().filter(|&&value| value % 2 == 0).sum()\n",
+          "cleaned": "    values.iter().filter(|&&value| value % 2 == 0).sum()\n",
+          "exact": false,
+          "similarity": 0.7321428571428572,
+          "exactLoose": false
+        },
+        {
+          "sampleId": "16-rect",
+          "turn": 16,
+          "ok": true,
+          "totalMs": 3557,
+          "firstTextMs": 3552,
+          "usage": {
+            "inputTokens": 11323,
+            "cachedInputTokens": 10112,
+            "outputTokens": 30,
+            "reasoningOutputTokens": 0
+          },
+          "output": "px >= self.x && px <= self.x + self.width && py >= self.y && py <= self.y + self.height\n",
+          "cleaned": "px >= self.x && px <= self.x + self.width && py >= self.y && py <= self.y + self.height\n",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "17-palindrome",
+          "turn": 17,
+          "ok": true,
+          "totalMs": 3476,
+          "firstTextMs": 3463,
+          "usage": {
+            "inputTokens": 11290,
+            "cachedInputTokens": 10112,
+            "outputTokens": 39,
+            "reasoningOutputTokens": 0
+          },
+          "output": "            if (Character.toLowerCase(s.charAt(left)) != Character.toLowerCase(s.charAt(right))) {\n                return false;\n            }\n            left++;\n            right--;",
+          "cleaned": "            if (Character.toLowerCase(s.charAt(left)) != Character.toLowerCase(s.charAt(right))) {\n                return false;\n            }\n            left++;\n            right--;",
+          "exact": false,
+          "similarity": 0.9344262295081968,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "18-active-users",
+          "turn": 18,
+          "ok": true,
+          "totalMs": 2710,
+          "firstTextMs": 2701,
+          "usage": {
+            "inputTokens": 11268,
+            "cachedInputTokens": 0,
+            "outputTokens": 31,
+            "reasoningOutputTokens": 0
+          },
+          "output": ".filter(User::active)\n                .sorted(Comparator.comparing(User::lastLogin).reversed())\n                .map(User::email)",
+          "cleaned": ".filter(User::active)\n                .sorted(Comparator.comparing(User::lastLogin).reversed())\n                .map(User::email)",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "19-chunk",
+          "turn": 19,
+          "ok": true,
+          "totalMs": 3539,
+          "firstTextMs": 3536,
+          "usage": {
+            "inputTokens": 11299,
+            "cachedInputTokens": 10112,
+            "outputTokens": 14,
+            "reasoningOutputTokens": 0
+          },
+          "output": "chunks.push(items.slice(i, i + size));",
+          "cleaned": "chunks.push(items.slice(i, i + size));",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "20-retry",
+          "turn": 20,
+          "ok": true,
+          "totalMs": 3801,
+          "firstTextMs": 3781,
+          "usage": {
+            "inputTokens": 11316,
+            "cachedInputTokens": 0,
+            "outputTokens": 15,
+            "reasoningOutputTokens": 0
+          },
+          "output": "await sleep(baseDelayMs * 2 ** attempt);",
+          "cleaned": "await sleep(baseDelayMs * 2 ** attempt);",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        }
+      ]
+    },
+    "codex-sol-cold": {
+      "id": "codex-sol-cold",
+      "backend": "Codex CLI",
+      "mode": "cold exec per request",
+      "model": "gpt-6.1-sol",
+      "notes": "effort low, lean profile, --ignore-user-config",
+      "startedAt": "2026-10-26T19:40:52.138Z",
+      "finishedAt": "2026-10-26T19:42:56.862Z",
+      "requests": [
+        {
+          "sampleId": "01-debounce",
+          "turn": 1,
+          "ok": true,
+          "totalMs": 5354,
+          "firstTextMs": 5307,
+          "usage": {
+            "inputTokens": 12093,
+            "cachedInputTokens": 10752,
+            "outputTokens": 69,
+            "reasoningOutputTokens": 17
+          },
+          "output": "timer = setTimeout(() => {\n      timer = undefined;\n      const callArgs = pendingArgs;\n      pendingArgs = undefined;\n      if (callArgs) {\n        fn(...callArgs);\n      }\n    }, waitMs);",
+          "cleaned": "timer = setTimeout(() => {\n      timer = undefined;\n      const callArgs = pendingArgs;\n      pendingArgs = undefined;\n      if (callArgs) {\n        fn(...callArgs);\n      }\n    }, waitMs);",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "02-lru-cache",
+          "turn": 2,
+          "ok": true,
+          "totalMs": 7163,
+          "firstTextMs": 7152,
+          "usage": {
+            "inputTokens": 12042,
+            "cachedInputTokens": 10752,
+            "outputTokens": 62,
+            "reasoningOutputTokens": 27
+          },
+          "output": "const value = this.map.get(key) as V;\n    this.map.delete(key);\n    this.map.set(key, value);\n    return value;",
+          "cleaned": "const value = this.map.get(key) as V;\n    this.map.delete(key);\n    this.map.set(key, value);\n    return value;",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "03-group-by",
+          "turn": 3,
+          "ok": true,
+          "totalMs": 6509,
+          "firstTextMs": 6500,
+          "usage": {
+            "inputTokens": 12041,
+            "cachedInputTokens": 10752,
+            "outputTokens": 98,
+            "reasoningOutputTokens": 40
+          },
+          "output": "if (!Object.prototype.hasOwnProperty.call(groups, key)) {\n        Object.defineProperty(groups, key, {\n          value: [],\n          enumerable: true,\n          configurable: true,\n          writable: true,\n        });\n      }\n      groups[key].push(item);",
+          "cleaned": "if (!Object.prototype.hasOwnProperty.call(groups, key)) {\n        Object.defineProperty(groups, key, {\n          value: [],\n          enumerable: true,\n          configurable: true,\n          writable: true,\n        });\n      }\n      groups[key].push(item);",
+          "exact": false,
+          "similarity": 0.10505836575875482,
+          "exactLoose": false
+        },
+        {
+          "sampleId": "04-fetch-json",
+          "turn": 4,
+          "ok": true,
+          "totalMs": 4402,
+          "firstTextMs": 4398,
+          "usage": {
+            "inputTokens": 12022,
+            "cachedInputTokens": 0,
+            "outputTokens": 17,
+            "reasoningOutputTokens": 0
+          },
+          "output": "throw new HttpError(response.status, response.statusText, url);",
+          "cleaned": "throw new HttpError(response.status, response.statusText, url);",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "05-parse-args",
+          "turn": 5,
+          "ok": true,
+          "totalMs": 7006,
+          "firstTextMs": 6996,
+          "usage": {
+            "inputTokens": 12008,
+            "cachedInputTokens": 10752,
+            "outputTokens": 70,
+            "reasoningOutputTokens": 53
+          },
+          "output": "options.limit = Number(argv[++i]);\n        break;",
+          "cleaned": "options.limit = Number(argv[++i]);\n        break;",
+          "exact": false,
+          "similarity": 0.7205882352941176,
+          "exactLoose": false
+        },
+        {
+          "sampleId": "06-event-emitter",
+          "turn": 6,
+          "ok": true,
+          "totalMs": 5392,
+          "firstTextMs": 5385,
+          "usage": {
+            "inputTokens": 12036,
+            "cachedInputTokens": 10752,
+            "outputTokens": 47,
+            "reasoningOutputTokens": 0
+          },
+          "output": "const set = this.listeners.get(event);\n    if (set) {\n      set.delete(listener as Listener<never>);\n      if (set.size === 0) {\n        this.listeners.delete(event);\n      }\n    }",
+          "cleaned": "const set = this.listeners.get(event);\n    if (set) {\n      set.delete(listener as Listener<never>);\n      if (set.size === 0) {\n        this.listeners.delete(event);\n      }\n    }",
+          "exact": false,
+          "similarity": 0.34444444444444444,
+          "exactLoose": false
+        },
+        {
+          "sampleId": "07-fib-memo",
+          "turn": 7,
+          "ok": true,
+          "totalMs": 4491,
+          "firstTextMs": 4480,
+          "usage": {
+            "inputTokens": 11983,
+            "cachedInputTokens": 0,
+            "outputTokens": 18,
+            "reasoningOutputTokens": 0
+          },
+          "output": "return fibonacci(n - 1) + fibonacci(n - 2)",
+          "cleaned": "return fibonacci(n - 1) + fibonacci(n - 2)",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "08-dataclass-money",
+          "turn": 8,
+          "ok": true,
+          "totalMs": 3729,
+          "firstTextMs": 3679,
+          "usage": {
+            "inputTokens": 12013,
+            "cachedInputTokens": 0,
+            "outputTokens": 15,
+            "reasoningOutputTokens": 0
+          },
+          "output": "return Money(self.amount + other.amount, self.currency)",
+          "cleaned": "return Money(self.amount + other.amount, self.currency)",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "09-read-csv",
+          "turn": 9,
+          "ok": true,
+          "totalMs": 8005,
+          "firstTextMs": 7995,
+          "usage": {
+            "inputTokens": 11978,
+            "cachedInputTokens": 5632,
+            "outputTokens": 109,
+            "reasoningOutputTokens": 87
+          },
+          "output": "if any(value and value.strip() for value in row.values()):\n                yield row",
+          "cleaned": "if any(value and value.strip() for value in row.values()):\n                yield row",
+          "exact": false,
+          "similarity": 0.6296296296296297,
+          "exactLoose": false
+        },
+        {
+          "sampleId": "10-binary-search",
+          "turn": 10,
+          "ok": true,
+          "totalMs": 6250,
+          "firstTextMs": 6249,
+          "usage": {
+            "inputTokens": 11986,
+            "cachedInputTokens": 10752,
+            "outputTokens": 29,
+            "reasoningOutputTokens": 0
+          },
+          "output": "if items[mid] < target:\n            lo = mid + 1\n        else:\n            hi = mid - 1",
+          "cleaned": "if items[mid] < target:\n            lo = mid + 1\n        else:\n            hi = mid - 1",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "11-merge-dicts",
+          "turn": 11,
+          "ok": true,
+          "totalMs": 4626,
+          "firstTextMs": 4616,
+          "usage": {
+            "inputTokens": 11981,
+            "cachedInputTokens": 10752,
+            "outputTokens": 15,
+            "reasoningOutputTokens": 0
+          },
+          "output": "result[key] = deep_merge(result[key], value)",
+          "cleaned": "result[key] = deep_merge(result[key], value)",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "12-reverse",
+          "turn": 12,
+          "ok": true,
+          "totalMs": 4325,
+          "firstTextMs": 4315,
+          "usage": {
+            "inputTokens": 11984,
+            "cachedInputTokens": 0,
+            "outputTokens": 21,
+            "reasoningOutputTokens": 0
+          },
+          "output": "runes[i], runes[j] = runes[j], runes[i]",
+          "cleaned": "runes[i], runes[j] = runes[j], runes[i]",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "13-http-handler",
+          "turn": 13,
+          "ok": true,
+          "totalMs": 5805,
+          "firstTextMs": 5792,
+          "usage": {
+            "inputTokens": 12054,
+            "cachedInputTokens": 10752,
+            "outputTokens": 20,
+            "reasoningOutputTokens": 0
+          },
+          "output": "http.Error(w, \"invalid request body\", http.StatusBadRequest)\n\t\t\treturn",
+          "cleaned": "http.Error(w, \"invalid request body\", http.StatusBadRequest)\n\t\t\treturn",
+          "exact": false,
+          "similarity": 0.9,
+          "exactLoose": false
+        },
+        {
+          "sampleId": "14-stack",
+          "turn": 14,
+          "ok": true,
+          "totalMs": 4528,
+          "firstTextMs": 4486,
+          "usage": {
+            "inputTokens": 11943,
+            "cachedInputTokens": 0,
+            "outputTokens": 52,
+            "reasoningOutputTokens": 11
+          },
+          "output": "i := len(s.items) - 1\n\tv := s.items[i]\n\ts.items[i] = zero\n\ts.items = s.items[:i]\n\treturn v, nil",
+          "cleaned": "i := len(s.items) - 1\n\tv := s.items[i]\n\ts.items[i] = zero\n\ts.items = s.items[:i]\n\treturn v, nil",
+          "exact": false,
+          "similarity": 0.5263157894736843,
+          "exactLoose": false
+        },
+        {
+          "sampleId": "15-sum-even",
+          "turn": 15,
+          "ok": true,
+          "totalMs": 3830,
+          "firstTextMs": 3823,
+          "usage": {
+            "inputTokens": 11968,
+            "cachedInputTokens": 0,
+            "outputTokens": 22,
+            "reasoningOutputTokens": 0
+          },
+          "output": "values.iter().filter(|&&value| value % 2 == 0).sum()",
+          "cleaned": "values.iter().filter(|&&value| value % 2 == 0).sum()",
+          "exact": false,
+          "similarity": 0.7884615384615384,
+          "exactLoose": false
+        },
+        {
+          "sampleId": "16-rect",
+          "turn": 16,
+          "ok": true,
+          "totalMs": 6106,
+          "firstTextMs": 6057,
+          "usage": {
+            "inputTokens": 12015,
+            "cachedInputTokens": 10752,
+            "outputTokens": 61,
+            "reasoningOutputTokens": 24
+          },
+          "output": "px >= self.x\n            && px <= self.x + self.width\n            && py >= self.y\n            && py <= self.y + self.height",
+          "cleaned": "px >= self.x\n            && px <= self.x + self.width\n            && py >= self.y\n            && py <= self.y + self.height",
+          "exact": false,
+          "similarity": 0.7073170731707317,
+          "exactLoose": false
+        },
+        {
+          "sampleId": "17-palindrome",
+          "turn": 17,
+          "ok": true,
+          "totalMs": 4936,
+          "firstTextMs": 4912,
+          "usage": {
+            "inputTokens": 11980,
+            "cachedInputTokens": 10752,
+            "outputTokens": 38,
+            "reasoningOutputTokens": 0
+          },
+          "output": "if (Character.toLowerCase(s.charAt(left)) != Character.toLowerCase(s.charAt(right))) {\n                return false;\n            }\n            left++;\n            right--;",
+          "cleaned": "if (Character.toLowerCase(s.charAt(left)) != Character.toLowerCase(s.charAt(right))) {\n                return false;\n            }\n            left++;\n            right--;",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "18-active-users",
+          "turn": 18,
+          "ok": true,
+          "totalMs": 4685,
+          "firstTextMs": 4679,
+          "usage": {
+            "inputTokens": 11960,
+            "cachedInputTokens": 10752,
+            "outputTokens": 31,
+            "reasoningOutputTokens": 0
+          },
+          "output": ".filter(User::active)\n                .sorted(Comparator.comparing(User::lastLogin).reversed())\n                .map(User::email)",
+          "cleaned": ".filter(User::active)\n                .sorted(Comparator.comparing(User::lastLogin).reversed())\n                .map(User::email)",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "19-chunk",
+          "turn": 19,
+          "ok": true,
+          "totalMs": 4154,
+          "firstTextMs": 4106,
+          "usage": {
+            "inputTokens": 11989,
+            "cachedInputTokens": 10752,
+            "outputTokens": 14,
+            "reasoningOutputTokens": 0
+          },
+          "output": "chunks.push(items.slice(i, i + size));",
+          "cleaned": "chunks.push(items.slice(i, i + size));",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        },
+        {
+          "sampleId": "20-retry",
+          "turn": 20,
+          "ok": true,
+          "totalMs": 3893,
+          "firstTextMs": 3887,
+          "usage": {
+            "inputTokens": 12006,
+            "cachedInputTokens": 10752,
+            "outputTokens": 15,
+            "reasoningOutputTokens": 0
+          },
+          "output": "await sleep(baseDelayMs * 2 ** attempt);",
+          "cleaned": "await sleep(baseDelayMs * 2 ** attempt);",
+          "exact": true,
+          "similarity": 1,
+          "exactLoose": true
+        }
+      ]
+    }
+  },
+  "runs": [
+    {
+      "startedAt": "2026-10-26T19:30:59.242Z",
+      "rows": [
+        "ollama-1.5b",
+        "oai-1.5b",
+        "ollama-30b-raw",
+        "claude-haiku-cold",
+        "claude-haiku-warm",
+        "claude-haiku-session",
+        "claude-sonnet-cold",
+        "claude-opus-cold",
+        "claude-fable-cold",
+        "codex-luna-cold",
+        "codex-sol-cold"
+      ],
+      "processes": {
+        "started": 142,
+        "leaked": 0
+      },
+      "note": "full matrix; the three local rows were superseded by run 2"
+    },
+    {
+      "startedAt": "2026-10-26T19:44:10.124Z",
+      "rows": [
+        "ollama-1.5b",
+        "oai-1.5b",
+        "ollama-30b-raw"
+      ],
+      "processes": {
+        "started": 0,
+        "leaked": 0
+      },
+      "note": "local rows re-run, each from a freshly loaded model (Ollama prompt-cache artifact in run 1)"
+    },
+    {
+      "startedAt": "2026-10-26T20:26:03.858Z",
+      "rows": [
+        "ollama-1.5b",
+        "oai-1.5b",
+        "ollama-30b-raw"
+      ],
+      "processes": {
+        "started": 0,
+        "leaked": 0
+      },
+      "note": "local rows re-run after inspection finding P0-I010 (a completion marker is now required); every row rescored with scoring version 2 (P0-I005)"
+    }
+  ],
+  "scoringVersion": 2
+}

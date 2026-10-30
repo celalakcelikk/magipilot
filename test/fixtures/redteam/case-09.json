@@ -1,0 +1,29 @@
+{
+  "name": "body-r1-4 (over): a literal </attachment> in the user's query extends the redaction over the query",
+  "patterns": [
+    ".env*",
+    "*.pem",
+    "secrets/**"
+  ],
+  "workspaceFiles": {
+    ".env": "API_KEY=SECRET_ENV_VALUE\n",
+    "src/parser.ts": "export const CLOSE = '</attachment>';\n"
+  },
+  "turns": [
+    {
+      "role": "user",
+      "text": "<attachments>\n<attachment id=\".env\">\n// filepath: {{WS}}/.env\nAPI_KEY=SECRET_ENV_VALUE\n</attachment>\n</attachments>\n<prompt>\nKEEP_QUERY_START: my parser stops at the first </attachment> tag; how do I make it find the real end? KEEP_QUERY_END\n</prompt>"
+    }
+  ],
+  "secret": [
+    "SECRET_ENV_VALUE"
+  ],
+  "keep": [
+    "KEEP_QUERY_START",
+    "KEEP_QUERY_END"
+  ],
+  "lost": [
+    "KEEP_QUERY_START"
+  ],
+  "lostBecause": "deviation 1 of the hardening build: the attachment anchor is the last </attachment> of the turn"
+}

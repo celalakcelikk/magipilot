@@ -1,0 +1,36 @@
+{
+  "name": "body-r1-2b: vb / handlebars / abap markers under secrets/** are not recognised either",
+  "patterns": [
+    ".env*",
+    "*.pem",
+    "secrets/**"
+  ],
+  "workspaceFiles": {
+    "secrets/Config.vb": "Const Pw = \"SECRET_VB_PW\"\n",
+    "secrets/mail.hbs": "<p>SECRET_HBS_TOKEN</p>\n",
+    "secrets/zcreds.abap": "DATA pw TYPE string VALUE 'SECRET_ABAP_PW'.\n"
+  },
+  "turns": [
+    {
+      "role": "user",
+      "text": "<attachments>\n<attachment id=\"Config.vb\">\n' filepath: {{WS}}/secrets/Config.vb\nConst Pw = \"SECRET_VB_PW\"\n</attachment>\n</attachments>\n<prompt>\nq1\n</prompt>"
+    },
+    {
+      "role": "assistant",
+      "text": "a1"
+    },
+    {
+      "role": "user",
+      "text": "<attachments>\n<attachment id=\"mail.hbs\">\n{{! filepath: {{WS}}/secrets/mail.hbs }}\n<p>SECRET_HBS_TOKEN</p>\n</attachment>\n<attachment id=\"zcreds.abap\">\n' filepath: {{WS}}/secrets/zcreds.abap\nDATA pw TYPE string VALUE 'SECRET_ABAP_PW'.\n</attachment>\n</attachments>\n<prompt>\nq2\n</prompt>"
+    }
+  ],
+  "secret": [
+    "SECRET_VB_PW",
+    "SECRET_HBS_TOKEN",
+    "SECRET_ABAP_PW"
+  ],
+  "keep": [
+    "q1",
+    "q2"
+  ]
+}

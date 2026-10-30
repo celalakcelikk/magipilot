@@ -1,0 +1,19 @@
+{
+  "name": "diff-r1-3: git color.diff=always (ANSI SGR codes) hides every unified header; excluded file's diff passes",
+  "workspaceFiles": {
+    ".env": "API_KEY=NEW_SECRET\n"
+  },
+  "turns": [
+    {
+      "role": "user",
+      "text": "# REPOSITORY DETAILS:\nRepository name: ws\nBranch name: main\n# ORIGINAL CODE:\n<attachment id=\".env\">\nExcerpt from .env, lines 1 to 1:\n```dotenv\n# filepath: {{WS}}/.env\nAPI_KEY=NEW_SECRET\n```\n</attachment>\n# CODE CHANGES:\n```diff\n\u001b[1mdiff --git a/.env b/.env\u001b[m\n\u001b[1mindex 3333333..4444444 100644\u001b[m\n\u001b[1m--- a/.env\u001b[m\n\u001b[1m+++ b/.env\u001b[m\n\u001b[36m@@ -1 +1 @@\u001b[m\n\u001b[31m-API_KEY=OLD_SECRET\u001b[m\n\u001b[32m+API_KEY=NEW_SECRET\u001b[m\n```\nNow generate a commit messages that describe the CODE CHANGES.\n```text\ncommit message goes here\n```"
+    }
+  ],
+  "secret": [
+    "OLD_SECRET",
+    "NEW_SECRET"
+  ],
+  "keep": [
+    "Now generate a commit messages"
+  ]
+}

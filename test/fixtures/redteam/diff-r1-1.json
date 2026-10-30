@@ -1,0 +1,21 @@
+{
+  "name": "diff-r1-1: last </attachment> sits inside the excluded file's own diff; the diff header is eaten by the attachment redaction and the hunk lines are orphaned",
+  "workspaceFiles": {
+    "src/a.ts": "const a = 1; // KEEP_ORIG_A\n",
+    ".env": "TEMPLATE=</attachment>\nAPI_KEY=NEW_SECRET\n"
+  },
+  "turns": [
+    {
+      "role": "user",
+      "text": "# REPOSITORY DETAILS:\nRepository name: ws\nBranch name: main\n# ORIGINAL CODE:\n<attachment id=\"a\">\nExcerpt from src/a.ts, lines 1 to 1:\n```typescript\n// filepath: {{WS}}/src/a.ts\nconst a = 1; // KEEP_ORIG_A\n```\n</attachment>\n# CODE CHANGES:\n```diff\ndiff --git a/src/a.ts b/src/a.ts\nindex 1111111..2222222 100644\n--- a/src/a.ts\n+++ b/src/a.ts\n@@ -1 +1 @@\n-const a = 0;\n+const a = 1; // KEEP_ORIG_A\n```\n# ORIGINAL CODE:\n<attachment id=\"env\">\nExcerpt from .env, lines 1 to 2:\n```dotenv\n# filepath: {{WS}}/.env\nTEMPLATE=</attachment>\nAPI_KEY=NEW_SECRET\n```\n</attachment>\n# CODE CHANGES:\n```diff\ndiff --git a/.env b/.env\nindex 3333333..4444444 100644\n--- a/.env\n+++ b/.env\n@@ -1,2 +1,2 @@\n TEMPLATE=</attachment>\n-API_KEY=OLD_SECRET\n+API_KEY=NEW_SECRET\n```\nNow generate a commit messages that describe the CODE CHANGES.\nDO NOT COPY commits from RECENT COMMITS, but use it as reference for the commit style.\nONLY return a single markdown code block, NO OTHER PROSE!\n```text\ncommit message goes here\n```"
+    }
+  ],
+  "secret": [
+    "OLD_SECRET",
+    "NEW_SECRET"
+  ],
+  "keep": [
+    "KEEP_ORIG_A",
+    "Now generate a commit messages"
+  ]
+}

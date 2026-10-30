@@ -1,0 +1,24 @@
+{
+  "name": "tags-r1-1: .env<CR> (CRLF script artefact) - id JSON-escaped by Copilot Tag element, marker contains raw CR",
+  "workspaceFiles": {
+    "src/a.ts": "x",
+    ".env\r": "API_KEY=SECRET_CR"
+  },
+  "turns": [
+    {
+      "role": "user",
+      "text": "<attachments>\n<attachment id=\"a.ts\">\n// filepath: {{WS}}/src/a.ts\nKEEP_A\n</attachment>\n<attachment id=\".env\\r\">\n// filepath: {{WS}}/.env\r\nAPI_KEY=SECRET_CR\n</attachment>\n</attachments>\n<prompt>\nexplain\n</prompt>"
+    }
+  ],
+  "secret": [
+    "SECRET_CR"
+  ],
+  "keep": [
+    "KEEP_A",
+    "explain"
+  ],
+  "platforms": [
+    "darwin",
+    "linux"
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "name": "channels-r1-3: model switch; an earlier assistant turn (other model) quotes the excluded file in a filepath-tagged code block",
+  "patterns": [
+    ".env*",
+    "*.pem",
+    "secrets/**"
+  ],
+  "workspaceFiles": {
+    ".env": "API_KEY=sk-live-SECRET_CH3\n"
+  },
+  "turns": [
+    {
+      "role": "system",
+      "text": "You are an AI programming assistant."
+    },
+    {
+      "role": "user",
+      "text": "<attachment id=\".env\">\n# filepath: {{WS}}/.env\nAPI_KEY=sk-live-SECRET_CH3\n</attachment>"
+    },
+    {
+      "role": "user",
+      "text": "rename API_KEY to STRIPE_KEY"
+    },
+    {
+      "role": "assistant",
+      "text": "Here is the updated file:\n\n````properties\n# filepath: {{WS}}/.env\nSTRIPE_KEY=sk-live-SECRET_CH3\n````\n\nKEEP_ASSISTANT_PROSE"
+    },
+    {
+      "role": "user",
+      "text": "<prompt>\nnow update the code that reads it\n</prompt>"
+    }
+  ],
+  "secret": [
+    "SECRET_CH3"
+  ],
+  "keep": [
+    "KEEP_ASSISTANT_PROSE",
+    "now update the code that reads it"
+  ]
+}

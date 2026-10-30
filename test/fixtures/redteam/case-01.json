@@ -1,0 +1,25 @@
+{
+  "name": "01 NFC pattern, NFD path",
+  "patterns": [
+    ".env*",
+    "*.pem",
+    "secrets/**",
+    "şifreler/**"
+  ],
+  "workspaceFiles": {
+    "src/a.ts": "x",
+    "şifreler/banka.txt": "SECRET_NFD"
+  },
+  "turns": [
+    {
+      "role": "user",
+      "text": "<attachment id=\"banka.txt\">\n// filepath: {{WS}}/şifreler/banka.txt\nSECRET_NFD\n</attachment>\n<prompt>explain</prompt>"
+    }
+  ],
+  "secret": [
+    "SECRET_NFD"
+  ],
+  "keep": [
+    "explain"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "name": "over-r1-3: a stale filepath comment at the top of a kept file (pasted from a Copilot answer) excludes it and the next attachment",
+  "workspaceFiles": {
+    "src/util.ts": "x",
+    "src/b.ts": "x"
+  },
+  "turns": [
+    {
+      "role": "user",
+      "text": "<attachments>\n<attachment id=\"util.ts\">\n// filepath: {{WS}}/src/util.ts\n// filepath: /home/alice/projects/shop/src/utils/format.ts\nexport function formatPrice(cents: number) {\n  return `KEEP_UTIL ${(cents / 100).toFixed(2)}`;\n}\n</attachment>\n<attachment id=\"b.ts\">\n// filepath: {{WS}}/src/b.ts\nexport const KEEP_B = 1;\n</attachment>\n</attachments>\n<prompt>\nWhy does formatPrice round wrong? KEEP_PROMPT\n</prompt>"
+    }
+  ],
+  "secret": [],
+  "keep": [
+    "KEEP_UTIL",
+    "KEEP_B",
+    "KEEP_PROMPT"
+  ],
+  "lost": [
+    "KEEP_UTIL",
+    "KEEP_B"
+  ],
+  "lostBecause": "P2-I011: an absolute path that names no file counts as excluded"
+}

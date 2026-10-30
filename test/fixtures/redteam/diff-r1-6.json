@@ -1,0 +1,19 @@
+{
+  "name": "diff-r1-6: a diff with CRLF line endings pasted into chat: every header line ends in \\r, DIFF_GIT and DIFF_FILE never match, the section has no path and is kept",
+  "workspaceFiles": {
+    ".env": "API_KEY=NEW_SECRET\r\n"
+  },
+  "turns": [
+    {
+      "role": "user",
+      "text": "Write a commit message for this:\r\n```diff\r\ndiff --git a/.env b/.env\r\nindex 3333333..4444444 100644\r\n--- a/.env\r\n+++ b/.env\r\n@@ -1 +1 @@\r\n-API_KEY=OLD_SECRET\r\n+API_KEY=NEW_SECRET\r\n```\r\nKEEP_QUESTION"
+    }
+  ],
+  "secret": [
+    "OLD_SECRET",
+    "NEW_SECRET"
+  ],
+  "keep": [
+    "KEEP_QUESTION"
+  ]
+}

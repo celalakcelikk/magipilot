@@ -1,0 +1,26 @@
+{
+  "name": "body-r1-1: binary attachment (Copilot Yoe hex dump) under secrets/** carries only id=<basename>",
+  "patterns": [
+    ".env*",
+    "*.pem",
+    "secrets/**"
+  ],
+  "workspaceFiles": {
+    "src/app.ts": "export const x = 1;\n",
+    "secrets/prod.p12": "0\u0000\u0001SECRET_P12_MARK!\u0000pass=hunter2\u0000"
+  },
+  "turns": [
+    {
+      "role": "user",
+      "text": "<attachments>\n<attachment id=\"prod.p12\" startByte=0 endByte=49 totalSize=49 truncated=true>\n00000000  30 82 04 a2 02 01 03 30  82 04 5c 06 09 00 00 01  |0......0..\\.....|\n00000010  53 45 43 52 45 54 5f 50  31 32 5f 4d 41 52 4b 21  |SECRET_P12_MARK!|\n00000020  00 01 02 03 70 61 73 73  3d 68 75 6e 74 65 72 32  |....pass=hunter2|\n00000030  00                                                |.|\n</attachment>\n</attachments>\n<prompt>\nWhat kind of file is this?\n</prompt>"
+    }
+  ],
+  "secret": [
+    "SECRET_P12_MARK!",
+    "pass=hunter2",
+    "53 45 43 52 45 54 5f 50"
+  ],
+  "keep": [
+    "What kind of file is this?"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "name": "tags-r1-6: secrets/deploy.cmd - Copilot writes the marker as 'REM filepath:' for languageId bat; id is only the basename",
+  "workspaceFiles": {
+    "src/a.ts": "x",
+    "secrets/deploy.cmd": "set DB_PASSWORD=SECRET_REM"
+  },
+  "turns": [
+    {
+      "role": "user",
+      "text": "<attachments>\n<attachment id=\"a.ts\">\n// filepath: {{WS}}/src/a.ts\nKEEP_A\n</attachment>\n<attachment id=\"deploy.cmd\">\nREM filepath: {{WS}}/secrets/deploy.cmd\nset DB_PASSWORD=SECRET_REM\n</attachment>\n</attachments>\n<prompt>\nexplain\n</prompt>"
+    }
+  ],
+  "secret": [
+    "SECRET_REM"
+  ],
+  "keep": [
+    "KEEP_A",
+    "explain"
+  ]
+}

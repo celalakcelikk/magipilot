@@ -1,0 +1,21 @@
+{
+  "name": "diff-r1-5: U+2028 in a file name (git core.quotePath=false, or Copilot's synthetic untracked patch): '.' in DIFF_GIT/DIFF_FILE cannot match it, so the section has no path and is kept",
+  "workspaceFiles": {
+    "src/a.ts": "const a = 1;\n",
+    "key .pem": "PRIVATE_KEY_NEW\n"
+  },
+  "turns": [
+    {
+      "role": "user",
+      "text": "# REPOSITORY DETAILS:\nRepository name: ws\nBranch name: main\n# ORIGINAL CODE:\n<attachment id=\"a.ts\">\nExcerpt from src/a.ts, lines 1 to 1:\n```typescript\n// filepath: {{WS}}/src/a.ts\nconst a = 1;\n```\n</attachment>\n# CODE CHANGES:\n```diff\ndiff --git a/src/a.ts b/src/a.ts\nindex 1111111..2222222 100644\n--- a/src/a.ts\n+++ b/src/a.ts\n@@ -1 +1 @@\n-const a = 0;\n+const a = 1; // KEEP_A\n```\n# ORIGINAL CODE:\n<attachment id=\"key%E2%80%A8.pem\">\nExcerpt from key .pem, lines 1 to 1:\n```plaintext\n// filepath: {{WS}}/key .pem\nPRIVATE_KEY_NEW\n```\n</attachment>\n# CODE CHANGES:\n```diff\ndiff --git a/key .pem b/key .pem\nindex 3333333..4444444 100644\n--- a/key .pem\n+++ b/key .pem\n@@ -1 +1 @@\n-PRIVATE_KEY_OLD\n+PRIVATE_KEY_NEW\n```\nNow generate a commit messages that describe the CODE CHANGES.\n```text\ncommit message goes here\n```"
+    }
+  ],
+  "secret": [
+    "PRIVATE_KEY_OLD",
+    "PRIVATE_KEY_NEW"
+  ],
+  "keep": [
+    "KEEP_A",
+    "Now generate a commit messages"
+  ]
+}

@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    # Only the public repository runs CI; a private copy spends no minutes.
+    if: github.repository == 'celalakcelikk/magipilot'
+    # Lint, types, unit tests and packaging on Linux: fast and always available. This is the
+    # required check; it does not claim that the extension is supported on Linux.
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm test
+      - name: Package and check the .vsix
+        run: npm run package && npm run package:check
+
+  integration:
+    if: github.repository == 'celalakcelikk/magipilot'
+    # The integration tests are proven on macOS. macOS runners can queue for a long time, so this
+    # job is not a required check.
+    runs-on: macos-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Integration tests (VS Code stable, fake CLI)
+        run: npm run test:integration

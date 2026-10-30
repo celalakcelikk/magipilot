@@ -1,0 +1,23 @@
+{
+  "name": "tags-r1-4 (over): kept file with one double quote in its name; Copilot writes id=\"12\\\" vinyl.txt\", the tag no longer parses and counts as unreadable",
+  "workspaceFiles": {
+    "notes/12\" vinyl.txt": "x",
+    "src/b.ts": "y"
+  },
+  "turns": [
+    {
+      "role": "user",
+      "text": "<attachments>\n<attachment id=\"12\\\" vinyl.txt\">\n// filepath: {{WS}}/notes/12\" vinyl.txt\nKEEP_VINYL\n</attachment>\n<attachment id=\"b.ts\">\n// filepath: {{WS}}/src/b.ts\nKEEP_B\n</attachment>\n</attachments>\n<prompt>\nKEEP_QUERY summarise both files\n</prompt>"
+    }
+  ],
+  "secret": [],
+  "keep": [
+    "KEEP_VINYL",
+    "KEEP_B",
+    "KEEP_QUERY"
+  ],
+  "platforms": [
+    "darwin",
+    "linux"
+  ]
+}

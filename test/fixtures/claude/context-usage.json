@@ -1,0 +1,91 @@
+{
+  "type": "control_response",
+  "response": {
+    "subtype": "success",
+    "request_id": "magipilot-window",
+    "response": {
+      "categories": [
+        {
+          "id": "system_prompt",
+          "name": "System prompt",
+          "tokens": 1573,
+          "color": "promptBorder",
+          "kind": "used"
+        },
+        {
+          "id": "messages",
+          "name": "Messages",
+          "tokens": 10,
+          "color": "purple_FOR_SUBAGENTS_ONLY",
+          "kind": "used"
+        },
+        {
+          "id": "autocompact_buffer",
+          "name": "Autocompact buffer",
+          "tokens": 33000,
+          "color": "inactive",
+          "kind": "buffer"
+        },
+        {
+          "id": "free_space",
+          "name": "Free space",
+          "tokens": 965417,
+          "color": "promptBorder",
+          "kind": "free"
+        }
+      ],
+      "totalTokens": 1583,
+      "maxTokens": 1000000,
+      "rawMaxTokens": 1000000,
+      "autocompactSource": "model-default",
+      "percentage": 0,
+      "gridRows": [
+        [
+          {
+            "color": "promptBorder",
+            "isFilled": true,
+            "categoryName": "System prompt",
+            "tokens": 1573,
+            "percentage": 0,
+            "squareFullness": 0.3146
+          },
+          {
+            "color": "purple_FOR_SUBAGENTS_ONLY",
+            "isFilled": true,
+            "categoryName": "Messages",
+            "tokens": 10,
+            "percentage": 0,
+            "squareFullness": 0.002
+          },
+          {
+            "color": "promptBorder",
+            "isFilled": true,
+            "categoryName": "Free space",
+            "tokens": 965417,
+            "percentage": 97,
+            "squareFullness": 1
+          }
+        ]
+      ],
+      "model": "claude-sonnet-5-5",
+      "memoryFiles": [],
+      "mcpTools": [],
+      "mcpInstructions": [],
+      "agents": [],
+      "autoCompactThreshold": 967000,
+      "isAutoCompactEnabled": true,
+      "messageBreakdown": {
+        "toolCallTokens": 0,
+        "toolResultTokens": 0,
+        "attachmentTokens": 0,
+        "assistantMessageTokens": 0,
+        "userMessageTokens": 0,
+        "redirectedContextTokens": 0,
+        "unattributedTokens": 10,
+        "toolCallsByType": [],
+        "attachmentsByType": []
+      },
+      "apiUsage": null
+    }
+  }
+}

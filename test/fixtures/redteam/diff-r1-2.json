@@ -1,0 +1,21 @@
+{
+  "name": "diff-r1-2: git diff.external (difftastic) output in CODE CHANGES has no unified header; excluded file's diff passes",
+  "workspaceFiles": {
+    "src/a.ts": "const a = 1;\n",
+    ".env": "API_KEY=NEW_SECRET\n"
+  },
+  "turns": [
+    {
+      "role": "user",
+      "text": "# REPOSITORY DETAILS:\nRepository name: ws\nBranch name: main\n# ORIGINAL CODE:\n<attachment id=\"a.ts\">\nExcerpt from src/a.ts, lines 1 to 1:\n```typescript\n// filepath: {{WS}}/src/a.ts\nconst a = 1;\n```\n</attachment>\n# CODE CHANGES:\n```diff\nsrc/a.ts --- TypeScript\n1 const a = 0;                            1 const a = 1; // KEEP_A\n```\n# ORIGINAL CODE:\n<attachment id=\".env\">\nExcerpt from .env, lines 1 to 1:\n```dotenv\n# filepath: {{WS}}/.env\nAPI_KEY=NEW_SECRET\n```\n</attachment>\n# CODE CHANGES:\n```diff\n.env --- Text\n1 API_KEY=OLD_SECRET                      1 API_KEY=NEW_SECRET\n```\nNow generate a commit messages that describe the CODE CHANGES.\nDO NOT COPY commits from RECENT COMMITS, but use it as reference for the commit style.\nONLY return a single markdown code block, NO OTHER PROSE!\n```text\ncommit message goes here\n```"
+    }
+  ],
+  "secret": [
+    "OLD_SECRET",
+    "NEW_SECRET"
+  ],
+  "keep": [
+    "KEEP_A",
+    "Now generate a commit messages"
+  ]
+}

@@ -1,0 +1,5 @@
+{"type":"thread.started","thread_id":"01a183e7-0344-7b10-9450-ca4328ceb784"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"I’ll read `README.md` first, then summarize what it says."}}
+{"type":"item.completed","item":{"id":"item_1","type":"agent_message","text":"{\"message\":\"\",\"tool_calls\":[{\"name\":\"read_file\",\"arguments\":\"{\\\"path\\\":\\\"README.md\\\"}\"}]}"}}
+{"type":"turn.completed","usage":{"input_tokens":22850,"cached_input_tokens":10112,"cache_write_input_tokens":0,"output_tokens":121,"reasoning_output_tokens":38}}

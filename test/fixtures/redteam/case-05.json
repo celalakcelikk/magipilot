@@ -1,0 +1,24 @@
+{
+  "name": "path-r1-6: gitignore-style directory pattern 'private/' (trailing slash) matches no file",
+  "patterns": [
+    ".env*",
+    "*.pem",
+    "private/"
+  ],
+  "workspaceFiles": {
+    "src/a.ts": "x",
+    "private/token.txt": "SECRET_DIR"
+  },
+  "turns": [
+    {
+      "role": "user",
+      "text": "<attachment id=\"token.txt\">\n// filepath: {{WS}}/private/token.txt\nSECRET_DIR\n</attachment>\n<prompt>explain</prompt>"
+    }
+  ],
+  "secret": [
+    "SECRET_DIR"
+  ],
+  "keep": [
+    "explain"
+  ]
+}

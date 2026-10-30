@@ -1,0 +1,27 @@
+{
+  "name": "diff-r1-4: diff.mnemonicPrefix (c/ i/) in a nested repository; prefixes are not stripped, so repo-root joining misses the pattern",
+  "patterns": [
+    "packages/service/private/**"
+  ],
+  "repoRoots": [
+    "packages/service"
+  ],
+  "workspaceFiles": {
+    "packages/service/src/app.ts": "export const x = 1;\n",
+    "packages/service/private/key.txt": "TOKEN=NEW_SECRET\n"
+  },
+  "turns": [
+    {
+      "role": "user",
+      "text": "# REPOSITORY DETAILS:\nRepository name: service\nBranch name: main\n# ORIGINAL CODE:\n<attachment id=\"app.ts\">\nExcerpt from src/app.ts, lines 1 to 1:\n```typescript\n// filepath: {{WS}}/packages/service/src/app.ts\nexport const x = 1;\n```\n</attachment>\n# CODE CHANGES:\n```diff\ndiff --git c/src/app.ts i/src/app.ts\nindex 1111111..2222222 100644\n--- c/src/app.ts\n+++ i/src/app.ts\n@@ -1 +1 @@\n-export const x = 0;\n+export const x = 1; // KEEP_APP\n```\n# ORIGINAL CODE:\n<attachment id=\"key.txt\">\nExcerpt from private/key.txt, lines 1 to 1:\n```plaintext\n// filepath: {{WS}}/packages/service/private/key.txt\nTOKEN=NEW_SECRET\n```\n</attachment>\n# CODE CHANGES:\n```diff\ndiff --git c/private/key.txt i/private/key.txt\nindex 3333333..4444444 100644\n--- c/private/key.txt\n+++ i/private/key.txt\n@@ -1 +1 @@\n-TOKEN=OLD_SECRET\n+TOKEN=NEW_SECRET\n```\nNow generate a commit messages that describe the CODE CHANGES.\n```text\ncommit message goes here\n```"
+    }
+  ],
+  "secret": [
+    "OLD_SECRET",
+    "NEW_SECRET"
+  ],
+  "keep": [
+    "KEEP_APP",
+    "Now generate a commit messages"
+  ]
+}

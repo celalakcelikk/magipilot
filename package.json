@@ -1,0 +1,467 @@
+{
+  "name": "magipilot",
+  "displayName": "Magipilot",
+  "description": "Inline code completions from local models (Ollama, llama.cpp, LM Studio) or your Claude Code and Codex CLIs, and those CLIs as chat models in Copilot Chat.",
+  "version": "0.1.0",
+  "publisher": "celalakcelikk",
+  "author": {
+    "name": "Celal Akçelik",
+    "url": "https://github.com/celalakcelikk"
+  },
+  "private": true,
+  "license": "MIT",
+  "icon": "media/icon.png",
+  "preview": true,
+  "galleryBanner": {
+    "color": "#14213D",
+    "theme": "dark"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/celalakcelikk/magipilot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/celalakcelikk/magipilot/issues"
+  },
+  "homepage": "https://github.com/celalakcelikk/magipilot#readme",
+  "engines": {
+    "vscode": "^1.140.0",
+    "node": "^22.13.0 || ^24.0.0 || >=26.0.0"
+  },
+  "categories": [
+    "AI",
+    "Chat"
+  ],
+  "keywords": [
+    "inline completion",
+    "autocomplete",
+    "fill-in-the-middle",
+    "ollama",
+    "llama.cpp",
+    "local model",
+    "language model",
+    "ai",
+    "llm",
+    "code completion",
+    "ghost text",
+    "lm studio",
+    "claude code",
+    "codex",
+    "chat models",
+    "privacy"
+  ],
+  "main": "./dist/extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": "limited",
+      "description": "In untrusted workspaces the Claude and Codex CLI backends are disabled; only local backends can be used.",
+      "restrictedConfigurations": [
+        "magipilot.claude.path",
+        "magipilot.codex.path",
+        "magipilot.ollama.url",
+        "magipilot.openaiCompat.url"
+      ]
+    },
+    "virtualWorkspaces": false
+  },
+  "contributes": {
+    "languageModelChatProviders": [
+      {
+        "vendor": "magipilot",
+        "displayName": "Claude (CLI)"
+      },
+      {
+        "vendor": "magipilot-codex",
+        "displayName": "Codex (CLI)"
+      }
+    ],
+    "commands": [
+      {
+        "command": "magipilot.toggleInline",
+        "title": "Toggle Inline Completion",
+        "category": "Magipilot"
+      },
+      {
+        "command": "magipilot.triggerInline",
+        "title": "Trigger Inline Completion",
+        "category": "Magipilot"
+      },
+      {
+        "command": "magipilot.useForCommitMessages",
+        "title": "Use for Commit Messages",
+        "category": "Magipilot"
+      },
+      {
+        "command": "magipilot.showLog",
+        "title": "Show Log",
+        "category": "Magipilot"
+      },
+      {
+        "command": "magipilot.showStats",
+        "title": "Show Stats",
+        "category": "Magipilot"
+      },
+      {
+        "command": "magipilot.resetStats",
+        "title": "Reset Stats",
+        "category": "Magipilot"
+      },
+      {
+        "command": "magipilot.spike.showProbeLog",
+        "title": "Show Probe Log",
+        "category": "Magipilot"
+      }
+    ],
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "magipilot.spike.showProbeLog",
+          "when": "false"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "magipilot.triggerInline",
+        "key": "alt+\\",
+        "when": "editorTextFocus && !editorReadonly"
+      }
+    ],
+    "configuration": {
+      "title": "Magipilot",
+      "properties": {
+        "magipilot.inline.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show inline completions (ghost text)."
+        },
+        "magipilot.inline.backend": {
+          "type": "string",
+          "enum": [
+            "ollama",
+            "openai-compat",
+            "claude-cli",
+            "codex-cli"
+          ],
+          "default": "ollama",
+          "description": "Backend for inline completions: a local FIM server (Ollama, OpenAI-compatible) or a CLI (Claude Code, Codex)."
+        },
+        "magipilot.inline.fallbackBackend": {
+          "type": "string",
+          "enum": [
+            "none",
+            "ollama",
+            "openai-compat",
+            "claude-cli",
+            "codex-cli"
+          ],
+          "default": "none",
+          "description": "Backend used when the primary backend is refused or not available."
+        },
+        "magipilot.inline.mode": {
+          "type": "string",
+          "enum": [
+            "auto",
+            "manual"
+          ],
+          "enumDescriptions": [
+            "Suggest while typing (after the debounce).",
+            "Suggest only on Alt+\\ (Magipilot: Trigger Inline Completion)."
+          ],
+          "default": "auto",
+          "description": "When inline completions are requested."
+        },
+        "magipilot.inline.debounceMs": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "default": null,
+          "minimum": 0,
+          "description": "Delay after typing before a request. `null` = per backend: 700 ms for CLI backends, 250 ms for local backends."
+        },
+        "magipilot.inline.maxPrefixChars": {
+          "type": "number",
+          "default": 3000,
+          "minimum": 0,
+          "description": "Characters before the cursor sent as context."
+        },
+        "magipilot.inline.maxSuffixChars": {
+          "type": "number",
+          "default": 1000,
+          "minimum": 0,
+          "description": "Characters after the cursor sent as context."
+        },
+        "magipilot.inline.maxLines": {
+          "type": "number",
+          "default": 8,
+          "minimum": 1,
+          "description": "Maximum lines of one suggestion."
+        },
+        "magipilot.inline.maxFileSizeKb": {
+          "type": "number",
+          "default": 1024,
+          "minimum": 1,
+          "description": "No completion is requested in files larger than this."
+        },
+        "magipilot.inline.importSignatures": {
+          "type": "boolean",
+          "default": true,
+          "description": "Add the signatures of locally imported files (TypeScript, JavaScript, Python) to the completion prompt. Files are read only from the document's workspace folder; files matching `magipilot.exclude` are never read. Used by the CLI backends, Ollama with `fim: raw` and the OpenAI-compatible `infill` and `qwen` modes."
+        },
+        "magipilot.exclude": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            ".env*",
+            "*.pem",
+            "secrets/**"
+          ],
+          "markdownDescription": "Glob patterns of files that never enter a prompt, neither as the edited file nor as a snippet. In Copilot Chat, the content of a matching file is removed before it reaches the CLI. A pattern without `/` matches the file name in any folder (`.env*`); a pattern with `/` matches the workspace-relative path (`secrets/**`); a pattern ending in `/` matches the whole folder (`private/`). Supports `*`, `**`, `?` and `{a,b}`. On macOS and Windows, matching ignores letter case."
+        },
+        "magipilot.disabledLanguages": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "plaintext",
+            "markdown"
+          ],
+          "description": "Language IDs without inline completions."
+        },
+        "magipilot.claude.path": {
+          "type": "string",
+          "default": "claude",
+          "scope": "machine",
+          "description": "Claude Code CLI executable."
+        },
+        "magipilot.claude.inlineModel": {
+          "type": "string",
+          "default": "haiku",
+          "description": "Claude model for inline completions (`--model`)."
+        },
+        "magipilot.claude.effort": {
+          "type": "string",
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ],
+          "default": "low",
+          "description": "Claude `--effort` for inline completions (values from `claude --help`)."
+        },
+        "magipilot.claude.warmPoolSize": {
+          "type": "number",
+          "default": 1,
+          "minimum": 0,
+          "maximum": 4,
+          "description": "Claude CLI processes started ahead of time for inline completions (each is used once). 0 = start a process per request."
+        },
+        "magipilot.claude.disableNonessentialTraffic": {
+          "type": "boolean",
+          "default": true,
+          "description": "Run the Claude CLI with CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1."
+        },
+        "magipilot.codex.path": {
+          "type": "string",
+          "default": "codex",
+          "scope": "machine",
+          "description": "Codex CLI executable."
+        },
+        "magipilot.codex.inlineModel": {
+          "type": "string",
+          "default": "gpt-6-luna",
+          "description": "Codex model for inline completions (`-m`)."
+        },
+        "magipilot.codex.effort": {
+          "type": "string",
+          "enum": [
+            "low"
+          ],
+          "default": "low",
+          "markdownDescription": "Codex `model_reasoning_effort` for inline completions. Only `low` is verified with the installed Codex CLI so far."
+        },
+        "magipilot.chat.claude.models": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "markdownDescription": "Claude Code CLI model ids or aliases shown in Copilot Chat's model picker as **Claude (CLI)**, e.g. `[\"sonnet\", \"haiku\"]`. Empty = no Claude chat models. Ask mode, unless `#magipilot.chat.toolCalling#` is on."
+        },
+        "magipilot.chat.contextWindowLimit": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "default": null,
+          "minimum": 64000,
+          "maximum": 2000000,
+          "scope": "application",
+          "markdownDescription": "Largest context window (tokens) Magipilot offers Copilot Chat for any Claude (CLI) or Codex (CLI) model. Empty = each model's full window (up to 1M for the newest Claude models). Copilot Chat fills the window before it trims or summarizes older turns, and every turn sends that much to the CLI: a lower limit saves time and quota. From 64000 to 2000000. User setting only."
+        },
+        "magipilot.chat.codex.maxContextWindow": {
+          "type": "boolean",
+          "default": false,
+          "scope": "application",
+          "markdownDescription": "Give the Codex (CLI) models their largest window from Codex's model catalog (872K tokens for the current models) instead of Codex's default (272K, or 500K). Passes `model_context_window` to Codex. Larger conversations use more of your Codex quota. User setting only."
+        },
+        "magipilot.chat.discoverModels": {
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "Show the chat models that the installed Claude Code and Codex CLIs report (asked when the models are first needed, again after 10 minutes or a settings change; no model call). `#magipilot.chat.claude.models#` and `#magipilot.chat.codex.models#` are then added to them. Off: only those two lists."
+        },
+        "magipilot.chat.codex.models": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "markdownDescription": "Codex CLI model ids shown in Copilot Chat's model picker as **Codex (CLI)**, e.g. `[\"gpt-6.1-sol\"]`. Empty = no Codex chat models. Ask mode, unless `#magipilot.chat.toolCalling#` is on."
+        },
+        "magipilot.chat.toolCalling": {
+          "type": "boolean",
+          "default": false,
+          "scope": "application",
+          "markdownDescription": "Let the Claude (CLI) models request Copilot Chat's tools, so they work in agent mode and inline chat (Ctrl+I). The Codex (CLI) models do not offer it yet: they did not call tools in agent mode when measured. The CLIs still run without tools of their own: they answer with structured output, and **Copilot Chat runs the tools with its own confirmations**. Every agent step is a separate CLI call with Copilot's instructions and tool list, so it costs more time and quota than Ask mode. Results of tools that read files matched by `#magipilot.exclude#` are not sent. User setting only."
+        },
+        "magipilot.ollama.url": {
+          "type": "string",
+          "default": "http://localhost:11434",
+          "scope": "machine",
+          "markdownDescription": "Ollama server URL (http/https, no query or credentials). Machine-wide only: a workspace cannot redirect completions — and your code — to another host."
+        },
+        "magipilot.ollama.model": {
+          "type": "string",
+          "default": "qwen2.5-coder:1.5b",
+          "description": "Ollama model for inline completions (must be installed: `ollama pull …`)."
+        },
+        "magipilot.ollama.fim": {
+          "type": "string",
+          "enum": [
+            "suffix",
+            "raw"
+          ],
+          "enumDescriptions": [
+            "Send prefix and suffix; the model's own template builds the FIM prompt (needs the model's `insert` capability).",
+            "Send a raw prompt built from `magipilot.ollama.template` (for models without the `insert` capability)."
+          ],
+          "default": "suffix",
+          "description": "How the fill-in-the-middle prompt is built."
+        },
+        "magipilot.ollama.template": {
+          "type": "string",
+          "enum": [
+            "qwen",
+            "deepseek-coder",
+            "codestral",
+            "starcoder",
+            "custom"
+          ],
+          "default": "qwen",
+          "markdownDescription": "FIM token layout for `magipilot.ollama.fim: raw`. `custom` uses `magipilot.openaiCompat.customTemplate`."
+        },
+        "magipilot.openaiCompat.url": {
+          "type": "string",
+          "default": "http://localhost:8080",
+          "scope": "machine",
+          "markdownDescription": "OpenAI-compatible server URL (llama.cpp `llama-server`, LM Studio, …). Machine-wide only, like `magipilot.ollama.url`."
+        },
+        "magipilot.openaiCompat.model": {
+          "type": "string",
+          "default": "",
+          "description": "Model id sent to the server; empty = the server's loaded model (availability then only checks that the server answers)."
+        },
+        "magipilot.openaiCompat.fimTemplate": {
+          "type": "string",
+          "enum": [
+            "server",
+            "infill",
+            "qwen",
+            "deepseek-coder",
+            "codestral",
+            "starcoder",
+            "custom"
+          ],
+          "enumDescriptions": [
+            "/v1/completions with `suffix` (the server builds the FIM prompt).",
+            "llama-server /infill (also sends similar code from open tabs).",
+            "/v1/completions with a Qwen FIM prompt.",
+            "/v1/completions with a DeepSeek-Coder FIM prompt.",
+            "/v1/completions with a Codestral FIM prompt.",
+            "/v1/completions with a StarCoder FIM prompt.",
+            "/v1/completions with `magipilot.openaiCompat.customTemplate`."
+          ],
+          "default": "server",
+          "description": "How the fill-in-the-middle request is sent."
+        },
+        "magipilot.openaiCompat.customTemplate": {
+          "type": "string",
+          "default": "",
+          "markdownDescription": "Custom FIM template with `{prefix}` and `{suffix}` (optionally `{filePath}`), used when a template is set to `custom`."
+        },
+        "magipilot.openaiCompat.customStop": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "description": "Stop strings for the custom FIM template."
+        },
+        "magipilot.log.debugContent": {
+          "type": "boolean",
+          "default": false,
+          "description": "Also write completion text to the Magipilot output (debugging only). Off: only meta information is logged."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "build": "node esbuild.mjs",
+    "vscode:prepublish": "node esbuild.mjs --production",
+    "package": "vsce package --no-dependencies",
+    "package:check": "node scripts/check-vsix.mjs",
+    "watch": "node esbuild.mjs --watch",
+    "typecheck": "tsc --noEmit -p .",
+    "lint": "eslint . && prettier --check .",
+    "format": "prettier --write .",
+    "test": "vitest run",
+    "test:integration": "node esbuild.mjs --tests && vscode-test",
+    "bench": "tsx scripts/bench.ts",
+    "bench:report": "tsx scripts/bench/report.ts",
+    "bench:rescore": "tsx scripts/bench/rescore.ts",
+    "bench:typing": "tsx scripts/bench-typing.ts",
+    "bench:tools": "tsx scripts/bench-tools.ts",
+    "cli:verify": "tsx scripts/cli-verify.ts",
+    "probe:chat": "node esbuild.mjs --tests && node scripts/probe-chat.mjs",
+    "smoke:processes": "node esbuild.mjs --tests && node scripts/smoke-processes.mjs && node scripts/smoke-processes.mjs --crash",
+    "smoke:chat": "node esbuild.mjs --tests && node scripts/smoke-chat.mjs",
+    "smoke:vsix": "node esbuild.mjs --tests && node scripts/smoke-vsix.mjs",
+    "smoke:agent": "node esbuild.mjs --tests && node scripts/smoke-agent.mjs",
+    "smoke:sizes": "node esbuild.mjs --tests && node scripts/smoke-sizes.mjs"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^22.20.5",
+    "@types/vscode": "~1.140.0",
+    "@vscode/test-cli": "^0.0.15",
+    "@vscode/test-electron": "^3.1.0",
+    "@vscode/vsce": "^4.0.0",
+    "esbuild": "^0.28.2",
+    "eslint": "^10.13.0",
+    "prettier": "^3.9.10",
+    "tsx": "^4.23.15",
+    "typescript": "~6.0.3",
+    "typescript-eslint": "^8.72.1",
+    "vitest": "^5.0.5"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "name": "over-r1-7: a file renamed after an earlier turn turns that turn's replayed attachments into excluded content",
+  "workspaceFiles": {
+    "src/money.ts": "x",
+    "src/b.ts": "x"
+  },
+  "turns": [
+    {
+      "role": "user",
+      "text": "<attachments>\n<attachment id=\"formatPrice.ts\">\n// filepath: {{WS}}/src/formatPrice.ts\nexport function formatPrice(cents: number) { return 'KEEP_OLD_FILE'; }\n</attachment>\n<attachment id=\"b.ts\">\n// filepath: {{WS}}/src/b.ts\nexport const KEEP_B = 1;\n</attachment>\n</attachments>\n<prompt>\nShould formatPrice.ts be called money.ts? KEEP_Q1\n</prompt>"
+    },
+    {
+      "role": "assistant",
+      "text": "Yes: rename it to `src/money.ts` and update the import in `b.ts`."
+    },
+    {
+      "role": "user",
+      "text": "<prompt>\nDone. How do I unit-test formatPrice now? KEEP_Q2\n</prompt>"
+    }
+  ],
+  "secret": [],
+  "keep": [
+    "KEEP_OLD_FILE",
+    "KEEP_B",
+    "KEEP_Q1",
+    "KEEP_Q2"
+  ],
+  "lost": [
+    "KEEP_OLD_FILE",
+    "KEEP_B"
+  ],
+  "lostBecause": "P2-I011: an absolute path that names no file counts as excluded"
+}

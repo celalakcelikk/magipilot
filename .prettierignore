@@ -1,0 +1,14 @@
+dist/
+out/
+.vscode-test/
+.bench/
+.omc/
+node_modules/
+package-lock.json
+docs/cli-help/
+test/fixtures/
+PLAN.md
+AGENTS.md
+CLAUDE.md
+docs/plans/
+.claude/

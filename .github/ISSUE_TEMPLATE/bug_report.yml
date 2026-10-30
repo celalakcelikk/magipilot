@@ -1,0 +1,58 @@
+name: Bug report
+description: Something does not work as described.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting! Please do **not** paste secrets, tokens or private code. For a security problem, use the repository's **Security › Report a vulnerability** instead.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What did you do, what did you expect, and what happened instead?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. …
+        2. …
+    validations:
+      required: true
+  - type: dropdown
+    id: feature
+    attributes:
+      label: Feature
+      options:
+        - Inline completions
+        - Chat models in Copilot Chat
+        - Agent mode / tool calling
+        - Commit messages
+        - Settings or commands
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: versions
+    attributes:
+      label: Versions
+      description: Magipilot, VS Code, Copilot Chat, and the CLI or server you use (`claude --version`, `codex --version`, `ollama --version`).
+      placeholder: Magipilot 0.1.0, VS Code 1.144.0, Copilot Chat 0.71.0, Claude Code 2.1.312
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: Operating system
+      placeholder: macOS 15.5
+    validations:
+      required: true
+  - type: textarea
+    id: log
+    attributes:
+      label: Log
+      description: 'Run **Magipilot: Show Log** and paste the relevant lines. The log contains no prompt content unless `magipilot.log.debugContent` is on.'
+      render: text

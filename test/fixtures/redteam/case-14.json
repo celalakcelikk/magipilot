@@ -1,0 +1,24 @@
+{
+  "name": "tags-r1-7: secrets/api_token<CR> (written by a CRLF shell script) - marker with a raw CR is dropped, id is only the basename",
+  "workspaceFiles": {
+    "src/a.ts": "x",
+    "secrets/api_token\r": "ghp_SECRET_CR_DIR"
+  },
+  "turns": [
+    {
+      "role": "user",
+      "text": "<attachments>\n<attachment id=\"a.ts\">\n// filepath: {{WS}}/src/a.ts\nKEEP_A\n</attachment>\n<attachment id=\"api_token\\r\">\n// filepath: {{WS}}/secrets/api_token\r\nghp_SECRET_CR_DIR\n</attachment>\n</attachments>\n<prompt>\nexplain\n</prompt>"
+    }
+  ],
+  "secret": [
+    "SECRET_CR_DIR"
+  ],
+  "keep": [
+    "KEEP_A",
+    "explain"
+  ],
+  "platforms": [
+    "darwin",
+    "linux"
+  ]
+}

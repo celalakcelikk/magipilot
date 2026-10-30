@@ -1,0 +1,24 @@
+{
+  "name": "tags-r1-5 (over): a kept file whose content quotes an attachment tag (e.g. test/unit/chatMessages.test.ts) starts a fake excluded block",
+  "workspaceFiles": {
+    "test/unit/chatMessages.test.ts": "x",
+    "src/b.ts": "y"
+  },
+  "turns": [
+    {
+      "role": "user",
+      "text": "<attachments>\n<attachment id=\"chatMessages.test.ts\">\n// filepath: {{WS}}/test/unit/chatMessages.test.ts\nimport { describe } from 'vitest';\nconst text = [\n  '<attachment id=\".env\">',\n  'SECRET',\n].join('\\n');\nKEEP_TEST_TAIL\n</attachment>\n<attachment id=\"b.ts\">\n// filepath: {{WS}}/src/b.ts\nKEEP_B\n</attachment>\n</attachments>\n<prompt>\nKEEP_QUERY why does this test fail?\n</prompt>"
+    }
+  ],
+  "secret": [],
+  "keep": [
+    "KEEP_TEST_TAIL",
+    "KEEP_B",
+    "KEEP_QUERY"
+  ],
+  "lost": [
+    "KEEP_TEST_TAIL",
+    "KEEP_B"
+  ],
+  "lostBecause": "H9: an attachment-like text inside a kept file starts a removal"
+}

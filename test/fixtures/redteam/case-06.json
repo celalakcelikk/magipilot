@@ -1,0 +1,25 @@
+{
+  "name": "body-r1-3: notebook cell output -- excluded notebook detected, but its <notebook-cell-output> sibling after the last </attachment> survives",
+  "patterns": [
+    ".env*",
+    "*.pem",
+    "secrets/**"
+  ],
+  "workspaceFiles": {
+    "src/app.ts": "export const x = 1;\n",
+    "secrets/analysis.ipynb": "{\"cells\": []}"
+  },
+  "turns": [
+    {
+      "role": "user",
+      "text": "<attachments>\n<attachment id=\"analysis.ipynb\">\nExcerpt from analysis.ipynb, lines 1 to 3:\n```python\n# filepath: {{WS}}/secrets/analysis.ipynb\n#%% vscode.cell [id=#VSC-1] [language=python]\nimport os\nprint(os.environ['API_TOKEN'])  # NB_SOURCE_SECRET\n```\n</attachment>\n<attachment>\nUser's active file for additional context:\n# filepath: {{WS}}/secrets/analysis.ipynb\n#%% vscode.cell [id=#VSC-1] [language=python]\nimport os\nprint(os.environ['API_TOKEN'])  # NB_SOURCE_SECRET\n</attachment>\n\n<notebook-cell-output mimeType=\"text/plain\" outputIndex=0 cellIndex=0 notebookPath=\"{{WS}}/secrets/analysis.ipynb\">\ntok_SECRET_NB_OUTPUT_9f3a\n</notebook-cell-output>\n</attachments>\n<prompt>\nWhy is this token printed?\n</prompt>"
+    }
+  ],
+  "secret": [
+    "NB_SOURCE_SECRET",
+    "tok_SECRET_NB_OUTPUT_9f3a"
+  ],
+  "keep": [
+    "Why is this token printed?"
+  ]
+}

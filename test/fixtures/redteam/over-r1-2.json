@@ -1,0 +1,23 @@
+{
+  "name": "over-r1-2: a tag mentioned in the typed question cuts the rest of the question",
+  "workspaceFiles": {
+    "src/parser.ts": "x"
+  },
+  "turns": [
+    {
+      "role": "user",
+      "text": "<attachments>\n<attachment id=\"parser.ts\">\n// filepath: {{WS}}/src/parser.ts\nexport function parse(text: string) { return 'KEEP_PARSER'; }\n</attachment>\n</attachments>\n<prompt>\nMy parser breaks when the input contains <attachment filePath=\"/tmp/demo/a.ts\"> inside a string. KEEP_QUESTION How should I detect the real tags?\n</prompt>"
+    }
+  ],
+  "secret": [],
+  "keep": [
+    "KEEP_PARSER",
+    "KEEP_QUESTION",
+    "How should I detect"
+  ],
+  "lost": [
+    "KEEP_QUESTION",
+    "How should I detect"
+  ],
+  "lostBecause": "P2-I011: an absolute path that names no file counts as excluded"
+}

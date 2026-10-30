@@ -1,0 +1,30 @@
+{
+  "name": "over-r1-5: commit message with a staged .env.example first loses the original code and diffs of every later file",
+  "workspaceFiles": {
+    ".env.example": "API_URL=http://localhost:3000\nDEBUG=false\n",
+    "src/cache.ts": "x",
+    "src/server.ts": "x"
+  },
+  "turns": [
+    {
+      "role": "user",
+      "text": "<repository-context>\n# REPOSITORY DETAILS:\nRepository name: shop\nBranch name: main\n\n</repository-context>\n<changes>\n<original-code>\n# ORIGINAL CODE:\n<attachment id=\".env.example\">\n# filepath: {{WS}}/.env.example\n1: API_URL=http://localhost:3000\n2: DEBUG=false\n\n</attachment>\n\n</original-code>\n<code-changes>\n# CODE CHANGES:\n```diff\ndiff --git a/.env.example b/.env.example\nindex 1111111..2222222 100644\n--- a/.env.example\n+++ b/.env.example\n@@ -1,2 +1,3 @@\n API_URL=http://localhost:3000\n DEBUG=false\n+CACHE_TTL=60\n```\n\n</code-changes>\n<original-code>\n# ORIGINAL CODE:\n<attachment id=\"cache.ts\">\n// filepath: {{WS}}/src/cache.ts\n1: export const ttl = 30;\n2: export const KEEP_CACHE_ORIG = true;\n\n</attachment>\n\n</original-code>\n<code-changes>\n# CODE CHANGES:\n```diff\ndiff --git a/src/cache.ts b/src/cache.ts\nindex 3333333..4444444 100644\n--- a/src/cache.ts\n+++ b/src/cache.ts\n@@ -1 +1 @@\n-export const ttl = 30;\n+export const ttl = Number(process.env.CACHE_TTL); // KEEP_CACHE_DIFF\n```\n\n</code-changes>\n<original-code>\n# ORIGINAL CODE:\n<attachment id=\"server.ts\">\n// filepath: {{WS}}/src/server.ts\n1: import { ttl } from './cache';\n2: export const KEEP_SERVER_ORIG = ttl;\n\n</attachment>\n\n</original-code>\n<code-changes>\n# CODE CHANGES:\n```diff\ndiff --git a/src/server.ts b/src/server.ts\nindex 5555555..6666666 100644\n--- a/src/server.ts\n+++ b/src/server.ts\n@@ -1,2 +1,3 @@\n import { ttl } from './cache';\n export const KEEP_SERVER_ORIG = ttl;\n+export const KEEP_SERVER_DIFF = ttl * 2;\n```\n\n</code-changes>\n\n</changes>\n<reminder>\nNow generate a commit messages that describe the CODE CHANGES.\nDO NOT COPY commits from RECENT COMMITS, but use it as reference for the commit style.\nONLY return a single markdown code block, NO OTHER PROSE!\n```text\ncommit message goes here\n```\n\n</reminder>"
+    }
+  ],
+  "secret": [
+    "CACHE_TTL=60\n",
+    "DEBUG=false"
+  ],
+  "keep": [
+    "KEEP_CACHE_ORIG",
+    "KEEP_CACHE_DIFF",
+    "KEEP_SERVER_ORIG",
+    "KEEP_SERVER_DIFF",
+    "Now generate a commit"
+  ],
+  "lost": [
+    "KEEP_CACHE_ORIG",
+    "KEEP_CACHE_DIFF"
+  ],
+  "lostBecause": "H2 cost: content after an excluded file is removed up to the last </attachment>"
+}

@@ -1,0 +1,36 @@
+{
+  "name": "over-r1-6: README-recommended CLAUDE.md exclusion drops the project's AGENTS.md from the system instructions",
+  "patterns": [
+    ".env*",
+    "*.pem",
+    "secrets/**",
+    "CLAUDE.md"
+  ],
+  "workspaceFiles": {
+    "home/.claude/CLAUDE.md": "x",
+    "home/proj/.github/copilot-instructions.md": "x",
+    "home/proj/AGENTS.md": "x"
+  },
+  "turns": [
+    {
+      "role": "system",
+      "text": "You are an expert AI programming assistant, working with a user in the VS Code editor.\nWhen generating code, please follow these user provided coding instructions. You can ignore an instruction if it contradicts a system message.\n<instructions>\n<attachment filePath=\"{{WS}}/home/proj/.github/copilot-instructions.md\">\nKEEP_COPILOT_INSTRUCTIONS: prefer small functions.\n\n</attachment>\n<attachment filePath=\"{{WS}}/home/.claude/CLAUDE.md\">\n# Personal setup\nPRIVATE_CLAUDE_NOTE: my token cache lives in ~/.cache\n\n</attachment>\n<attachment filePath=\"{{WS}}/home/proj/AGENTS.md\">\n# AGENTS.md\nKEEP_AGENTS_RULES: TypeScript strict, Conventional Commits.\n\n</attachment>\n\n</instructions>"
+    },
+    {
+      "role": "user",
+      "text": "<prompt>\nWrite a commit message style guide. KEEP_PROMPT\n</prompt>"
+    }
+  ],
+  "secret": [
+    "PRIVATE_CLAUDE_NOTE"
+  ],
+  "keep": [
+    "KEEP_COPILOT_INSTRUCTIONS",
+    "KEEP_AGENTS_RULES",
+    "KEEP_PROMPT"
+  ],
+  "lost": [
+    "KEEP_AGENTS_RULES"
+  ],
+  "lostBecause": "H2 cost: instruction files after an excluded one are removed up to the last </attachment>"
+}

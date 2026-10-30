@@ -1,0 +1,62 @@
+[
+  {
+    "value": "default",
+    "displayName": "Default (recommended)",
+    "description": "Opus 5.5 \u00b7 Best for everyday, complex tasks",
+    "supportedEffortLevels": [
+      "low",
+      "medium",
+      "high",
+      "xhigh",
+      "max"
+    ]
+  },
+  {
+    "value": "opus",
+    "displayName": "Opus",
+    "description": "Opus 5.5 \u00b7 Best for everyday, complex tasks",
+    "supportedEffortLevels": [
+      "low",
+      "medium",
+      "high",
+      "xhigh",
+      "max"
+    ]
+  },
+  {
+    "value": "claude-fable-5-1[1m]",
+    "displayName": "Fable",
+    "description": "Fable 5.1 \u00b7 Most capable for your hardest and longest-running tasks",
+    "supportedEffortLevels": [
+      "low",
+      "medium",
+      "high",
+      "xhigh",
+      "max"
+    ]
+  },
+  {
+    "value": "sonnet",
+    "displayName": "Sonnet",
+    "description": "Sonnet 5.5 \u00b7 Efficient for routine tasks",
+    "supportedEffortLevels": [
+      "low",
+      "medium",
+      "high",
+      "xhigh",
+      "max"
+    ]
+  },
+  {
+    "value": "haiku",
+    "displayName": "Haiku",
+    "description": "Haiku 5.5 \u00b7 Fastest for quick answers",
+    "supportedEffortLevels": [
+      "low",
+      "medium",
+      "high",
+      "xhigh",
+      "max"
+    ]
+  }
+]

@@ -1,0 +1,23 @@
+{
+  "name": "tags-r1-3: newline in a parent dir name; the cut marker path names an existing sibling dir, so the existence rule passes",
+  "workspaceFiles": {
+    "proj/README.md": "readme",
+    "proj\nold/secrets/key.txt": "TOKEN=SECRET_EXIST"
+  },
+  "turns": [
+    {
+      "role": "user",
+      "text": "<attachments>\n<attachment id=\"key.txt\">\n// filepath: {{WS}}/proj\nold/secrets/key.txt\nTOKEN=SECRET_EXIST\n</attachment>\n</attachments>\n<prompt>\nexplain\n</prompt>"
+    }
+  ],
+  "secret": [
+    "SECRET_EXIST"
+  ],
+  "keep": [
+    "explain"
+  ],
+  "platforms": [
+    "darwin",
+    "linux"
+  ]
+}

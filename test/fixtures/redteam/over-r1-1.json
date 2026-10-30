@@ -1,0 +1,24 @@
+{
+  "name": "over-r1-1: kept test file with an inline quoted attachment fixture removes its own tail and the next attachment",
+  "workspaceFiles": {
+    "test/parser.test.ts": "x",
+    "src/b.ts": "x"
+  },
+  "turns": [
+    {
+      "role": "user",
+      "text": "<attachments>\n<attachment id=\"parser.test.ts\">\n// filepath: {{WS}}/test/parser.test.ts\nimport { redact } from '../src/parser';\n\nit('strips excluded attachments', () => {\n  const input = '<attachment id=\".env\">\\nAPI_KEY=x\\n</attachment>';\n  expect(redact(input)).not.toContain('API_KEY');\n});\n\nit('KEEP_TEST_TAIL keeps normal files', () => {\n  expect(redact('plain')).toBe('plain');\n});\n</attachment>\n<attachment id=\"b.ts\">\n// filepath: {{WS}}/src/b.ts\nexport const KEEP_B = 1;\n</attachment>\n</attachments>\n<prompt>\nAdd a test for nested tags. KEEP_PROMPT\n</prompt>"
+    }
+  ],
+  "secret": [],
+  "keep": [
+    "KEEP_TEST_TAIL",
+    "KEEP_B",
+    "KEEP_PROMPT"
+  ],
+  "lost": [
+    "KEEP_TEST_TAIL",
+    "KEEP_B"
+  ],
+  "lostBecause": "H9: an attachment-like text inside a kept file starts a removal"
+}
