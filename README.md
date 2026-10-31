@@ -33,7 +33,7 @@
 1. **Inline completions** (ghost text) as you type, from a local fill-in-the-middle model (Ollama, llama.cpp, LM Studio) or from the Claude Code and Codex CLIs. No GitHub account needed.
 2. **Chat models for Copilot Chat.** Your Claude Code and Codex CLI subscriptions appear in Copilot Chat's model picker as **Claude (CLI)** and **Codex (CLI)**. Use them in Ask mode and for commit messages, and, if you opt in, in agent mode and inline chat. Magipilot has no chat UI of its own: it works inside Copilot Chat.
 
-> **Preview.** Magipilot 0.1 is tested on macOS with VS Code 1.144. Install it from [GitHub Releases](https://github.com/celalakcelikk/magipilot/releases) for now; the Marketplace and Open VSX listings will follow.
+> **Preview.** Magipilot 0.1 is tested on macOS with VS Code 1.144. Install it from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=celalakcelikk.magipilot) or [GitHub Releases](https://github.com/celalakcelikk/magipilot/releases); it is not on Open VSX yet.
 
 ## Features
 
@@ -46,6 +46,8 @@
 ### Claude Code and Codex in Copilot Chat
 
 **The subscriptions you already pay for, in the chat you already use.** Magipilot asks the installed CLIs which models they offer, so **Opus**, **Sonnet**, **Haiku** and the Codex models show up in the model picker with nothing to configure. Answers come from the unmodified CLI, started without tools of its own in an empty temporary folder; in Ask mode, Claude's answers stream in as they are written. Effort levels and context sizes are in the model picker too.
+
+> **Your plan's terms apply.** Magipilot runs the CLIs with the sign-in you gave them, a subscription or an API key; it never reads your credentials and does not resell usage. Anthropic says its subscription plans assume ordinary, individual use and asks developers of products built on Claude to use API keys ([Claude Code legal and compliance](https://code.claude.com/docs/en/legal-and-compliance)); OpenAI recommends API keys for automated Codex workflows ([Codex authentication](https://developers.openai.com/codex/auth)). Check your plan's terms, which can change, before you use the CLI backends. The local backends need no account.
 
 ### Commit messages from your own model
 
@@ -80,16 +82,17 @@
 
 - **VS Code 1.140 or newer.** It is tested on macOS with VS Code 1.144 and Copilot Chat 0.71.
 - **Inline completions with a local model:** [Ollama](https://ollama.com) (the default) or an OpenAI-compatible server such as llama.cpp's `llama-server` or LM Studio.
-- **The CLI backends:** the [Claude Code](https://docs.anthropic.com/en/docs/claude-code) CLI and/or the Codex CLI, installed and logged in. Magipilot only starts them; it never reads their login or token files.
+- **The CLI backends:** the [Claude Code](https://docs.anthropic.com/en/docs/claude-code) CLI and/or the Codex CLI, installed and logged in with a subscription or an API key. Magipilot only starts them; it never reads their login or token files. Your plan's terms apply; see [the note](#claude-code-and-codex-in-copilot-chat).
 - **Chat models:** the Copilot Chat extension. It worked without a GitHub sign-in in our tests; see [Known issues](#known-issues).
 - **Where the CLI backends are off:** on Windows and in untrusted workspaces. There, only local backends are used.
 
 ## Installation
 
+- **From the Visual Studio Marketplace:** search for **Magipilot** in the Extensions view, or run `code --install-extension celalakcelikk.magipilot` in a terminal.
 - **From GitHub Releases:**
   1. Download `magipilot-<version>.vsix` from the [latest release](https://github.com/celalakcelikk/magipilot/releases/latest).
-  2. In the Extensions view, open the `…` menu and choose **Install from VSIX…**, or run `code --install-extension magipilot-0.1.0.vsix` in a terminal.
-- **Marketplace and Open VSX:** coming soon.
+  2. In the Extensions view, open the `…` menu and choose **Install from VSIX…**, or run `code --install-extension magipilot-<version>.vsix` in a terminal.
+- **Open VSX** (VSCodium and other editors): not yet.
 
 To remove it, choose **Uninstall** in the Extensions view.
 
@@ -390,7 +393,7 @@ The limit and context-window messages of both CLIs were taken from the installed
 ## FAQ
 
 **Does Magipilot need an API key?**
-No. The CLI backends use the subscriptions you are logged in with in Claude Code and Codex, and the local backends need no account at all.
+No. The CLI backends use the sign-in you gave Claude Code and Codex, a subscription or an API key, and the local backends need no account at all. Your plan's terms apply; see [the note](#claude-code-and-codex-in-copilot-chat).
 
 **Does Magipilot send my code anywhere?**
 Only to the backend you choose:

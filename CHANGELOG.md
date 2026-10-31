@@ -4,6 +4,14 @@ All notable changes to Magipilot are listed here. The format follows [Keep a Cha
 
 ## [Unreleased]
 
+## [0.1.1] - on the Visual Studio Marketplace
+
+### Documentation
+
+- Magipilot is on the Visual Studio Marketplace: search for **Magipilot** in the Extensions view.
+- A note in the README that your Claude or ChatGPT plan's terms apply when you use the CLI backends, with links to Anthropic's and OpenAI's guidance.
+- The author's name is spelled Celal Akcelik.
+
 ## [0.1.0] - first public release
 
 ### Inline completions
@@ -38,5 +46,6 @@ All notable changes to Magipilot are listed here. The format follows [Keep a Cha
 - Clear notifications when a CLI is missing, not logged in, at its usage limit, or past its context window.
 - **Magipilot: Show Stats** and **Magipilot: Reset Stats**: local statistics, kept in memory only.
 
-[Unreleased]: https://github.com/celalakcelikk/magipilot/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/celalakcelikk/magipilot/compare/v0.1.1...HEAD
+[0.1.1]: https://github.com/celalakcelikk/magipilot/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/celalakcelikk/magipilot/releases/tag/v0.1.0
