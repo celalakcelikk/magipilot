@@ -431,7 +431,7 @@ If Magipilot helps you, a star on [GitHub](https://github.com/celalakcelikk/magi
 
 ## License
 
-[MIT](LICENSE) © 2026 Celal Akçelik
+[MIT](LICENSE) © 2026 Celal Akcelik
 
 ---
 
