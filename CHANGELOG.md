@@ -4,6 +4,12 @@ All notable changes to Magipilot are listed here. The format follows [Keep a Cha
 
 ## [Unreleased]
 
+## [0.1.2] - author links
+
+### Documentation
+
+- The README's Author section links to the author's LinkedIn profile.
+
 ## [0.1.1] - on the Visual Studio Marketplace
 
 ### Documentation
@@ -46,6 +52,7 @@ All notable changes to Magipilot are listed here. The format follows [Keep a Cha
 - Clear notifications when a CLI is missing, not logged in, at its usage limit, or past its context window.
 - **Magipilot: Show Stats** and **Magipilot: Reset Stats**: local statistics, kept in memory only.
 
-[Unreleased]: https://github.com/celalakcelikk/magipilot/compare/v0.1.1...HEAD
+[Unreleased]: https://github.com/celalakcelikk/magipilot/compare/v0.1.2...HEAD
+[0.1.2]: https://github.com/celalakcelikk/magipilot/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/celalakcelikk/magipilot/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/celalakcelikk/magipilot/releases/tag/v0.1.0

@@ -428,7 +428,7 @@ To report a vulnerability, see [SECURITY.md](SECURITY.md); please do not open a 
 
 ## Author
 
-Magipilot is created and maintained by **Celal Akcelik** ([@celalakcelikk](https://github.com/celalakcelikk)).
+Magipilot is created and maintained by **Celal Akcelik** ([LinkedIn](https://www.linkedin.com/in/celalakcelik/), GitHub [@celalakcelikk](https://github.com/celalakcelikk)).
 
 If Magipilot helps you, a star on [GitHub](https://github.com/celalakcelikk/magipilot) is appreciated.
 

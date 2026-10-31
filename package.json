@@ -2,7 +2,7 @@
   "name": "magipilot",
   "displayName": "Magipilot",
   "description": "Inline code completions from local models (Ollama, llama.cpp, LM Studio) or your Claude Code and Codex CLIs, and those CLIs as chat models in Copilot Chat.",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "publisher": "celalakcelikk",
   "author": {
     "name": "Celal Akcelik",
