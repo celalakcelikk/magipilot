@@ -52,6 +52,8 @@ export interface TestApi {
   metrics: Metrics;
   /** The host-death guard (D13); started with the first CLI process. */
   watchdogPid(): number | undefined;
+  /** Every process group the CLI registry has started (smoke ownership, phase-5-linux D7). */
+  startedGroups(): number[];
   statusState(): InlineState;
   /** Meta-only records of chat requests (no content). */
   chatRecords(): readonly ChatRecord[];
@@ -706,6 +708,7 @@ export function activate(context: vscode.ExtensionContext): TestApi | undefined 
     provider,
     metrics,
     watchdogPid: () => processes?.watchdogPid,
+    startedGroups: () => processes?.startedGroups() ?? [],
     statusState: () => status.state,
     chatRecords: () => chatProvider.records,
     chatInFlight: () => chatProvider.inFlight,

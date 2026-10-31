@@ -28,6 +28,18 @@ const PNG_SIGNATURE = Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0
 const unzip = (...args) =>
   execFileSync('unzip', [...args], { encoding: 'utf8', maxBuffer: 16 * 1024 * 1024 });
 
+// Some Linux images ship without `unzip` (phase-5-linux D4): say so instead of a stack trace.
+try {
+  execFileSync('unzip', ['-v'], { stdio: 'ignore' });
+} catch (err) {
+  if (err.code === 'ENOENT') {
+    console.error(
+      'package:check needs the `unzip` program; install it first (Debian/Ubuntu: sudo apt-get install unzip).',
+    );
+    process.exit(1);
+  }
+}
+
 /**
  * Why `png` is not a whole, decodable icon PNG, or undefined when it is (Codex inspections
  * LOGO-001–003). The accepted form is the one media/icon.png is exported in, and nothing else:

@@ -17,7 +17,7 @@ jobs:
     # Only the public repository runs CI; a private copy spends no minutes.
     if: github.repository == 'celalakcelikk/magipilot'
     # Lint, types, unit tests and packaging on Linux: fast and always available. This is the
-    # required check; it does not claim that the extension is supported on Linux.
+    # required check.
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -48,3 +48,21 @@ jobs:
       - run: npm ci
       - name: Integration tests (VS Code stable, fake CLI)
         run: npm run test:integration
+
+  integration-linux:
+    if: github.repository == 'celalakcelikk/magipilot'
+    # Linux support: the integration tests and the process clean-up smoke inside VS Code stable,
+    # under Xvfb. Not a required check, like the macOS job.
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Integration tests (VS Code stable, fake CLI)
+        run: xvfb-run -a npm run test:integration
+      - name: No process outlives VS Code (fake CLI, normal and crash)
+        run: xvfb-run -a npm run smoke:processes

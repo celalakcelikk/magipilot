@@ -13,7 +13,7 @@
   <a href="https://github.com/celalakcelikk/magipilot/releases"><img src="https://img.shields.io/github/v/release/celalakcelikk/magipilot?include_prereleases&sort=semver" alt="Latest release"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License: MIT"></a>
   <img src="https://img.shields.io/badge/VS%20Code-1.140%2B-0098FF" alt="VS Code 1.140 or newer">
-  <img src="https://img.shields.io/badge/platform-macOS-lightgrey" alt="Platform: macOS">
+  <img src="https://img.shields.io/badge/platform-macOS%20%7C%20Linux-lightgrey" alt="Platform: macOS, Linux">
   <a href="https://github.com/celalakcelikk/magipilot/stargazers"><img src="https://img.shields.io/github/stars/celalakcelikk/magipilot?style=social" alt="GitHub stars"></a>
 </p>
 
@@ -33,7 +33,7 @@
 1. **Inline completions** (ghost text) as you type, from a local fill-in-the-middle model (Ollama, llama.cpp, LM Studio) or from the Claude Code and Codex CLIs. No GitHub account needed.
 2. **Chat models for Copilot Chat.** Your Claude Code and Codex CLI subscriptions appear in Copilot Chat's model picker as **Claude (CLI)** and **Codex (CLI)**. Use them in Ask mode and for commit messages, and, if you opt in, in agent mode and inline chat. Magipilot has no chat UI of its own: it works inside Copilot Chat.
 
-> **Preview.** Magipilot 0.1 is tested on macOS with VS Code 1.144. Install it from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=celalakcelikk.magipilot) or [GitHub Releases](https://github.com/celalakcelikk/magipilot/releases); it is not on Open VSX yet.
+> **Preview.** Magipilot 0.2 is tested on macOS and Linux (Ubuntu 24.04) with VS Code 1.144. Install it from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=celalakcelikk.magipilot) or [GitHub Releases](https://github.com/celalakcelikk/magipilot/releases); it is not on Open VSX yet.
 
 ## Features
 
@@ -80,11 +80,17 @@
 
 ## Requirements
 
-- **VS Code 1.140 or newer.** It is tested on macOS with VS Code 1.144 and Copilot Chat 0.71.
+- **VS Code 1.140 or newer.** It is tested with VS Code 1.144:
+  - on macOS, with Copilot Chat 0.71;
+  - on Linux (Ubuntu 24.04), with Ollama and the Claude Code CLI. There, the chat models were tested through VS Code's language model API, not in the Copilot Chat window.
 - **Inline completions with a local model:** [Ollama](https://ollama.com) (the default) or an OpenAI-compatible server such as llama.cpp's `llama-server` or LM Studio.
 - **The CLI backends:** the [Claude Code](https://docs.anthropic.com/en/docs/claude-code) CLI and/or the Codex CLI, installed and logged in with a subscription or an API key. Magipilot only starts them; it never reads their login or token files. Your plan's terms apply; see [the note](#claude-code-and-codex-in-copilot-chat).
 - **Chat models:** the Copilot Chat extension. It worked without a GitHub sign-in in our tests; see [Known issues](#known-issues).
 - **Where the CLI backends are off:** on Windows and in untrusted workspaces. There, only local backends are used.
+- **On Linux:**
+  - The CLIs must be on the `PATH` that VS Code sees. Otherwise, set `magipilot.claude.path` and `magipilot.codex.path`.
+  - The Codex CLI backend is not tested on Linux yet. Magipilot finds its models there, but no Codex request has been run on Linux.
+  - The Flatpak build of VS Code is not tested. Its sandbox hides programs installed outside it.
 
 ## Installation
 
@@ -359,7 +365,7 @@ The limit and context-window messages of both CLIs were taken from the installed
 <details>
 <summary>How excluded files are kept out of chat, and the limits</summary>
 
-- **Excluded files.** Files that match `magipilot.exclude` never go into an inline completion prompt. The default is `.env*`, `*.pem` and `secrets/**`. A pattern ending in `/` means the whole folder, as in `.gitignore`. On macOS and Windows matching ignores letter case, and accented names match in any Unicode form. In chat, two filters run before the CLI sees a request:
+- **Excluded files.** Files that match `magipilot.exclude` never go into an inline completion prompt. The default is `.env*`, `*.pem` and `secrets/**`. A pattern ending in `/` means the whole folder, as in `.gitignore`. On macOS and Windows matching ignores letter case (on Linux it does not, like Linux file systems), and accented names match in any Unicode form. In chat, two filters run before the CLI sees a request:
   - **The prompt filter** looks for file paths wherever Copilot Chat puts them:
     - attachments and their `filepath:` lines, in every comment style;
     - excerpts and tool results such as `#codebase` and `#problems`;

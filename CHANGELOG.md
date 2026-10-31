@@ -4,6 +4,18 @@ All notable changes to Magipilot are listed here. The format follows [Keep a Cha
 
 ## [Unreleased]
 
+## [0.2.0] - Linux support
+
+### Linux
+
+- Magipilot is tested on Linux (Ubuntu 24.04). The tests covered:
+  - inline completions from Ollama and the Claude Code CLI;
+  - the Claude (CLI) chat models, through VS Code's language model API;
+  - process clean-up when VS Code closes or crashes.
+- The Codex CLI backend is not tested on Linux yet.
+- CI runs the integration tests and the process clean-up check on Linux too.
+- `npm run package:check` says when `unzip` is missing.
+
 ## [0.1.2] - author links
 
 ### Documentation
@@ -52,7 +64,8 @@ All notable changes to Magipilot are listed here. The format follows [Keep a Cha
 - Clear notifications when a CLI is missing, not logged in, at its usage limit, or past its context window.
 - **Magipilot: Show Stats** and **Magipilot: Reset Stats**: local statistics, kept in memory only.
 
-[Unreleased]: https://github.com/celalakcelikk/magipilot/compare/v0.1.2...HEAD
+[Unreleased]: https://github.com/celalakcelikk/magipilot/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/celalakcelikk/magipilot/compare/v0.1.2...v0.2.0
 [0.1.2]: https://github.com/celalakcelikk/magipilot/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/celalakcelikk/magipilot/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/celalakcelikk/magipilot/releases/tag/v0.1.0

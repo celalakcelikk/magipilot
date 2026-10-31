@@ -234,6 +234,11 @@ export class ProcessRegistry {
     return this.started.length;
   }
 
+  /** Every process group this registry has started, live or not (smoke ownership, phase-5-linux D7). */
+  startedGroups(): number[] {
+    return [...this.started];
+  }
+
   /** Installs exit/signal handlers that kill all children. Returns an uninstall function. */
   installExitHandlers(): () => void {
     const onExit = (): void => this.killAll();

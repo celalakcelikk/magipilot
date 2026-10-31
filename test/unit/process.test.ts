@@ -111,6 +111,11 @@ describe('ProcessRegistry', () => {
     await other.done;
     expect(registry.startedCount).toBe(2);
     expect(registry.leakedPids()).toEqual([]);
+    // phase-5-linux D7: every started group is listed, dead ones included, as a copy.
+    const groups = registry.startedGroups();
+    expect(groups).toEqual([aborted.pid, other.pid]);
+    groups.pop();
+    expect(registry.startedGroups()).toHaveLength(2);
   });
 
   it('keeps a process waiting while stdin stays open (the Codex hang the AGENTS rule guards against)', async () => {

@@ -7,6 +7,9 @@ Thank you for helping. Bug reports, ideas and pull requests are all welcome. For
 - **Node** `^22.13.0 || ^24.0.0 || >=26.0.0`. This is the range every dev tool supports: ESLint 10 needs 22.13 or later, vitest 5 excludes 23 and 25, and the VS Code test tools need 22 or later.
 - **VS Code 1.140 or newer.**
 - **Optional,** for the backends you work on: [Ollama](https://ollama.com), the Claude Code CLI, the Codex CLI.
+- **On Linux:**
+  - `unzip`, for `npm run package:check`;
+  - without a display, run `test:integration` and `smoke:*` under Xvfb (`xvfb-run -a npm run test:integration`), as CI does.
 
 ```
 npm install
@@ -30,11 +33,15 @@ code --extensionDevelopmentPath="$PWD"   # starts VS Code with the extension loa
 
 **These commands call the real CLIs and use your quota:**
 
-| Command              | What it does                                                                               |
-| -------------------- | ------------------------------------------------------------------------------------------ |
-| `npm run cli:verify` | Checks the installed Claude Code and Codex CLI flags against their `--help` and real calls |
-| `npm run bench`      | Measures backend latency (`-- --only <rows> --samples N --out <file>`)                     |
-| `npm run smoke:chat` | Runs Copilot Chat with the real CLIs in an isolated VS Code profile                        |
+| Command                                                   | What it does                                                                                                                        |
+| --------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `npm run cli:verify`                                      | Checks the installed Claude Code and Codex CLI flags against their `--help` and real calls                                          |
+| `npm run bench`                                           | Measures backend latency (`-- --only <rows> --samples N --out <file>`)                                                              |
+| `npm run smoke:chat`                                      | Runs Copilot Chat with the real CLIs in an isolated VS Code profile                                                                 |
+| `node scripts/smoke-processes.mjs --real`, `--real-codex` | Inline completions from the real Claude or Codex CLI (about 5 calls), then no process may outlive VS Code                           |
+| `node scripts/smoke-processes.mjs --lm`                   | One chat request each to a Claude and a Codex model through VS Code's language model API (2 calls), with the models discovery finds |
+
+Run `node esbuild.mjs --tests` before the `smoke-processes.mjs` commands.
 
 `smoke:*` and `probe:chat` start VS Code themselves and do not work while `ELECTRON_RUN_AS_NODE` is set: VS Code would take the workspace path for a script. Inside a VS Code terminal, run them as `env -u ELECTRON_RUN_AS_NODE npm run …`.
 
